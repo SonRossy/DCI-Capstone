@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class RegistrationServlet
+ * working Porject
  */
 @WebServlet("/hello")
 public class RegistrationServlet extends HttpServlet {
@@ -26,7 +27,7 @@ public class RegistrationServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Hello World!!");
+		//System.out.println("Hello World!!");
 	}
 
 	/**
@@ -34,7 +35,7 @@ public class RegistrationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		System.out.println("Hello World!!");
 	}
 
 }
