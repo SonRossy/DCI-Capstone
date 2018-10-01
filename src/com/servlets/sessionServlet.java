@@ -34,6 +34,6 @@ public class sessionServlet extends HttpServlet {
 		session.setAttribute("email",request.getParameter("email"));
 		session.setAttribute("psw",request.getParameter("psw") );
 		session.setAttribute("psw-repeat",request.getParameter("psw-repeat") );
-		response.sendRedirect("ToLocalJDBC");
+	//	response.sendRedirect("ToLocalJDBC");
 	}
 }
