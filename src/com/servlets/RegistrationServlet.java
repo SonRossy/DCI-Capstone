@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -58,7 +59,7 @@ public class RegistrationServlet extends HttpServlet {
 		password1 = request.getParameter("psw-repeat");
 
 		String msg = "";
-		if(!isRepeatEmail(request)) {
+		if(!isRepeatEmail(request,response)) {
 			try {
 				if (connection != null) {
 					String sql1 = "INSERT INTO customer_info (first_name, last_name, date_of_birth, email, password) VALUES(?,?,?,?,?); ";
@@ -91,8 +92,10 @@ public class RegistrationServlet extends HttpServlet {
 	//code by Son- Rossy
 	/**
 	 * this function will check if user already exist before you are allowed to create an account 
+	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	private boolean isRepeatEmail(HttpServletRequest request) {
+	private boolean isRepeatEmail(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		String sql="SELECT c_id FROM customer_info WHERE email LIKE ?;";
 		try {
 			PreparedStatement pst1 = connection.prepareStatement(sql);
@@ -101,6 +104,9 @@ public class RegistrationServlet extends HttpServlet {
 			
 			ResultSet rs=pst1.executeQuery();
 			if(rs.next()) {
+				request.setAttribute("msgFromRegistrationServlet", "email alreay exist");
+				RequestDispatcher dispatcher=request.getRequestDispatcher("/UserRegistration.jsp");
+				dispatcher.forward(request,response);
 				System.out.println("email already exist");
 				return true;
 			}
@@ -110,7 +116,7 @@ public class RegistrationServlet extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return false;
+			return true;
 		}
 		
 		return false;

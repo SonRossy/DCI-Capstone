@@ -7,10 +7,10 @@
 <body>
 
 <form role = "form" action = "RegistrationServlet" method ="post">
-
 <div id="form-block">
   <div id="form-block--left">
     <div id="left-content">
+    <p stlye="color: #e90000;"> ${msgFromRegistrationServlet}</p> 
       <h1>Become a member</h1><span class="small-text"> PLease fill out the field below: </span><br/><br>
 
     <label for="fisrtName"><b>First Name</b></label>
@@ -36,12 +36,17 @@ title="Enter a date in this format YYYY-MM-DD"/>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
     <input type="submit" class="button" value="SUBMIT">
-    </div>
+     </div>
     <p class="bottom-text">You can also sign in using an email address <a class="email-link" href="#" title="Sign in by Email">USE YOUR EMAIL &#8594;</a></p>
   </div>
   <div id="form-block--right"><img src="images/user-reg-img.png"/></div>
+  
+    </form>
+   
+   
 </div>
 
-</form>
+
+
 </body>
 </html>
