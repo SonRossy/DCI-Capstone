@@ -5,7 +5,9 @@ a {text-decoration: none;}
 
 
 body {
+ color:grey;
  
+
  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
   font-size: 18px;
 }
@@ -49,6 +51,7 @@ Blueish tint overlay
 */
 .hero:after {
   content: '';
+
   background:#495C70;;
   position: absolute;
   top: 0;
@@ -446,6 +449,13 @@ p{
 #imgg{
 
 float: right;
+
+  width:18%;
+overflow: hidden;
+}
+
+.footer__inner {
+overflow: hidden;
   width:20%;
 
 }
