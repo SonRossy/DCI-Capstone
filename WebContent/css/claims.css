@@ -1,0 +1,36 @@
+h1,p,h3{
+  color:grey;
+  margin-left: 20px;
+ margin-right: 20px;
+}
+
+button {
+ width: 200px;
+}
+/* Boostrap Buttons Styling */
+
+.btnlife, .btnhome, .btnauto, .btnhealth {
+margin: 0 auto;
+  font-size: 2.0rem;
+  padding: 1.25rem 2.5rem;
+  display: block;
+  background-color: #6597b5;
+  border: 1px solid transparent;
+  color: #ffffff;
+  font-weight: 300;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.btnlife:hover, .btnhome:hover, .btnauto:hover, .btnhealth:hover {
+ background-color: #292B31;
+  color: #6597b5;
+  border-color: #6597b5;
+}
+
+
