@@ -12,7 +12,7 @@ public class DatabaseConnection{
 	public  Connection  getConnection() {
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-	 	connects =DriverManager.getConnection("jdbc:mysql://localhost:3306/dci2?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root123");
+	 	connects =DriverManager.getConnection("jdbc:mysql://localhost:3306/dci?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root123");
 		if(connects!=null){
 			
 		}
