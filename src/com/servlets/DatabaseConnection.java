@@ -1,12 +1,17 @@
 package com.servlets;
 /*
- * @author Naresh Kc
+ * @author Son-Rossy
  * 
  */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * 
+ * @author tristesse08
+ *this class creates a connection to our database which can be used in any other class that need to connect to database
+ */
 public class DatabaseConnection{
 	 Connection connects = null;	
 	public  Connection  getConnection() {
@@ -15,7 +20,7 @@ public class DatabaseConnection{
 
 
 
-	 	connects =DriverManager.getConnection("jdbc:mysql://localhost:3306/dci?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root123");
+	 	connects =DriverManager.getConnection("jdbc:mysql://localhost:3306/dci3?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","Sonemma08*");
 
 		if(connects!=null){
 			
