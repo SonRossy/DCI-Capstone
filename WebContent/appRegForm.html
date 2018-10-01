@@ -1,0 +1,495 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="../CSS/appRegCss.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://www.thesoftwareguy.in/creating-responsive-multi-step-form-bootstrap-jquery/"/>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../CSS/unify.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+ <script type="text/javascript" src="../JS/capstone.js"></script>
+<link rel="shortcut icon" type="image/x-icon" href="../IMG/favicon.ico" />
+    <meta charset="UTF-8">
+
+    <title>Apply for Insurance</title>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <defs>
+        <symbol viewBox="0 0 60 60" id="icon-facebook">
+            <path d="M25.8 46.3h6.7V30H37l.6-5.6h-5.1v-2.8c0-1.5.1-2.3 2.2-2.3h2.8v-5.6H33c-5.4 0-7.3 2.7-7.3 7.3v3.4h-3.4V30h3.4v16.3zM30 60C13.4 60 0 46.6 0 30S13.4 0 30 0s30 13.4 30 30-13.4 30-30 30z"/>
+        </symbol>
+        <symbol viewBox="0 0 60 60" id="icon-linkedin">
+            <path d="M46.8 44.1V32.4c0-6.3-3.3-9.2-7.8-9.2-3.6 0-5.2 2-6.1 3.4v-2.9h-6.8c.1 1.9 0 20.4 0 20.4h6.8V32.7c0-.6 0-1.2.2-1.7.5-1.2 1.6-2.5 3.5-2.5 2.5 0 3.4 1.9 3.4 4.6V44l6.8.1zM19 20.9c2.4 0 3.8-1.6 3.8-3.5 0-2-1.5-3.5-3.8-3.5s-3.8 1.5-3.8 3.5 1.4 3.5 3.8 3.5zM30 60C13.4 60 0 46.6 0 30S13.4 0 30 0s30 13.4 30 30-13.4 30-30 30zm-7.6-15.9V23.7h-6.8v20.4h6.8z"/>
+        </symbol>
+        <symbol viewBox="0 0 60 60" id="icon-twitter">
+              <path d="M34.2 18.3c-2.6 1-4.3 3.4-4.1 6.1l.1 1-1-.1c-3.8-.5-7.1-2.1-10-4.9L17.7 19l-.4 1c-.8 2.3-.3 4.7 1.3 6.3.8.9.6 1-.8.5-.5-.2-.9-.3-1-.2-.1.1.4 2.1.8 2.8.5 1.1 1.7 2.1 2.9 2.7l1 .5h-1.2c-1.2 0-1.2 0-1.1.5.4 1.4 2.1 2.8 3.9 3.5l1.3.4-1.1.7c-1.7 1-3.6 1.5-5.6 1.6-.9 0-1.7.1-1.7.2 0 .2 2.6 1.4 4 1.9 4.5 1.4 9.8.8 13.7-1.6 2.8-1.7 5.7-5 7-8.2.7-1.7 1.4-4.9 1.4-6.4 0-1 .1-1.1 1.2-2.3.7-.7 1.3-1.4 1.5-1.6.2-.4.2-.4-.9 0-1.8.6-2 .6-1.2-.4.6-.7 1.4-1.9 1.4-2.3 0-.1-.3 0-.7.2-.4.2-1.2.5-1.8.7l-1.1.4-1-.7c-.6-.4-1.4-.8-1.8-.9-.9-.4-2.6-.4-3.5 0zM30 60C13.4 60 0 46.6 0 30S13.4 0 30 0s30 13.4 30 30-13.4 30-30 30z"/>
+        </symbol>
+    </defs>
+</svg>
+
+<div class="hero" style="height:30%">
+    <header id="masthead" role="banner">
+      <div class="container">
+        <button class="hamburger hamburger--boring" type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+          <span class="hamburger-label">Menu</span>
+        </button>
+      
+      <a href="Home.html"><i class="fa fa-home" style="font-size:65px; color: #fff; float: right;opacity: 0.8;"></i> </a>     
+        <nav id="site-nav" role="navigation">
+
+          <div class="col">
+            <h4>Need Insurance?</h4>
+            <ul>
+              <li><a href="shop.html">Shop Insurance</a></li>
+              <li><a href="findagent.html">Find an Agent</a></li>
+              <li><a href="PlanOption.html">Plan Options</a></li>
+             
+            </ul>            
+          </div>
+          <div class="col">
+            <h4>Apply</h4>
+            <ul>
+              <li><a href="UserRegistration.html">Create an Account</a></li>
+                <li><a href="ApplyingforInsurance.html">Apply</a></li>
+                <li><a href="#">Get Quote</a></li>
+            </ul> 
+          </div>
+          <div class="col">
+            <h4>About</h4>
+            <ul>
+              <li><a href="Claims.html">File a Claim</a></li>
+              <li><a href="FAQ.html">FAQ</a></li>
+              <li><a href="#">Join Us</a></li>
+            </ul>             
+          </div>
+         
+          <div class="col">
+               
+            <ul class="social">
+           
+              <li><a href="https://www.facebook.com/DCI-Corporation-303656553549618/?modal=admin_todo_tour"><svg title="Facebook"><use xlink:href="#icon-facebook"></use></svg></a></li>
+              <li><a href="https://twitter.com/CorporationDci"><svg title="Twitter"><use xlink:href="#icon-twitter"></use></svg></a></li>
+              <li><a href="https://www.linkedin.com/in/dci-corporation-dci-corporation-570593170/"><svg title="LinkedIn"><use xlink:href="#icon-linkedin"></use></svg></a></li>
+            </ul>
+          </div>
+      </nav>
+    </div>
+<script>
+    $(function() {
+    $('body').addClass('js');
+  
+    var $hamburger = $('.hamburger'),
+        $nav = $('#site-nav'),
+        $masthead = $('#masthead');
+  
+    $hamburger.click(function() {
+      $(this).toggleClass('is-active');
+      $nav.toggleClass('is-active');
+      $masthead.toggleClass('is-active');
+      return false; 
+    })
+});
+</script>
+  </header>
+</div>
+
+<!--link rel="stylesheet" href="second.css" -->
+<style>
+.col-md-12{
+		margin: auto;
+		display: block;
+		float: unset;
+		width: 550px;
+		margin-bottom: 5%;
+}
+label {
+    font-weight: bolder;
+    font-size: large;
+}
+.radioDiv{
+  margin:25px ;
+}
+.inline{
+  display: inline-block;
+}
+.inline + .inline{
+  margin-left:10px;
+}
+.radio{
+  color:#999;
+  position:relative;
+}
+.radio span{
+  position:relative;
+   padding-left:20px;
+}
+.radio span:after{
+  content:'';
+  width:15px;
+  height:15px;
+  border:3px solid;
+  position:absolute;
+  left:0;
+  top:1px;
+  border-radius:100%;
+  -ms-border-radius:100%;
+  -moz-border-radius:100%;
+  -webkit-border-radius:100%;
+  box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+.radio input[type="radio"]{
+   cursor: pointer; 
+  position:absolute;
+  width:100%;
+  height:100%;
+  z-index: 1;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+}
+.radio input[type="radio"]:checked + span{
+  color:#17a2b8;  
+}
+.radio input[type="radio"]:checked + span:before{
+    content:'';
+  width:5px;
+  height:5px;
+  position:absolute;
+  background:#17a2b8;
+  left:5px;
+  top:6px;
+  border-radius:100%;
+  -ms-border-radius:100%;
+  -moz-border-radius:100%;
+  -webkit-border-radius:100%;
+}
+.form-control{
+	font-size:18px;;
+}
+</style>
+</head>
+ 
+<body>
+
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+            <p>Step 1</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+            <p>Step 2</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+            <p>Step 3</p>
+        </div>
+         <div class="stepwizard-step">
+            <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+            <p>Step 4</p>
+        </div>
+    </div>
+</div>
+<form role="form">
+    <div class="row setup-content" id="step-1">
+        <div class="col-xs-12" style="margin-bottom: 5%;">
+            <div class="col-md-12">
+                <h3> Step 1</h3>
+                <div class="form-group">
+                    <label class="control-label">First Name</label>
+                    <input  radioDivength="100" type="text" required="required" class="form-control" placeholder="Enter First Name"/><br>
+					<label class="control-label">Middle Name</label>
+                    <input  radioDivength="100" type="text" class="form-control rmvError" placeholder="Enter Middle Name"/><br>
+                
+                    <label class="control-label">Last Name</label>
+                    <input radioDivength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name" />
+                </div>
+				<div class="radioDiv">
+						  <label  class="radio inline"> 
+							  <input type="radio" name="sex" value="male">
+							  <span> Male </span> 
+						   </label>
+						  <label class="radio inline"> 
+							  <input type="radio" name="sex" value="female">
+							  <span>Female </span> 
+						  </label>
+						  <label class="radio inline"> 
+							  <input type="radio" name="sex" value="Not sure">
+							  <span>Prefer Not to say </span> 
+						  </label>
+				</div>
+                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button"    style="background-color: #6597b5;
+    border-color: #6597b5;">Next</button>
+            </div>
+		</div>
+    </div>
+    <div class="row setup-content" id="step-2">
+        <div class="col-xs-12" style="margin-bottom: 5%;">
+            <div class="col-md-12">
+                <h3> Step 2</h3>
+                <div class="form-group">
+                    <label class="control-label"> Primary Address</label>
+                    <input radioDivength="200" type="text" required="required" class="form-control" placeholder="Primary Address" />
+					<label class="control-label"> Unit/Apartment Number</label>
+                    <input style="width:50px" radioDivength="10" type="text" required="required" class="form-control" placeholder="No." />
+					<label class="control-label"> City</label>
+                    <input radioDivength="200" type="text" required="required" class="form-control" placeholder="City" />
+					<label for="state" class="control-label">State</label>
+	
+							<select style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="state" class="form-control" 
+id="state" name="state">
+								<option value="">N/A</option>
+								<option value="AK">Alaska</option>
+								<option value="AL">Alabama</option>
+								<option value="AR">Arkansas</option>
+								<option value="AZ">Arizona</option>
+								<option value="CA">California</option>
+								<option value="CO">Colorado</option>
+								<option value="CT">Connecticut</option>
+								<option value="DC">District of Columbia</option>
+								<option value="DE">Delaware</option>
+								<option value="FL">Florida</option>
+								<option value="GA">Georgia</option>
+								<option value="HI">Hawaii</option>
+								<option value="IA">Iowa</option>
+								<option value="ID">Idaho</option>
+								<option value="IL">Illinois</option>
+								<option value="IN">Indiana</option>
+								<option value="KS">Kansas</option>
+								<option value="KY">Kentucky</option>
+								<option value="LA">Louisiana</option>
+								<option value="MA">Massachusetts</option>
+								<option value="MD">Maryland</option>
+								<option value="ME">Maine</option>
+								<option value="MI">Michigan</option>
+								<option value="MN">Minnesota</option>
+								<option value="MO">Missouri</option>
+								<option value="MS">Mississippi</option>
+								<option value="MT">Montana</option>
+								<option value="NC">North Carolina</option>
+								<option value="ND">North Dakota</option>
+								<option value="NE">Nebraska</option>
+								<option value="NH">New Hampshire</option>
+								<option value="NJ">New Jersey</option>
+								<option value="NM">New Mexico</option>
+								<option value="NV">Nevada</option>
+								<option value="NY">New York</option>
+								<option value="OH">Ohio</option>
+								<option value="OK">Oklahoma</option>
+								<option value="OR">Oregon</option>
+								<option value="PA">Pennsylvania</option>
+								<option value="PR">Puerto Rico</option>
+								<option value="RI">Rhode Island</option>
+								<option value="SC">South Carolina</option>
+								<option value="SD">South Dakota</option>
+								<option value="TN">Tennessee</option>
+								<option value="TX">Texas</option>
+								<option value="UT">Utah</option>
+								<option value="VA">Virginia</option>
+								<option value="VT">Vermont</option>
+								<option value="WA">Washington</option>
+								<option value="WI">Wisconsin</option>
+								<option value="WV">West Virginia</option>
+								<option value="WY">Wyoming</option>
+							</select>
+	
+					<label class="control-label">Country</label>
+                    <input radioDivength="200" type="text" required="required" class="form-control" placeholder="Country" />
+					<label class="control-label">Zipcode</label>
+                    <input style="width:100px" radioDivength="5" type="text" required="required" class="form-control" placeholder="Zipcode" />
+                </div>
+                <div class="form-group">
+					<label class="control-label">Mailing Address(If different than Primary Address)</label>
+					<textarea class="form-control" placeholder="Secondary Address (Optional)" ></textarea>
+                    <!--input radioDivength="200" type="text" required="required" class="form-control" placeholder="Secondary Address(Optional)"/-->
+                </div>
+				<br>
+                <button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Prev</button>
+                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content" id="step-3">
+        <div class="col-xs-12" style="margin-bottom: 5%;">
+            <div class="col-md-12">
+                <h3> Step 3</h3>
+                <div class="form-group">
+				<div>
+					<label>Are you citizen of United States?</label>
+					<label class="radio-inline"> 
+					<input required="required" type="radio" name="survey" id="Radios1" value="Yes"> 
+					YES
+				  </label>				 
+				  <label class="radio-inline"> 
+					<input required="required" type="radio" name="survey" id="Radios2" value="No"> 
+					NO 
+				  </label>
+				  <br>
+				  <label for="state" class="control-label">Current Immigration Status(specify if not citizen  this option)</label>
+	
+							<select style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="status" class="form-control" 
+id="state" name="state">
+								<option value="">N/A</option>
+								<option value="sgl">Residential/Green card</option>
+								<option value="mrd">Visitor</option>
+								<option value="drd">Student(F1/F2)</option>
+							</select>
+				</div>
+				<br>
+                    <label class="control-label">HOUSEHOLD MEMBERS </label>
+                    <input radioDivength="200" type="text" required="required" class="form-control" placeholder="Enter your Total Number of Household" /><br>
+					<label for="state" class="control-label">Marital Status</label>
+	
+							<select style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="status" class="form-control" 
+id="state" name="state">
+								<option value="">N/A</option>
+								<option value="sgl">Single</option>
+								<option value="mrd">Married</option>
+								<option value="drd">Divorced</option>
+								<option value="cpd">Complicated</option>
+							</select>
+                </div>
+				<br>
+				<div>
+					<label>Are you physically disabled?</label>
+					<label class="radio-inline"> 
+					<input required="required" type="radio" name="survey" id="Radios1" value="Yes"> 
+					YES
+				  </label>				 
+				  <label class="radio-inline"> 
+					<input required="required" type="radio" name="survey" id="Radios2" value="No"> 
+					NO 
+				  </label>
+				</div>
+				<br>
+				<div>
+					<label>PREGNANT OR EXPECTING IN 60 DAYS?</label>
+					<label class="radio-inline"> 
+					<input required="required" type="radio" name="survey" id="Radios1" value="Yes"> 
+					YES
+				  </label>				 
+				  <label class="radio-inline"> 
+					<input required="required" type="radio" name="survey" id="Radios2" value="No"> 
+					NO 
+				  </label>
+				</div>
+				<br>
+                <button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Prev</button>
+                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content" id="step-4">
+        <div class="col-xs-12" style="margin-bottom: 5%;">
+            <div class="col-md-12"> 
+                <h3> Step 4</h3>
+				<div class="form-group">
+                    <label class="control-label">Profession</label>
+                    <input radioDivength="200" type="text" required="required" class="form-control" placeholder="Enter Profession" />
+					<div>
+						<br>
+						<label>Are you retired Veteran</label>
+						<label class="radio-inline"> 
+						<input required="required" type="radio" name="survey" id="Radios1" value="Yes"> 
+						YES
+					  </label>				 
+					  <label class="radio-inline"> 
+						<input required="required" type="radio" name="survey" id="Radios2" value="No"> 
+						NO 
+					  </label>
+				</div>
+				<br>
+                <label for="state" class="control-label">Annual Income</label>
+	
+							<select style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="status" class="form-control" 
+id="state" name="state">
+								<option value="">N/A</option>
+								<option value="less">Less than 3200K</option>
+								<option value="between">Greater than 3200K Less than 8500K</option>
+								<option value="above">Above 8500K</option>
+							</select>
+							<br>
+					 <label class="header">Please enter your Social Security number:</label>
+					<input type="text" id="SSNArea" class="form-control input-group" radioDivength="7" placeholder="XXX-XX-XXXX" required />
+				
+				</div>
+            	
+				<button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Prev</button>
+                <button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>    
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+<footer style="height: 100%;max-height: 20em">
+    
+    <div class="footer__inner">
+    <img id="imgg" src="../IMG/DCItransparent.png">
+    
+            <span>
+    <h3> Contact Us: </h3>
+    <br> Make a claim or any help with customer care.<br><br>
+    General fax: 1-877-280-5587 <br><br>
+
+    <p> Address: Corporate Headquarters<br>
+                DCI Corporation<br>
+                1120 Main Street,<br>
+                Hartford, CT 06103<br>
+            
+                860-291-8744</p>
+
+<a href="#">Privacy Policy</a>
+</div>
+
+   </footer>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>
+    $(function() {
+
+    var $body = $("body");
+    var $window = $(window);
+    var $footerInner = $(".footer__inner");
+    var footerVisibleClass = "footer__inner--visible";
+    var footerIsHidden = true;
+    var footerTolerance = 150; //how many pixels from end to show the footer
+    var togglePont;
+    var windowHeight;
+    
+    $window.on("resize", function() {
+        togglePont = $body.height() - footerTolerance;
+        windowHeight = $window.height();
+    }).trigger("resize");
+    
+    $window.on("scroll", onScroll);
+
+    function onScroll() {
+        
+        var scrollBottom = windowHeight + $window.scrollTop();
+        if (scrollBottom >= togglePont) {
+            if (footerIsHidden) {
+                footerIsHidden = false;
+                $footerInner.addClass(footerVisibleClass);
+            }
+        } else {
+            if (!footerIsHidden) {
+                footerIsHidden = true;
+                $footerInner.removeClass(footerVisibleClass);
+            }
+        }
+        
+    } //end onScroll
+});
+</script>
+
+</body>
+
+
+</html>
