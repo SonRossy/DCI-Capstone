@@ -1,5 +1,11 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: tristesse08
 Build-Jdk: 1.8.0_162
+=======
+Built-By: oleksandraedwards
+Build-Jdk: 1.8.0_181
+Created-By: Maven Integration for Eclipse
+>>>>>>> 48c8b200944e7c18ac5db87317c01d2b341e6f02
 
 Created-By: Maven Integration for Eclipse
