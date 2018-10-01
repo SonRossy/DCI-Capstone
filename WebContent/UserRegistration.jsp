@@ -3,9 +3,12 @@
 <head>
 
   <link rel="stylesheet" href="css/UserRegistration.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 </head>
 <body>
-
+<a href="index.html"><i class="fa fa-home" style="font-size:65px; color: #fff; float: right;opacity: 0.8;"></i> </a>     
+        <nav id="site-nav" role="navigation">
 <form role = "form" action = "RegistrationServlet" method ="post">
 <div id="form-block">
   <div id="form-block--left">
