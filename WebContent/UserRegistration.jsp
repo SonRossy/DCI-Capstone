@@ -10,7 +10,7 @@
 <div id="form-block">
   <div id="form-block--left">
     <div id="left-content">
-    <p stlye="color: #e90000;"> ${msgFromRegistrationServlet}</p> 
+    <p style="color: #e90000;"> ${msgFromRegistrationServlet}</p> 
       <h1>Become a member</h1><span class="small-text"> PLease fill out the field below: </span><br/><br>
 
     <label for="fisrtName"><b>First Name</b></label>
