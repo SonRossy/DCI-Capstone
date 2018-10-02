@@ -14,7 +14,7 @@
   <div id="form-block--left">
     <div id="left-content">
     <p style="color: #e90000;"> ${msgFromRegistrationServlet}</p> 
-      <h1>Become a member</h1><span class="small-text"> PLease fill out the field below: </span><br/><br>
+      <h1>Become a member</h1><span class="small-text"> Please fill out the field below: </span><br/><br>
 
     <label for="fisrtName"><b>First Name</b></label>
     <input type="text" placeholder="Enter Fisrt Name" name="first-name" required>
@@ -24,7 +24,7 @@
  
  
   <label for="dateOfBirth"><b>Date of Birth</b></label>
-    <input type="text" name="input" placeholder="YYYY-MM-DD" required 
+    <input type="text" name="dateOfBirth" placeholder="YYYY-MM-DD" required 
 pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" 
 title="Enter a date in this format YYYY-MM-DD"/>
  

@@ -21,7 +21,7 @@ public class DatabaseConnection{
 	
 	
 	
-		 	connect=DriverManager.getConnection("jdbc:mysql://localhost:3306/dci?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","clarissam","coderight");
+		 	connect=DriverManager.getConnection("jdbc:mysql://sql3.freemysqlhosting.net:3306/sql3259516?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","sql3259516","ClnmVEeuCQ");
 	
 			if(connect!=null){
 				System.out.println("Connected to database!");

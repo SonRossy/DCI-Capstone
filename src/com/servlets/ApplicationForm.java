@@ -38,14 +38,12 @@ public class ApplicationForm extends HttpServlet {
      */
     public ApplicationForm() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -101,9 +99,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			if(connection != null)
 			{	
 				
-//				String sql1 = "INSERT INTO customer_info (first_name, last_name, date_of_birth, email, password) VALUES(?,?,?,?,?); ";
-//				String sql2= "INSERT INTO customer_status (c_id) VALUES((SELECT c_id FROM customer_info WHERE email LIKE ?)); ";
-//				String sql3= "INSERT INTO customer_employment (c_id) VALUES((SELECT c_id FROM customer_info WHERE email LIKE ?)); ";
+
 				String sql = "UPDATE customer_info SET middle_name=?,SSN = ?, street_address=?, apt_number=?, city=?, state=?, zip_code=?, country=?, secondary_address =?, phone=? WHERE email ='" + email + "';";
 				String sql2= "UPDATE customer_status SET ethnicity=?, gender=?, veteran=?, disability=?, citizenship=?, immigration=?, marital_status=?, number_of_dependents=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '" + email + "'));" ;
 				String sql3= "UPDATE customer_employment SET company_name=?, profession=?, annual_income=?, fed_tax_id=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '" + email + "'));" ;

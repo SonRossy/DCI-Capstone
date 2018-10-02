@@ -467,7 +467,6 @@ label {
 					
 				<label for="state" class="control-label">Marital Status</label>	
 				<select name="marital" style="height:3.8rem" class="form-control selectDropState" placeholder="status">
-								<option value="">N/A</option>
 								<option value="0">Single</option>
 								<option value="1">Married</option>
 								<option value="2">Divorced</option>
@@ -606,7 +605,8 @@ label {
     } //end onScroll
 });
     
-  	  
+  	//Author: Noel Cortes
+  	//Function used to validate SSN and taxID
   	function validate(e) {
 	  	//let taxID = document.getElementById("taxID").value;
 	  	let target = e.target.value;
@@ -630,7 +630,8 @@ label {
   	taxID.addEventListener('change', validate);
   	ssn.addEventListener('change', validate);
 
-  	
+  	//Author: Son-Rossy Dorvil and Noel Cortes
+  	//Function used to validate phone number
   	function chkPhone() {
   		let myPhone = document.getElementById("phone").value;
   	   	let patternReturn = /\d{3}-\d{3}-\d{4}|\d{10}/.test(myPhone);
