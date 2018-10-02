@@ -317,54 +317,54 @@ label {
         </div>
     </div>
 </div>
-<form role="form">
+<form role="form" onsubmit="return validate()">
     <div class="row setup-content" id="step-1">
-        <div class="col-xs-12" style="margin-bottom: 5%;">
+        <div class="col-xs-12">
             <div class="col-md-12">
                 <h3> Step 1</h3>
                 <div class="form-group">
                     <label class="control-label">First Name</label>
-                    <input  radioDivength="100" type="text" required="required" class="form-control" placeholder="Enter First Name"/><br>
+                    <input  name="fname" maxlength="100" type="text" required="required" class="form-control" placeholder="Enter First Name"/><br>
 					<label class="control-label">Middle Name</label>
-                    <input  radioDivength="100" type="text" class="form-control rmvError" placeholder="Enter Middle Name"/><br>
+                    <input name="mname"  maxlength="100" type="text" class="form-control rmvError" placeholder="Enter Middle Name"/><br>
                 
                     <label class="control-label">Last Name</label>
-                    <input radioDivength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name" />
+                    <input name="lname"maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name" />
                 </div>
+				 <label class="control-label">Telephone Number:</label>
+                    <input name="tel" type="text" id="phone" maxlength="10" required="required" class="form-control" placeholder="(XXX)-XXX-XXXX" /><br>
 				<div class="radioDiv">
 						  <label  class="radio inline"> 
-							  <input type="radio" name="sex" value="male">
+							  <input type="radio" name="sex" value="1">
 							  <span> Male </span> 
 						   </label>
 						  <label class="radio inline"> 
-							  <input type="radio" name="sex" value="female">
+							  <input type="radio" name="sex" value="2">
 							  <span>Female </span> 
 						  </label>
 						  <label class="radio inline"> 
-							  <input type="radio" name="sex" value="Not sure">
-							  <span>Prefer Not to say </span> 
+							  <input type="radio" name="sex" value="3">
+							  <span>Prefer not to say </span> 
 						  </label>
 				</div>
-                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button"    style="background-color: #6597b5;
-    border-color: #6597b5;">Next</button>
+                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
             </div>
 		</div>
     </div>
     <div class="row setup-content" id="step-2">
-        <div class="col-xs-12" style="margin-bottom: 5%;">
+        <div class="col-xs-12">
             <div class="col-md-12">
                 <h3> Step 2</h3>
                 <div class="form-group">
                     <label class="control-label"> Primary Address</label>
-                    <input radioDivength="200" type="text" required="required" class="form-control" placeholder="Primary Address" />
+                    <input name="primaryaddress" maxlength="200" type="text" required="required" class="form-control" placeholder="Primary Address" />
 					<label class="control-label"> Unit/Apartment Number</label>
-                    <input style="width:50px" radioDivength="10" type="text" required="required" class="form-control" placeholder="No." />
+                    <input name="aptnumber" style="width:50px" maxlength="10" type="text" required="required" class="form-control" placeholder="No." />
 					<label class="control-label"> City</label>
-                    <input radioDivength="200" type="text" required="required" class="form-control" placeholder="City" />
+                    <input name="city" maxlength="200" type="text" required="required" class="form-control" placeholder="City" />
 					<label for="state" class="control-label">State</label>
 	
-							<select style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="state" class="form-control" 
-id="state" name="state">
+							<select name="state" style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="state" id="state">
 								<option value="">N/A</option>
 								<option value="AK">Alaska</option>
 								<option value="AL">Alabama</option>
@@ -421,13 +421,13 @@ id="state" name="state">
 							</select>
 	
 					<label class="control-label">Country</label>
-                    <input radioDivength="200" type="text" required="required" class="form-control" placeholder="Country" />
+                    <input name="country" maxlength="200" type="text" required="required" class="form-control" placeholder="Country" />
 					<label class="control-label">Zipcode</label>
-                    <input style="width:100px" radioDivength="5" type="text" required="required" class="form-control" placeholder="Zipcode" />
+                    <input name = "zip"style="width:100px" maxlength="5" type="text" required="required" class="form-control" placeholder="Zipcode" />
                 </div>
                 <div class="form-group">
 					<label class="control-label">Mailing Address(If different than Primary Address)</label>
-					<textarea class="form-control" placeholder="Secondary Address (Optional)" ></textarea>
+					<textarea name="mailingaddress" class="form-control" placeholder="Secondary Address (Optional)" ></textarea>
                     <!--input radioDivength="200" type="text" required="required" class="form-control" placeholder="Secondary Address(Optional)"/-->
                 </div>
 				<br>
@@ -437,69 +437,65 @@ id="state" name="state">
         </div>
     </div>
     <div class="row setup-content" id="step-3">
-        <div class="col-xs-12" style="margin-bottom: 5%;">
+        <div class="col-xs-12">
             <div class="col-md-12">
                 <h3> Step 3</h3>
                 <div class="form-group">
 				<div>
 					<label>Are you citizen of United States?</label>
 					<label class="radio-inline"> 
-					<input required="required" type="radio" name="survey" id="Radios1" value="Yes"> 
+					<input required="required" type="radio" name="survey1" id="Radios1" value="1"> 
 					YES
 				  </label>				 
 				  <label class="radio-inline"> 
-					<input required="required" type="radio" name="survey" id="Radios2" value="No"> 
+					<input required="required" type="radio" name="survey1" id="Radios2" value="0"> 
 					NO 
 				  </label>
 				  <br>
 				  <label for="state" class="control-label">Current Immigration Status(specify if not citizen  this option)</label>
 	
-							<select style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="status" class="form-control" 
-id="state" name="state">
-								<option value="">N/A</option>
-								<option value="sgl">Residential/Green card</option>
-								<option value="mrd">Visitor</option>
-								<option value="drd">Student(F1/F2)</option>
+							<select name="imstatus"style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="status" id="state">
+								<option value="0">N/A</option>
+								<option value="1">Residential/Green card</option>
+								<option value="2">Visitor</option>
+								<option value="3">Student(F1/F2)</option>
 							</select>
 				</div>
 				<br>
                     <label class="control-label">HOUSEHOLD MEMBERS </label>
-                    <input radioDivength="200" type="text" required="required" class="form-control" placeholder="Enter your Total Number of Household" /><br>
-					<label for="state" class="control-label">Marital Status</label>
-	
-							<select style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="status" class="form-control" 
-id="state" name="state">
+                    <input name="householdmems" maxlength="200" type="text" required="required" class="form-control" placeholder="Enter your Total Number of Household" /><br>
+					
+				<label for="state" class="control-label">Marital Status</label>	
+				<select name="marital" style="height:3.8rem" class="form-control selectDropState" placeholder="status">
 								<option value="">N/A</option>
-								<option value="sgl">Single</option>
-								<option value="mrd">Married</option>
-								<option value="drd">Divorced</option>
-								<option value="cpd">Complicated</option>
-							</select>
+								<option value="0">Single</option>
+								<option value="1">Married</option>
+								<option value="2">Divorced</option>
+								<option value="3">Complicated</option>
+				</select>
                 </div>
 				<br>
+				<label for="Ethinicity" class="control-label">Please select your Ethinicity</label>	
+				<select name="Ethinicity" style="height:3.8rem" required="required" class="form-control" placeholder="Ethinicity">
+								<option value="0">Prefer not to say</option>
+								<option value="1">White</option>
+								<option value="2">Black/African American</option>
+								<option value="3">Hispanic/Latino</option>
+								<option value="4">Asian</option>
+								<option value="5">Native American</option>
+								
+				</select><br>
 				<div>
 					<label>Are you physically disabled?</label>
 					<label class="radio-inline"> 
-					<input required="required" type="radio" name="survey" id="Radios1" value="Yes"> 
+					<input required="required" type="radio" name="survey2" id="Radios1" value="1"> 
 					YES
 				  </label>				 
 				  <label class="radio-inline"> 
-					<input required="required" type="radio" name="survey" id="Radios2" value="No"> 
+					<input required="required" type="radio" name="survey2" id="Radios2" value="0"> 
 					NO 
 				  </label>
-				</div>
-				<br>
-				<div>
-					<label>PREGNANT OR EXPECTING IN 60 DAYS?</label>
-					<label class="radio-inline"> 
-					<input required="required" type="radio" name="survey" id="Radios1" value="Yes"> 
-					YES
-				  </label>				 
-				  <label class="radio-inline"> 
-					<input required="required" type="radio" name="survey" id="Radios2" value="No"> 
-					NO 
-				  </label>
-				</div>
+				</div><br>				
 				<br>
                 <button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Prev</button>
                 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
@@ -507,37 +503,40 @@ id="state" name="state">
         </div>
     </div>
     <div class="row setup-content" id="step-4">
-        <div class="col-xs-12" style="margin-bottom: 5%;">
+        <div class="col-xs-12">
             <div class="col-md-12"> 
                 <h3> Step 4</h3>
 				<div class="form-group">
                     <label class="control-label">Profession</label>
-                    <input radioDivength="200" type="text" required="required" class="form-control" placeholder="Enter Profession" />
+                    <input name="job" maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Profession" /><br>
+					<label class="control-label">Company Name</label>
+                    <input name="compName" maxlength="20" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
 					<div>
 						<br>
 						<label>Are you retired Veteran</label>
 						<label class="radio-inline"> 
-						<input required="required" type="radio" name="survey" id="Radios1" value="Yes"> 
+						<input type="radio" name="survey" id="Radios1" value="1"> 
 						YES
 					  </label>				 
 					  <label class="radio-inline"> 
-						<input required="required" type="radio" name="survey" id="Radios2" value="No"> 
+						<input type="radio" name="survey" id="Radios2" value="0"> 
 						NO 
 					  </label>
 				</div>
 				<br>
                 <label for="state" class="control-label">Annual Income</label>
 	
-							<select style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="status" class="form-control" 
-id="state" name="state">
-								<option value="">N/A</option>
-								<option value="less">Less than 3200K</option>
-								<option value="between">Greater than 3200K Less than 8500K</option>
-								<option value="above">Above 8500K</option>
+							<select name="income" style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="status" id="state">
+								<option value="0">N/A</option>
+								<option value="1">Less than 32000K</option>
+								<option value="2">Greater than 32000K Less than 85000K</option>
+								<option value="3">Above 85000K</option>
 							</select>
 							<br>
+							 <label class="header">Please enter your Federal Tax ID:</label>
+					<input name="taxid" type="text" id="taxID" class="form-control input-group" maxlength="9" placeholder="XXX XXX XXX" pattern="(\d{3}\.\d{2}\.\d{4}|\d{9})" title="Enter a Tax Identification Number in this format ex:'123456789'. Must contain nine digits." required /><br>
 					 <label class="header">Please enter your Social Security number:</label>
-					<input type="text" id="SSNArea" class="form-control input-group" radioDivength="7" placeholder="XXX-XX-XXXX" required />
+					<input name="ssn" type="text" id="SSNArea" class="form-control input-group" maxlength="9" placeholder="XXX XX XXXX" pattern="(\d{3}-\d{2}-\d{4}|\d{9})" title="Enter a Social Security Number in this format ex:'123456789'. Must contain nine digits." required />
 				
 				</div>
             	
@@ -553,7 +552,7 @@ id="state" name="state">
     <div class="footer__inner" style="height: inherit">
     <img id="imgg" src="images/DCItransparent.png">
     
-            <span>
+   <!-- <span> -->
     <h3> Contact Us: </h3>
     <br> Make a claim or any help with customer care.<br><br>
     General fax: 1-877-280-5587 <br><br>
@@ -606,6 +605,52 @@ id="state" name="state">
         
     } //end onScroll
 });
+    
+  	  
+  	function validate(e) {
+	  	//let taxID = document.getElementById("taxID").value;
+	  	let target = e.target.value;
+	   	let patternReturn = /\d{3}-\d{2}-\d{4}|\d{9}/.test(target);
+	   	
+		if (!patternReturn) {
+			alert("The phone number you entered (" + target +
+		              ") is not in the correct form. \n" +
+		              "The correct form must contain ten digits. \n" +
+		              "Please go back and fix your phone number");
+		   return false;  	  
+		}
+		else {
+			//alert("valid");
+	  		return true;
+		}}
+  	
+  	let taxID = document.getElementById("taxID");
+  	let ssn = document.getElementById("SSNArea");
+
+  	taxID.addEventListener('change', validate);
+  	ssn.addEventListener('change', validate);
+
+  	
+  	function chkPhone() {
+  		let myPhone = document.getElementById("phone").value;
+  	   	let patternReturn = /\d{3}-\d{3}-\d{4}|\d{10}/.test(myPhone);
+    	if (!patternReturn) {
+    		alert("The phone number you entered (" + myPhone +
+ 	              ") is not in the correct form. \n" +
+ 	              "The correct form must contain ten digits. \n" +
+ 	              "Please go back and fix your phone number");
+ 	       //myPhone.focus();
+ 	       return false;  	  
+    	}
+    	else {
+    		//alert("valid");
+      		return true;
+    	}}
+  	
+  	let phone = document.getElementById("phone");
+  	phone.addEventListener('change', chkPhone);
+  	
+  	
 </script>
 
 </body>
