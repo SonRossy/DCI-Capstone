@@ -38,6 +38,10 @@ title="Enter a date in this format YYYY-MM-DD"/>
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
 
+<p class="bottom-text">You can also sign in using an email address <a class="email-link" href="#" title="Sign in by Email">USE YOUR EMAIL &#8594;</a></p>
+
+  <p> By submitting this form, you accept our <a href = "PrivacyPolicy.html">privacy policy</a><br>
+
     <input type="submit" class="button" value="SUBMIT">
      </div>
     <p class="bottom-text">You can also sign in using an email address <a class="email-link" href="#" title="Sign in by Email">USE YOUR EMAIL &#8594;</a></p>
