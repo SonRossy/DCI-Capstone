@@ -49,7 +49,7 @@ public class LogIn extends HttpServlet {
 		
 		//getting parameters from the login form from CustLogin.jsp
 		String email=request.getParameter("email");
-		System.out.println(email);
+		System.out.println("Get email as parameter: " + email);
 		
 		//creating session
 		session = request.getSession();
@@ -70,7 +70,7 @@ public class LogIn extends HttpServlet {
 			if(rs.next()){
 				//if there is a result then it means the user successfully logged in
 				String userEmail=rs.getString(1);
-				System.out.println(userEmail);
+				System.out.println("Email from the database: " + userEmail);
 				
 				//usage of session
 				session.setAttribute("email", userEmail);

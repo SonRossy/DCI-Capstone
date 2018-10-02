@@ -64,7 +64,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		HttpSession session = request.getSession();
 		//grabbing the saved email attribtue from LogIn servlet
 		String email = (String) session. getAttribute("email");
-		System.out.println(email);
+		System.out.println("Email from gsession: " + email);
 		
 		
 		//get fields for table: customer_info
@@ -78,7 +78,6 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		country = request.getParameter("country");
 		secondary_address = request.getParameter("mailingaddress");
 		phone = request.getParameter("tel");
-		System.out.println(middle_name);
 		
 		//get fields for table: customer_status
 		ethnicity = request.getParameter("ethinicity");
@@ -143,7 +142,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 				pst3.executeUpdate();
 				
 				
-				System.out.println("go cat!");
+				System.out.println("Sussessfully updated and saved into the database!");
 				
 			}
 		}catch(Exception e) {
