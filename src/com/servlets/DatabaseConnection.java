@@ -13,26 +13,28 @@ import java.sql.SQLException;
  *this class creates a connection to our database which can be used in any other class that need to connect to database
  */
 public class DatabaseConnection{
-	 Connection connects = null;	
-	public  Connection  getConnection() {
-	try {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-
-
-	 	connects =DriverManager.getConnection("jdbc:mysql://localhost:3306/dci3?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","Sonemma08*");
-
-		if(connects!=null){
-			
+	Connection connect = null;	
+	
+	public Connection getConnection() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+	
+	
+	
+		 	connect=DriverManager.getConnection("jdbc:mysql://sql3.freemysqlhosting.net:3306/sql3259516?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","sql3259516","ClnmVEeuCQ");
+	
+			if(connect!=null){
+				System.out.println("Connected to database!");
+			}
+			else System.out.println("error123");
+	
+		} catch (SQLException e) {
+			 e.getMessage();
+			e.printStackTrace();
+		} catch (Exception e) {
+	
+			System.out.println("error3");
 		}
-		else System.out.println("error123");
-
-	} catch (SQLException e) {
-		 e.getMessage();
-		e.printStackTrace();
-	} catch (Exception e) {
-
-		System.out.println("error3");
-	}
-	return connects;
-}}
+		return connect;
+		}
+}
