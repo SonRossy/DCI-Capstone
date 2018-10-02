@@ -174,7 +174,7 @@ label {
             <ul>
               <li><a href="UserRegistration.jsp">Create an Account</a></li>
                 <li><a href="ApplyingforInsurance.html">Apply</a></li>
-                <li><a href="CapLogin.html">Login</a></li>
+                <li><a href="CustLogin.jsp">Login</a></li>
             </ul> 
           </div>
           <div class="col">
@@ -317,7 +317,7 @@ label {
         </div>
     </div>
 </div>
-<form role="form" onsubmit="return validate()">
+<form role="form" action="ApplicationForm" method ="post">
     <div class="row setup-content" id="step-1">
         <div class="col-xs-12">
             <div class="col-md-12">
@@ -476,7 +476,7 @@ label {
                 </div>
 				<br>
 				<label for="Ethinicity" class="control-label">Please select your Ethinicity</label>	
-				<select name="Ethinicity" style="height:3.8rem" required="required" class="form-control" placeholder="Ethinicity">
+				<select name="ethinicity" style="height:3.8rem" required="required" class="form-control" placeholder="Ethinicity">
 								<option value="0">Prefer not to say</option>
 								<option value="1">White</option>
 								<option value="2">Black/African American</option>
