@@ -1,0 +1,159 @@
+
+
+#northeast{
+ float:left;
+    position: relative;
+    padding-left: 50%;
+    padding-top: 10%;
+    overflow: auto;
+    display: inline-block;
+}
+
+.employees{
+    width: 100%
+    height:40%;
+}
+path:hover, circle:hover {
+stroke: #6597b5 !important;
+  stroke-width:1px;
+  stroke-linejoin: round;
+  fill: #6597b5 !important;
+  cursor: pointer;
+}
+
+#info-box{
+ display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  color: #292B31;
+  background-color: #ffffff;
+  border: 2px solid #292B31;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: arial;
+}
+
+.title{
+    
+    padding: 5%;
+    height: 10%;
+    z-index: -1;
+    font-size: 50px;
+    color: #8E93A9;
+    position: absolute;
+    text-align: left;
+
+}
+
+#reference {
+   
+    width: auto; 
+    padding: 8px;
+    padding-top: 0px;
+    padding-right: 8px;
+    padding-bottom: 0px;
+    padding-left: 8px;
+    text-align: center!important;
+    margin-top: 16px!important;
+    
+    
+}
+
+.child {
+    position: relative;
+    display: inline-block;
+    margin: 5%;
+    background: #ccc;
+    
+}
+
+.child > p {
+    height: 50px
+}
+
+
+
+
+#wordinformation2 {
+    padding-top: 5%;
+    padding-bottom: 15%;
+    font-weight: bold;
+}
+
+#wordinformation {
+    padding-bottom: 4%;
+    color: white;
+}
+
+
+.buttons {
+    display: inline;
+    height: auto;
+    width: auto;
+}
+
+.bottominfo{
+    color: white;
+    padding-top: 3%
+}
+
+.buttoncontainer {
+    padding-top: 15%;
+    padding-bottom: 15%;
+    
+}
+
+.buttoncontainer2 {
+    padding-top: 5%;
+    padding-bottom: 15%;
+    
+}
+
+.agentpic {
+    border-style:inset;
+    
+}
+
+.btn-action {
+    box-shadow: 0 3px 0 0 rgba(0,0,0,.14);
+    background-color: #5381ac;
+    border-color: #396791;
+    background-image: linear-gradient(to bottom,#5381ac,#396791);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    color: #fff;
+}
+
+.btn, .button {
+    position: relative;
+    letter-spacing: -.03em;
+    min-height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    text-decoration: none;
+    background-image: #f3f3f3;
+
+
+}
+
+.w3-row-padding>.child {
+    padding: 0 px;
+    padding-top: 0px;
+    padding-right: 8px;
+    padding-bottom: 0px;
+    padding-left: 8px;
+}
+
+.w3-card {
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16), 0 5px 10px 0 rgba(0,0,0,0.12);
+}
+
+.w3-container {
+     min-height:210px;
+     min-width:150px"
+    padding: 0.01em 60px;
+}
+
+
