@@ -123,11 +123,12 @@ public class RegistrationServlet extends HttpServlet {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
+
 				return true;
 			}
 			
 			return false;
+
 		}
-	
-	
+
 }

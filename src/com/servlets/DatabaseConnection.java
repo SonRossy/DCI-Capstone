@@ -21,7 +21,7 @@ public class DatabaseConnection{
 	
 	
 	
-		 	connects=DriverManager.getConnection("jdbc:mysql://localhost:3306/dci2?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","Note1025!");
+		 	connects=DriverManager.getConnection("jdbc:mysql://localhost:3306/dci3?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","Sonemma08*");
 	
 			if(connects!=null){
 				System.out.println("Connected to database!");

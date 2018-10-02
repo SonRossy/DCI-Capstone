@@ -49,6 +49,7 @@ title="Enter a date in this format YYYY-MM-DD"/>
    
 </div>
 
+
 <script>
     var password = document.getElementById("psw");
       var confirm_password = document.getElementById("psw-repeat");
@@ -64,7 +65,6 @@ title="Enter a date in this format YYYY-MM-DD"/>
   password.onchange = validatePassword;
   confirm_password.onkeyup = validatePassword;
     </script>
-
 
 
 
