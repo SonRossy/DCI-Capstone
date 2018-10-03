@@ -87,7 +87,7 @@ public class LogIn extends HttpServlet {
 			else{
 				session.setAttribute("msg", "Invalid user name or password");
 				//send them back to login page
-				response.sendRedirect("CustLogin");
+				response.sendRedirect("CustLogin.jsp");
 			}
 			
 		}catch(Exception e){
