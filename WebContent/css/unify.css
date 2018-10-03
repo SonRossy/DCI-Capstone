@@ -6,8 +6,6 @@ a {text-decoration: none;}
 
 body {
  color:grey;
- 
-
  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
   font-size: 18px;
 }
@@ -52,7 +50,7 @@ Blueish tint overlay
 .hero:after {
   content: '';
 
-  background:#495C70;;
+  background:#495C70;
   position: absolute;
   top: 0;
   width: 100%;

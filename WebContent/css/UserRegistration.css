@@ -1,12 +1,4 @@
 
-body {
-   background: linear-gradient(75deg, #2980b9, #2c3e50) top left fixed;
-}
-
-* {
-    box-sizing: 70%;
-}
-
 /* Add padding to containers */
 .container {
     padding: 10px;
@@ -132,19 +124,6 @@ a {
   left: 50px;
   margin-top: -3px;
 }
-
-.zocial-googleplus {
-  color: #D24B40;
-}
-
-.zocial-facebook {
-  color: #425693;
-}
-
-.zocial-twitter {
-  color: #4E93F9;
-}
-
 hr {
   display: inline-block;
   position: inherite;
