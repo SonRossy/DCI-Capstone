@@ -48,6 +48,7 @@ public class LogIn extends HttpServlet {
 		
 		//getting parameters from the login form from CustLogin.jsp
 		String email=request.getParameter("email");
+		String psw=request.getParameter("psw");
 		System.out.println("Get email as parameter: " + email);
 		
 		//creating session
@@ -59,20 +60,26 @@ public class LogIn extends HttpServlet {
 		
 		try{
 			
-			String sqlQuery = "SELECT email FROM customer_info where email='"+ email +"';";
+			//String sqlQuery = "SELECT email FROM customer_info where email='"+ email +"';";
+			String sqlQuery= "SELECT * FROM customer_info where email= '"+email+"' and password= '"+psw+"';";
 			//running above in mySQL
 			stmt = connection.createStatement();
 			//saving data fetched from above in the resultset object 
 			rs = stmt.executeQuery(sqlQuery);
 			System.out.println("Ran query");
 			
+			//code by Son-Rossy
 			if(rs.next()){
 				//if there is a result then it means the user successfully logged in
-				String userEmail=rs.getString(1);
+				String userEmail=rs.getString(10);
+				String first_name=rs.getString(2);
+				String last_name=rs.getString(3);
 				System.out.println("Email from the database: " + userEmail);
 				
 				//usage of session
 				session.setAttribute("email", userEmail);
+				session.setAttribute("first_name", first_name);
+				session.setAttribute("last_name", last_name);
 				
 				//connect to other servlet 
 				
@@ -81,13 +88,13 @@ public class LogIn extends HttpServlet {
 				
 				/*//redirect to Application HTML
 				String redirectURL = "ApplicationForm";*/
-				response.sendRedirect("ApplicationForm");
+				response.sendRedirect("index.jsp");
 				
 			}
 			else{
 				session.setAttribute("msg", "Invalid user name or password");
 				//send them back to login page
-				response.sendRedirect("CustLogin");
+				response.sendRedirect("CustLogin.jsp");
 			}
 			
 		}catch(Exception e){

@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>Privacy Policy</title>
 <style>
 li{
@@ -11,7 +10,9 @@ li{
 </style>
 </head>
 <body>
-
+<%----  include header ----%>
+<jsp:include page="/Header.jsp" />
+<%----  include header ----%>
 
 <a href='#bottom'>Back to Bottom</a><br><br><br>
 <a href='#Inf'>Information Collection, Use and Sharing</a><br>
@@ -61,7 +62,7 @@ You may opt out of any future contacts from us at any time. You can do the follo
 
 <p>In order to use this <a href=“#”>website</a>, a user must first complete the <a href=“#”>registration form</a>. <br>During registration a user is required to give certain information (such as name and email<br> address). This information is used to contact you about the products/services on our site<br> in which you have expressed interest. You are also strongly advised to provide<br>demographic information (such as gender or age) about yourself, to help us to better<br> understand and keep your personal information confidential.<br>
 
-<a name="Order"</a>
+<a name="Order"></a>
 <h3>Orders </h3>
 
 We request information from you on our order form. To buy from us, you must provide <br>contact information (like name and shipping address) and financial information (like <br>credit card number, expiration date). This information is used for billing purposes and to <br>fill your orders. If we have trouble processing an order, we'll use this information to contact you.<br>
@@ -104,5 +105,9 @@ Numerous other provisions and/or practices may be required as a result of laws,<
 </a>
 <a href='#top'>Back to Top</a><br>
 <a name="bottom"></a>
+
+<%----  include footer ----%>
+<jsp:include page="/Footer.jsp" />
+<%----  include footer ----%>
 </body>
 </html>
