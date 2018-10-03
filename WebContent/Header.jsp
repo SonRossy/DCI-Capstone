@@ -24,7 +24,7 @@
           <span class="hamburger-label">Menu</span>
         </button>
       
-      <a href="index.html"><i class="fa fa-home" style="font-size:65px; color: #fff; float: right;opacity: 0.8;"></i> </a>     
+      <a href="index.jsp"><i class="fa fa-home" style="font-size:65px; color: #fff; float: right;opacity: 0.8;"></i> </a>     
         <nav id="site-nav" role="navigation">
 
           <div class="col">

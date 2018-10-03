@@ -9,7 +9,8 @@
 	<title>Plan Options</title>
 <style>
 .flexwrapper {
-  margin-left: -1em;
+text-align: center;
+ padding-bottom:5%;
 }
 .flexwrapper > section {
   display: inline-block;
@@ -18,15 +19,15 @@
   height: auto;
   padding: 30px; 
   margin-bottom: .5em;
-  padding-top: 5%;
+ 
 }
 .flexwrapper > section:nth-child(1) { background: #a9cc5b; }
 .flexwrapper > section:nth-child(2) { background: #39b4e0; }
 .flexwrapper > section:nth-child(3) { background: #e4582b; }
 
-body { font: 1.125em/1.4 'Source Sans Pro', sans-serif; background: #eff5f5; color: #31656e; text-align: center; padding: 3em 0; }
-h1 { font-weight: 900; font-size: 1.6em; line-height: 1.2; }
-h2 { font-weight: 400; font-size: 1em; color: #597a80; text-transform: uppercase; margin: .5em 0 4em; letter-spacing: .25em; }
+body { background: #eff5f5; color: #31656e;}
+h1 {padding-top:10px; font-weight: 900; font-size: 1.6em; line-height: 1.2; text-align: center}
+h2 { font-weight: 400; font-size: 1em; color: #597a80; text-transform: uppercase; margin: .5em 0 4em; letter-spacing: .25em; text-align: center}
 p  {color: #eff5f5;}
 }
 </style>
@@ -38,7 +39,7 @@ p  {color: #eff5f5;}
 <jsp:include page="/Header.jsp" />
 <%----  include header ----%>
 <h1> Choose your plan today   </h1>
-<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+<h2>We have many affordable plans offering unbeatable coverage. </h2>
 
 <div class="flexwrapper">
   <section> 
