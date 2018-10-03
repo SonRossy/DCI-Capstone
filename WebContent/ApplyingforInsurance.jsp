@@ -206,7 +206,7 @@ label {
     height: 35%;
 }
 .footer__inner {
-    height: 350px;
+    height: 385px;
 </style>
 
 </head>
