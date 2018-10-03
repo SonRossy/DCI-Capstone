@@ -204,6 +204,11 @@ label {
 .form-control{
 	font-size:18px;;
 }
+.hero {
+    height: 35%;
+}
+.footer__inner {
+    height: 385px;
 </style>
 
 </head>
@@ -232,7 +237,7 @@ label {
         </div>
     </div>
 </div>
-<form role="form" action="ApplicationForm" method ="post">
+<form role="form" action="ApplicationForm" method ="post" style="margin-bottom: 3%">
     <div class="row setup-content" id="step-1">
         <div class="col-xs-12">
             <div class="col-md-12">
