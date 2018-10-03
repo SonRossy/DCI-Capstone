@@ -9,10 +9,9 @@
 	<link rel="stylesheet" type="text/css" href="css/unify.css">
    	<title>Shop Insurance</title>
   </head>
- /*
- * author Clarissa Mercado
- * Created the instyle CSS and the HTML content
- */
+ <!--author Clarissa Mercado
+ Created the instyle CSS and the HTML content
+ -->
 <style>
 .page {
     font-family: Verdana,sans-serif;
