@@ -18,7 +18,8 @@
 
 <div class="hero">
 
-	<h3>${first-name} ${last_name}</h3>
+	<h3>${first_name} ${last_name}</h3>
+	
    <header id="masthead" role="banner">    
       <div class="container">  
 

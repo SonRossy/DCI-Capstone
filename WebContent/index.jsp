@@ -1,3 +1,5 @@
+<%--Author: Sasha Edwards --%>
+<%--Author: Caroline Kops --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,8 +74,7 @@
 
 }
 #screen2 h3 {
-
-	text-align: center;
+	text-align:left;
 	padding-top: 3%;
 	padding-bottom: 1%;
 	font-family: 'open-sans-bold', AvenirNext-Medium, sans-serif;
@@ -94,7 +95,7 @@
 .grid-item {
 
     padding: 2%;
-    text-align: center;
+    text-align: left;
     align-items: center;
     font-size: 30px;
     color:black;
@@ -117,6 +118,7 @@
     padding-top: 5%;
     padding-left: 5%;
     background: #495C70;
+    padding-bottom: 2%;
 }
 input[type=submit] {
     background-color: #009ac9;
@@ -133,6 +135,16 @@ input[type=submit] {
     float: right;
 }
 
+#fname, #lname{
+color:#8E93A9;
+padding:5px;
+width:20%;
+}
+#subject{
+color: #8E93A9;
+width:40%;
+
+}
 </style>
 </head>
 <body>
@@ -271,10 +283,11 @@ input[type=submit] {
 </section>
 <section id="screen3">
 
-<h3 style="text-align:center;">DCI is available 24 hours a day, 7 days a week <br> Contact us through our email, by phone or fill in the below form.</h3>
-
+<h3 style="text-align:center; color:#292B31">DCI is available 24 hours a day, 7 days a week</h3>
+ <br> <h4 style="text-align:center; color:#292B31">Contact us through our email, by phone or fill in the below form.</h4>
+<br>
 <div class="container">
-  <form action="action">
+  <form action="action" style="color:#8E93A9">
 
     <label for="fname">First Name</label>
     <br>
