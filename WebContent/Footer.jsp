@@ -1,4 +1,7 @@
+<%--Author: Caroline Kops --%>
+
 <footer>
+
     <div class="footer__inner">
     <img id="imgg" src="images/DCItransparent.png">
     
