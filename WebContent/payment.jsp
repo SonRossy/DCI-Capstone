@@ -50,6 +50,9 @@ body {
 	border: 1px solid lightgrey;
 	border-radius: 3px;
 }
+body {
+    background-image: url("images/payment.jpg");
+}
 
 input[type=text] {
 	width: 100%;
@@ -110,6 +113,7 @@ span.price {
 </style>
 </head>
 <body>
+
 	<div class="row">
 		<form action="">
 			<div class="col-75">
@@ -150,6 +154,8 @@ span.price {
 
 
 </body>
-		<img src="images/user-reg-img.png" />
+		
+				<img src="images/payment2.jpg" />
+		
 
 </html>
