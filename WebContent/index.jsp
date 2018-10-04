@@ -132,10 +132,7 @@ input[type=submit] {
     display: inline-block;
     float: right;
 }
-.container {
-    border-radius: 5px;
-    padding: 10px;
-}
+
 </style>
 </head>
 <body>
