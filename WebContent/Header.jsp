@@ -15,10 +15,9 @@
 </svg>
 
 <div class="hero">
-   <header id="masthead" role="banner">
-    
-      <div class="container">
-    
+	<h3>${first-name} ${last_name}</h3>
+   <header id="masthead" role="banner">    
+      <div class="container">  
         <button class="hamburger hamburger--boring" type="button">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
