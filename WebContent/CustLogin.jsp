@@ -1,11 +1,14 @@
-
-/* Add padding to containers */
-.container {
-    padding: 10px;
-    background-color: white;
-}
-
-/* Full-width input fields */
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/unify.css">
+	<style>
 input[type=text], input[type=password], input[type=date], input[type=email] {
     width: 100%;
     padding: 10px;
@@ -14,45 +17,35 @@ input[type=text], input[type=password], input[type=date], input[type=email] {
     border: none;
     background: #f1f1f1;
 }
-
 input[type=text]:focus, input[type=password]:focus, input[type=date], input[type=email] {
     background-color: #ddd;
     outline: none;
 }
-
 /* Overwrite default styles of hr */
 hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 15px;
 }
-
 /* Set a style for the submit button */
 .button {
-    background-color: #48959e;
+    background-color: #495C70;
     color: white;
     padding: 16px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
     opacity: 0.9;
+    
 }
-
 .button:hover {
     opacity: 1;
 }
-
-/* Add a blue text color to links */
-a {
-    color: dodgerblue;
-}
-
 /* Set a grey background color and center the text of the "sign in" section */
 .signin {
     background-color: #f1f1f1;
     text-align: center;
 }
-
 
 #form-block {
   width: 850px;
@@ -70,7 +63,6 @@ a {
   width: 550px;
   padding-top: 20px;
 }
-
 #form-block--right {
   display: inline-block;
   float: right;
@@ -78,12 +70,10 @@ a {
   height: 100%;
   width: 300px;
 }
-
 #left-content {
   text-align: left;
   width: calc(100% - 60px);
   height: auto;
-  padding: 30px;
 }
 
 #left-content h1 {
@@ -115,8 +105,6 @@ a {
   line-height: 25px;
   display: inline-block;
 }
-
-
 .icon {
   display: inline-block;
   font-size: 18px;
@@ -132,7 +120,6 @@ hr {
   opacity: 0.4;
   width: 100%;
 }
-
 .bottom-text {
   font-family: "Lato", sans-serif;
   font-size: 14px;
@@ -140,7 +127,6 @@ hr {
   color: #414141;
   padding: 20px 30px;
 }
-
 .email-link {
   position: absolute;
   right: 40px;
@@ -157,12 +143,56 @@ hr {
 }
 
 #form-block--right img {
-
   display: inline-block;
   width: 100%;
   height: 100%;
   border-left: 1px solid #939AA8;
   border-radius: 0px 10px 10px 0px;
+  margin-left: 20%;
 }
 
+</style>
+	</style>
+</head>
 
+<body>
+<%----  include header ----%>
+<jsp:include page="/Header.jsp" />
+<%----  include header ----%>
+
+<div id="form-block">
+  <div id="form-block--left">
+    <div id="left-content">
+      <h1>Log in:</h1>
+
+ <form action="LogIn" method="post">
+    <label for="email"><b>Email</b></label>
+    <input type="email" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <input type="submit" class="button" value="SUBMIT">
+  
+</form>
+    </div>
+  </div>
+  <div id="form-block--right"><img src="images/user-reg-img.png"/></div>
+</div>
+
+<% 
+	try{
+		//getting message from LogIn.java whether log in was a succes or not
+		String msg= session.getAttribute("msg").toString();
+		out.print(msg);
+		
+	}catch(Exception e){
+		e.getMessage();
+	}
+		
+	%>
+<%----  include footer ----%>
+<jsp:include page="/Footer.jsp" />
+<%----  include footer ----%>
+</body>
+</html>

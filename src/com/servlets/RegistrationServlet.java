@@ -57,7 +57,7 @@ public class RegistrationServlet extends HttpServlet {
 
 		first_name = request.getParameter("first-name");
 		last_name = request.getParameter("last-name");
-		date_of_birth = request.getParameter("first-name");
+		date_of_birth = request.getParameter("dateOfBirth");
 		password = request.getParameter("psw");
 		email = request.getParameter("email");
 		password1 = request.getParameter("psw-repeat");
