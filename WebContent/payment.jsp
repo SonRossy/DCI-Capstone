@@ -155,7 +155,7 @@ span.price {
 
 </body>
 		
-				<img src="images/payment2.jpg" />
+				<img src="images/payment2.jpg" style="opacity:0.5;filter:alpha(opacity=40);"alt="Forest" width="700" height="570"  />
 		
 
 </html>
