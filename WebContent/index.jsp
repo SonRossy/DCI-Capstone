@@ -14,7 +14,7 @@
 
 <style type="text/css">
 #screen1 {
-    background-image: url("images/homepic.png");
+    background-image: url("images/homepage.png");
     background-size: cover;
     max-height: max-content;
 }
