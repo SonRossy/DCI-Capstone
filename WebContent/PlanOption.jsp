@@ -40,6 +40,7 @@ p  {color: #eff5f5;}
 <%----  include header ----%>
 <jsp:include page="/Header.jsp" />
 <%----  include header ----%>
+
 <h1> Choose your plan today   </h1>
 <h2>We have many affordable plans offering unbeatable coverage. </h2>
 

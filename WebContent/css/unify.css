@@ -13,6 +13,13 @@ header, footer, nav, section, article, hgroup, figure {
   display: block;
 }
 
+#topdci{
+	
+float: right;
+width:170px;
+overflow: hidden;
+}
+
 .container {
   width: 90%;
   margin-left: auto;
@@ -24,13 +31,6 @@ header, footer, nav, section, article, hgroup, figure {
   content: "";
   display: table;
   clear: both;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  max-width: 1200px;
 }
 
 /* 
@@ -49,7 +49,6 @@ Blueish tint overlay
 */
 .hero:after {
   content: '';
-
   background:#495C70;
   position: absolute;
   top: 0;
@@ -74,10 +73,6 @@ Making sure everything in .hero sits above our :after elements
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
 }
 
-/*
-Using this method because browsers can transition opacity very cheaply as opposed to using background: rgba
-https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
-*/
 #masthead:after {
   content: '';
   position: absolute;
@@ -93,13 +88,6 @@ https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
   opacity: 1;
 }
 
-/*!
- * Hamburgers
- * @description Tasty CSS-animated hamburgers
- * @author Jonathan Suh @jonsuh
- * @site https://jonsuh.com/hamburgers
- * @link https://github.com/jonsuh/hamburgers
- */
 .hamburger {
   background-color: transparent;
   border: 0;
@@ -220,7 +208,7 @@ https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
   flex-direction: column; 
   height: 0;
   overflow: hidden;
-  padding-top: 2.5em;
+  padding-top: 1.5em;
 }
 
 #site-nav.is-active {
@@ -448,7 +436,7 @@ p{
 
 float: right;
 
-  width:18%;
+width:18%;
 overflow: hidden;
 }
 
