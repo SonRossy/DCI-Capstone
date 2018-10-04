@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <header>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
@@ -15,6 +17,7 @@
 </svg>
 
 <div class="hero">
+
    <header id="masthead" role="banner">
     
       <div class="container">
@@ -27,6 +30,7 @@
         </button>
       
       <a href="index.jsp"> <img id="topdci" src="images/DCItransparent.png"> </a>     
+
         <nav id="site-nav" role="navigation">
 
           <div class="col">
