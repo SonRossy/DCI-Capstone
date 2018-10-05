@@ -225,9 +225,10 @@ title="Enter a date in this format YYYY-MM-DD"/>
   password.onchange = validatePassword;
   confirm_password.onkeyup = validatePassword;
 </script>
-
 <%----  include footer ----%>
 <jsp:include page="/Footer.jsp" />
 <%----  include footer ----%>
+ 
 </body>
+
 </html>
