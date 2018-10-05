@@ -86,7 +86,7 @@ public class RegistrationServlet extends HttpServlet {
 					pst2.executeUpdate();
 					pst3.executeUpdate();
 					System.out.println("No repeat email!");
-					response.sendRedirect("CapLogin.html");
+					response.sendRedirect("CustLogin.jsp");
 				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
