@@ -33,7 +33,12 @@ public class ProcessPayment extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stud
+		String cname = req.getParameter("cname");
+    		String ccnumber = req.getParameter("ccnumber");
+		String expmonth = req.getParameter("expmonth");
+		String expyear = req.getParameter("expyear");
+		String cvv = req.getParameter("cvv");
 		doGet(request, response);
 	}
 
