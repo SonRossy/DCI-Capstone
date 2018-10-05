@@ -5,6 +5,7 @@ package com.servlets;
  */
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -55,17 +56,20 @@ public class LogIn extends HttpServlet {
 		session = request.getSession();
 		
 		//declaring objects
-		Statement stmt=null;
+		PreparedStatement stmt=null;
 		ResultSet rs = null;
 		
 		try{
 			
 			//String sqlQuery = "SELECT email FROM customer_info where email='"+ email +"';";
-			String sqlQuery= "SELECT * FROM customer_info where email= '"+email+"' and password= '"+psw+"';";
+			String sqlQuery= "SELECT * FROM customer_info where email= ? and password=?;";
 			//running above in mySQL
-			stmt = connection.createStatement();
+			stmt = connection.prepareStatement(sqlQuery);
+			stmt.setString(1,email);
+			stmt.setString(2, psw);
+			
 			//saving data fetched from above in the resultset object 
-			rs = stmt.executeQuery(sqlQuery);
+			rs = stmt.executeQuery();
 			System.out.println("Ran query");
 			
 			//code by Son-Rossy
