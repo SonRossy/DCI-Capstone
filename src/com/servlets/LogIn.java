@@ -1,4 +1,5 @@
 package com.servlets;
+import com.model.Customer;
 /*
  * author Clarissa Mercado
  * Connects CustLogin to local database and send to ApplicationForm servlet
@@ -6,6 +7,7 @@ package com.servlets;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
@@ -49,6 +51,7 @@ public class LogIn extends HttpServlet {
 		//getting parameters from the login form from CustLogin.jsp
 		String email=request.getParameter("email");
 		String psw=request.getParameter("psw");
+		//checking if email was grabbed
 		System.out.println("Get email as parameter: " + email);
 		
 		//creating session
@@ -68,26 +71,32 @@ public class LogIn extends HttpServlet {
 			rs = stmt.executeQuery(sqlQuery);
 			System.out.println("Ran query");
 			
+			//Creating new Customer Object
+			Customer customer = new Customer();
+			
+			
 			//code by Son-Rossy
 			if(rs.next()){
-				//if there is a result then it means the user successfully logged in
+				/*//if there is a result then it means the user successfully logged in
 				String userEmail=rs.getString(10);
 				String first_name=rs.getString(2);
 				String last_name=rs.getString(3);
-				System.out.println("Email from the database: " + userEmail);
 				
 				//usage of session
 				session.setAttribute("email", userEmail);
 				session.setAttribute("first_name", first_name);
 				session.setAttribute("last_name", last_name);
+				session.setAttribute("LoggedIn", "true");*/
 				
-				//connect to other servlet 
-				
-				/*RequestDispatcher rd = request.getRequestDispatcher("ApplicationForm");
-				rd.forward(request, response);*/
-				
-				/*//redirect to Application HTML
-				String redirectURL = "ApplicationForm";*/
+				///Code by Clarissa Mercado
+				customer.setUserEmail(rs.getString("email"));
+				customer.setFirst_name(rs.getString("first_name"));
+				customer.setLast_name(rs.getString("last_name"));
+				//customer.setLoggedIn("true");
+				session.setAttribute("user", customer);
+				session.setAttribute("LogIn", "You are logged in");
+				System.out.println(session.getId());
+				//redirect to Homepage
 				response.sendRedirect("index.jsp");
 				
 			}
@@ -100,8 +109,15 @@ public class LogIn extends HttpServlet {
 		}catch(Exception e){
 			System.out.print("Cause: "+ e.getMessage());
 			
+		}finally {
+			try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
 		}
-		//response.getWriter().append("<h1>Login page creation in process<h1/> ").append(request.getContextPath());
+	
 	}
 
 }

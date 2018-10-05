@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.model.Customer;
+
 
 /**
  * Servlet implementation class ApplicationForm
@@ -60,9 +62,11 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		String company_name, profession, annual_income, fed_tax_id;
 		
 		HttpSession session = request.getSession();
-		//grabbing the saved email attribtue from LogIn servlet
-		String email = (String) session. getAttribute("email");
-		System.out.println("Email from gsession: " + email);
+		//Getting user object from session and casting it to a Customer custom object
+		Customer customer =  (Customer)  session.getAttribute("user");
+		//printing just the email attribute of object user associated in the session
+		String email = customer.getUserEmail();
+		System.out.println("Email from session: " + email);
 		
 		
 		//get fields for table: customer_info

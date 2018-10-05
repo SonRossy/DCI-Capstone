@@ -18,7 +18,8 @@
 
 <div class="hero">
 
-	<h3>${first_name} ${last_name}</h3>
+	<%-- <h3>${first_name} ${last_name}</h3> --%>
+	
    <header id="masthead" role="banner">    
       <div class="container">  
 
@@ -30,7 +31,9 @@
         </button>
       
       <a href="index.jsp"> <img id="topdci" src="images/DCItransparent.png"> </a>     
-
+		<form action="LogOut" method="post">
+			<button>Logout</button>
+		</form>
         <nav id="site-nav" role="navigation">
 
           <div class="col">
