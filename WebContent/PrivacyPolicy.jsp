@@ -1,20 +1,47 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
 <html>
 <head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" type="text/css" href="css/unify.css">
 <title>Privacy Policy</title>
 <style>
-li{
-	margin-left:10%;
+a{
+color: #a9cc5b;
+padding:2%;
+text-transform: uppercase;
+font-size: 15px;
+line-height: 1.5;
+}
+.mainq{
+    padding-left: 10%;
+}
+h3{
+color: #495C70;
+margin-left: -50px;
 }
 </style>
 </head>
 <body>
+
 <%----  include header ----%>
 <jsp:include page="/Header.jsp" />
 <%----  include header ----%>
+<style>
+.hero{
+height:40%;
+}
+</style>
 
-<a href='#bottom'>Back to Bottom</a><br><br><br>
+<a href='#bottom' style="padding: 2%; color: red;">To Bottom</a><br><br><br>
 <a href='#Inf'>Information Collection, Use and Sharing</a><br>
 <a href='#Access'>Your Access to and Control Over Information</a><br>
 <a href='#Reg'>Registration</a><br>
@@ -25,10 +52,10 @@ li{
 <a href='#Links'>Links</a><br>
 <a href='#Not'>Notification on Changes</a><br>
 <a href='#Other'>Other Provisions as Required by Law</a><br>
+<br>
+<br>
 
-
-
-
+<div class="mainq">
 <h3>Privacy Policy</h3>
 <h3>Effective Date:  September 7, 2018</h3>
 
@@ -103,7 +130,9 @@ Numerous other provisions and/or practices may be required as a result of laws,<
  
 
 </a>
-<a href='#top'>Back to Top</a><br>
+
+<a href='#top' style="padding: 4%; color: red;">Back to Top</a><br>
+</div>
 <a name="bottom"></a>
 
 <%----  include footer ----%>
