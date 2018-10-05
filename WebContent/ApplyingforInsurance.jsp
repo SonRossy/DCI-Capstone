@@ -456,9 +456,9 @@ label {
 	
 							<select name="income" style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="status" id="state">
 								<option value="0">N/A</option>
-								<option value="1">Less than 32000K</option>
-								<option value="2">Greater than 32000K Less than 85000K</option>
-								<option value="3">Above 85000K</option>
+								<option value="1">Less than 32K</option>
+								<option value="2">Greater than 32K Less than 85000K</option>
+								<option value="3">Above 85K</option>
 							</select>
 							<br>
 							 <label class="header">Please enter your Federal Tax ID:</label>
