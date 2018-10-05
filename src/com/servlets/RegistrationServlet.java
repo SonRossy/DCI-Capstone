@@ -112,7 +112,7 @@ public class RegistrationServlet extends HttpServlet {
 				
 				ResultSet rs=pst1.executeQuery();
 				if(rs.next()) {
-					request.setAttribute("msgFromRegistrationServlet", "email alreay exist");
+					request.setAttribute("msgFromRegistrationServlet", "email already exist");
 					RequestDispatcher dispatcher=request.getRequestDispatcher("/UserRegistration.jsp");
 					dispatcher.forward(request,response);
 					System.out.println("email already exist");
