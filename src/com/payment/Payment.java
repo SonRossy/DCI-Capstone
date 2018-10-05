@@ -64,7 +64,7 @@ public class Payment {
 	
 	public void chargeCustomer() throws StripeException {
 		Map<String,Object> chargeParam=new HashMap<>();
-		chargeParam.put("amount", "500");//this is how much customer will be charged 5 dollars in this case
+		chargeParam.put("amount", "200");//this is how much customer will be charged 5 dollars in this case
 		chargeParam.put("currency", "usd");//meaning dollar
 		Customer newCustomer=Customer.retrieve("cus_Dj2PsW0JY9SfXg");
 		

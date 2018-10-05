@@ -115,7 +115,7 @@ span.price {
 <body>
 
 	<div class="row">
-		<form action="">
+		<form action="ProcessPayment" method="post">
 			<div class="col-75">
 				<div class="container">
 
