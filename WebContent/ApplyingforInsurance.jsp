@@ -3,18 +3,25 @@
 <html>
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="javascript/capstone.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://www.thesoftwareguy.in/creating-responsive-multi-step-form-bootstrap-jquery/"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/unify.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="javascript/capstone.js"></script>
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
- <meta charset="UTF-8">
+
     <title>Apply for Insurance</title>
     
  <style>
+  h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 .stepwizard-step p {
    margin-top: 10px;
 }
@@ -27,7 +34,9 @@
    width: 100%;
    position: relative;
 }
-
+[type=submit], [type=reset], button, html [type=button] {
+    -webkit-appearance: inherit;
+}
 .stepwizard-step button[disabled] {
    opacity: 1 !important;
    filter: alpha(opacity=100) !important;
@@ -458,7 +467,6 @@ label {
 					<input name="ssn" type="text" id="SSNArea" class="form-control input-group" maxlength="9" placeholder="XXX XX XXXX" pattern="(\d{3}-\d{2}-\d{4}|\d{9})" title="Enter a Social Security Number in this format ex:'123456789'. Must contain nine digits." required />
 				
 				</div>
-            	
 				<button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Prev</button>
                 <button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>    
             </div>
@@ -466,7 +474,6 @@ label {
     </div>
 </form>
 </div>
-
 <%----  include footer ----%>
 <jsp:include page="/Footer.jsp" />
 <%----  include footer ----%>

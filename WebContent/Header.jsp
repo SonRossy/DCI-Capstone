@@ -17,9 +17,12 @@
 </svg>
 
 <div class="hero">
-<h3>${first_name} ${last_name}</h3>
-    <header id="masthead" role="banner">
-      <div class="container">
+
+	<h3>${first_name} ${last_name}</h3>
+  
+   <header id="masthead" role="banner">    
+      <div class="container">  
+
         <button class="hamburger hamburger--boring" type="button">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -27,8 +30,7 @@
           <span class="hamburger-label">Menu</span>
         </button>
       
-      <a href="index.jsp"><i class="fa fa-home" style="font-size:65px; color: #fff; float: right;opacity: 0.8;"></i> </a> 
-            
+      <a href="index.jsp"> <img id="topdci" src="images/DCItransparent.png"> </a>     
 
         <nav id="site-nav" role="navigation">
 
