@@ -76,7 +76,7 @@
     width: 100%;
     height: auto;
     grid-template-columns: auto auto auto;
-    margin-top: 7%;
+    margin-top: 5%;
     margin-bottom: 9%;
     display: inline-grid;
 }
@@ -205,7 +205,7 @@ width: -webkit-fill-available;
     <p>Our mission is to be the number one insurance company provider that creates a win-win partnership with our customers and provide utmost care, timely respond and support.</p>
 	<br>
 	
-    <h2 style="text-align: center;">DCI's core values</h2>
+    <h2 style="text-align: center; text-align: center;padding-top: 8%; color:#495C70;font-family: 'open-sans-bold', AvenirNext-Medium, sans-serif;">DCI's core values</h2>
 
 
     <div class="grid-container">
@@ -287,17 +287,23 @@ width: -webkit-fill-available;
 <div class="container">
   <form action="action" style="color:#fff">
 
-    <label for="fname" style="margin-left: -30px;">First Name</label>
+    <label for="fname"">First Name</label>
+    <br>
     <br>
     <input type="text" id="fname" name="firstname" placeholder="first name">
     <br>
-    <label for="lname" style="margin-left: -30px;">Last Name</label>
+    <br>
+    <label for="lname">Last Name</label>
+    <br>
     <br>
     <input type="text" id="lname" name="lastname" placeholder="last name">
     <br>
-    <label for="subject" style="margin-left: -30px;"> Subject</label>
+    <br>
+    <label for="subject""> Subject</label>
+    <br>
     <br>
     <textarea id="subject" name="subject" placeholder="type here..." style="height:200px";padding: 10px;></textarea>
+    <br>
     <br>
     <input type="submit" value="Submit">
   </form>
