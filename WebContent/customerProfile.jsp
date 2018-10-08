@@ -30,7 +30,9 @@
 	
 	DatabaseConnection connect = new DatabaseConnection();
 	Connection connection = connect.getConnection();
-	String id = null;
+	String id = null, fname = null, mname = null, lname = null, DOB = null, email = null, street = null,
+			apt = null, city = null, state = null, zip = null, country = null, phone = null, mobile = null, 
+			secondary_address = null, coverage = null;
 	
 %>
 
@@ -59,31 +61,41 @@
 				ResultSet rs = pstmt.executeQuery();
 					while(rs.next()) {
 					id = rs.getString("c_id");
+					fname = rs.getString("first_name");
+					mname = rs.getString("middle_name");
+					lname = rs.getString("last_name");
+					DOB = rs.getString("date_of_birth");
+					email = rs.getString("email");
+					street = rs.getString("street_address");
+					apt = rs.getString("apt_number");
+					city = rs.getString("city");
+					state = rs.getString("state");
+					zip = rs.getString("zip_code");
+					country = rs.getString("country");
+					phone = rs.getString("phone");
+					mobile = rs.getString("mobile");
+					secondary_address = rs.getString("secondary_address");
 		%>		
-		<p>First Name: <%=rs.getString("first_name")%></p>	
-		<p>Middle Name: <%=rs.getString("middle_name")%></p>		
-		<p>Last Name: <%=rs.getString("last_name")%></p>
-			<p class="hiddenGeneral">Update Last Name: <input type="text" class="hiddenGeneral"></p>
-		<p>Date of Birth: <%=rs.getString("date_of_birth")%></p>
-		<p>Email: <%=rs.getString("email")%></p>
-		<p>Primary Address: <%=rs.getString("street_address")%>
-		   <%=rs.getString("apt_number")%>,
-		   <%=rs.getString("city")%>,
-		   <%=rs.getString("state")%>
-		   <%=rs.getString("zip_code")%>
-		   <%=rs.getString("country")%></p>
-		<p>Phone Number: <%=rs.getString("phone")%></p>	
-		<p>Mobile Number: <%=rs.getString("mobile")%></p>
-		<p>Secondary Address: <%=rs.getString("secondary_address")%></p>
+		<p>First Name: <%=fname%></p>	
+		<p>Middle Name: <%=mname%></p>		
+		<p>Last Name: <%=lname%></p>
+		<p>Date of Birth: <%=DOB%></p>
+		<p>Email: <%=email%></p>
+		<p>Primary Address: <%=street%>
+		   <%=apt%>,
+		   <%=city%>,
+		   <%=state%>
+		   <%=zip%>
+		   <%=country%></p>
+		<p>Phone Number: <%=phone%></p>	
+		<p>Mobile Number: <%=mobile%></p>
+		<p>Secondary Address: <%=secondary_address%></p>
 		<%								
 			}}catch (Exception e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 	    	}
     	%>
-    	<div class="checkbox">
-    	  <input type="checkbox" id="updateProfileGeneral"> Alter
-    	</div>
     	
     	<h1>Coverage Type:</h1> <!-- Can swap out for simple coverage plan type -->
     	<%
@@ -97,18 +109,37 @@
 				
 				ResultSet rs = pstmt.executeQuery();
 					while(rs.next()) {
+						coverage = rs.getString("coverage_type");
 		%>		
-		<p>Coverage Type: <%=rs.getString("coverage_type")%></p>	
+		<p>Coverage Type: <%=coverage%></p>	
 		<%				
 			}}catch (Exception e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 	    	}
     	%>
-    	<div class="checkbox">
-    	  <input type="checkbox"> Alter
+    	<div id="hidden">
+    		<br>
+    		<h1>Update Information Below:</h1>
+			<p>Update First Name: <input type="text" placeholder="<%=fname%>"></p>
+			<p>Update Middle Name: <input type="text" placeholder="<%=mname%>"></p>
+			<p>Update Last Name: <input type="text" placeholder="<%=lname%>"></p>
+			<p>Update Date of Birth: <input type="text" placeholder="<%=DOB%>"></p>
+			<p>Update Email: <input type="text" placeholder="<%=email%>"></p>
+			<p>Update Primary Address: <input type="text" placeholder="<%=street%>"></p>
+			<p>Update Apartment Number: <input type="text" placeholder="<%=apt%>"></p>
+			<p>Update City: <input type="text" placeholder="<%=city%>"></p>
+			<p>Update State: <input type="text" placeholder="<%=state%>"></p>
+			<p>Update Zip Code: <input type="text" placeholder="<%=zip%>"></p>
+			<p>Update Country: <input type="text" placeholder="<%=country%>"></p>
+			<p>Update Phone: <input type="text" placeholder="<%=phone%>"></p>
+			<p>Update Mobile: <input type="text" placeholder="<%=mobile%>"></p>
+			<p>Update Secondary Address: <input type="text" placeholder="<%=secondary_address%>"></p>
+			<p>Update Coverage Type: <input type="text" placeholder="<%=coverage%>"></p>
+		</div>
+		<div class="floatRight">
+    		<span><input type="checkbox" id="checkbox">Edit Profile</span>
     	</div>
-    	
     	<%-- <h1>Employment Info:</h1>
     	<%
 	    	String queryCE = "Select * from customer_employment where c_id=" +id+ ";";
@@ -142,20 +173,18 @@
   
 <script>
 
-	let hid = document.getElementsByClassName("hiddenGeneral");
+	let hidden = document.getElementById("hidden");
 	
 	function updateProfile(e) {
 		let target = e.target || e.srcElement;
-	    for(i=0;i<hid.length;i++) {
 		    if (target.checked) {
-		      hid.className[i] = 'reveal';
-		    } else {
-			  hid.className[i] = 'hiddenGeneral';
+		      hidden.id = 'reveal';
+		    }else{
+			  hidden.id = 'hidden';
 		    }
-	    }
-	  }
+	}
 	
-	let chk = document.getElementById("updateProfileGeneral");
+	let chk = document.getElementById("checkbox");
 	chk.addEventListener("change", updateProfile);
 
 </script>

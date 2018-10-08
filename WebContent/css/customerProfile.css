@@ -26,14 +26,18 @@ p {
 	left: 200px;
 }
 
-.checkbox {
+#checkbox {
 	float: right;
 }
 
-.hiddenGeneral {
+#hidden {
 	display: none;
 }
 
-.reveal {
+#reveal {
 	display: static;
+}
+
+.floatRight {
+	float: right;
 }
