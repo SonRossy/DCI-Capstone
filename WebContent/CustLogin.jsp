@@ -160,6 +160,12 @@ hr {
 <jsp:include page="/Header.jsp" />
 <%----  include header ----%>
 
+<%
+	if(session.getAttribute("email")==null) {
+		out.println("<p style='padding-top:10px;text-indent:250px;font-size:20px;font-weight:bold;color:MidnightBlue;'>Please log in</p>");
+	}
+%>
+
 <div id="form-block">
   <div id="form-block--left">
     <div id="left-content">

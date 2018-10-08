@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+
+h1 {
+	padding-top: 50px;
+	padding-bottom: 15px;
+}
+
+p {
+	font-weight: bolder;
+	text-indent: 20px;
+	padding-bottom: 5px;
+}
+
+#customerProfile {
+	display: inline;
+}
+
+#userTitleDisplay {
+	float: left;
+	padding-left: 50px;
+}
+
+#userFormDisplay {
+	display: inline-block;
+	position: relative;
+	left: 200px;
+}
+
+.checkbox {
+	float: right;
+}
+
+.hiddenGeneral {
+	display: none;
+}
+
+.reveal {
+	display: static;
+}

@@ -59,6 +59,12 @@
               <li><a href="#"></a></li>
             </ul>             
           </div>
+          <div class="col">
+            <h4>Profile</h4>
+            <ul>
+              <li><a href="customerProfile.jsp">View Profile</a></li>
+            </ul>             
+          </div>
          
           <div class="col">
                
