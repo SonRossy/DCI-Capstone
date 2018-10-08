@@ -75,7 +75,7 @@
           <div class="col">
             <h4>Profile</h4>
             <ul>
-              <li><a href="bob">View Profile</a></li>
+              <li><a href="customerProfile">View Profile</a></li>
             </ul>             
           </div>
          

@@ -39,43 +39,43 @@
     <div id="userFormDisplay">
       <h1>General Info:</h1>
     		
-		<p>First Name: <%=fname%></p>	
-		<p>Middle Name: <%=mname%></p>		
-		<p>Last Name: <%=lname%></p>
-		<p>Date of Birth: <%=DOB%></p>
-		<p>Email: <%=email%></p>
-		<p>Primary Address: <%=street%>
-		   <%=apt%>,
-		   <%=city%>,
-		   <%=state%>
-		   <%=zip%>
-		   <%=country%></p>
-		<p>Phone Number: <%=phone%></p>	
-		<p>Mobile Number: <%=mobile%></p>
-		<p>Secondary Address: <%=secondary_address%></p>
+		<p>First Name: ${user.first_name}</p>	
+		<p>Middle Name: ${user.middle_name}</p>		
+		<p>Last Name: ${user.last_name}</p>
+		<p>Date of Birth: ${user.DOB}</p>
+		<p>Email: ${user.userEmail}</p>
+		<p>Primary Address: ${user.street}
+		   ${user.apt},
+		   ${user.city},
+		   ${user.state}
+		   ${user.zip}
+		   ${user.country}</p>
+		<p>Phone Number: ${user.phone}</p>	
+		<p>Mobile Number: ${user.mobile}</p>
+		<p>Secondary Address: ${user.secondaryAddress}</p>
     	
     	<h1>Coverage Type:</h1> <!-- Can swap out for simple coverage plan type -->
     		
-		<p>Coverage Type: <%=coverage%></p>	
+		<p>Coverage Type: ${user.coverage}</p>	
 		
     	<div id="hidden">
     		<br>
     		<h1>Update Information Below:</h1>
-			<p>Update First Name: <input type="text" placeholder="<%=fname%>"></p>
-			<p>Update Middle Name: <input type="text" placeholder="<%=mname%>"></p>
-			<p>Update Last Name: <input type="text" placeholder="<%=lname%>"></p>
-			<p>Update Date of Birth: <input type="text" placeholder="<%=DOB%>"></p>
-			<p>Update Email: <input type="text" placeholder="<%=email%>"></p>
-			<p>Update Primary Address: <input type="text" placeholder="<%=street%>"></p>
-			<p>Update Apartment Number: <input type="text" placeholder="<%=apt%>"></p>
-			<p>Update City: <input type="text" placeholder="<%=city%>"></p>
-			<p>Update State: <input type="text" placeholder="<%=state%>"></p>
-			<p>Update Zip Code: <input type="text" placeholder="<%=zip%>"></p>
-			<p>Update Country: <input type="text" placeholder="<%=country%>"></p>
-			<p>Update Phone: <input type="text" placeholder="<%=phone%>"></p>
-			<p>Update Mobile: <input type="text" placeholder="<%=mobile%>"></p>
-			<p>Update Secondary Address: <input type="text" placeholder="<%=secondary_address%>"></p>
-			<p>Update Coverage Type: <input type="text" placeholder="<%=coverage%>"></p>
+			<p>Update First Name: <input type="text" placeholder="${user.first_name}"></p>
+			<p>Update Middle Name: <input type="text" placeholder="${user.middle_name}"></p>
+			<p>Update Last Name: <input type="text" placeholder="${user.last_name}"></p>
+			<p>Update Date of Birth: <input type="text" placeholder="${user.DOB}"></p>
+			<p>Update Email: <input type="text" placeholder="${user.userEmail}"></p>
+			<p>Update Primary Address: <input type="text" placeholder="${user.street}"></p>
+			<p>Update Apartment Number: <input type="text" placeholder="${user.apt}"></p>
+			<p>Update City: <input type="text" placeholder="${user.city}"></p>
+			<p>Update State: <input type="text" placeholder="${user.state}"></p>
+			<p>Update Zip Code: <input type="text" placeholder="${user.zip}"></p>
+			<p>Update Country: <input type="text" placeholder="${user.country}"></p>
+			<p>Update Phone: <input type="text" placeholder="${user.phone}"></p>
+			<p>Update Mobile: <input type="text" placeholder="${user.mobile}"></p>
+			<p>Update Secondary Address: <input type="text" placeholder="${user.secondaryAddress}"></p>
+			<p>Update Coverage Type: <input type="text" placeholder="${user.coverage}"></p>
 		</div>
 		<div class="floatRight">
     		<span><input type="checkbox" id="checkbox">Edit Profile</span>
