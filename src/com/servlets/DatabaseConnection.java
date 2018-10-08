@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *this class creates a connection to our database which can be used in any other class that need to connect to database
  */
 public class DatabaseConnection{
-	Connection connect = null;	
+	Connection connect = null; 	
 	
 	public Connection getConnection() {
 		try {

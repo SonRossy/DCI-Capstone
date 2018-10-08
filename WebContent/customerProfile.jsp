@@ -4,6 +4,7 @@
 <%@page import="java.sql.*"%>
 <%@page import="javax.servlet.http.*"%>
 <%@page import="com.servlets.DatabaseConnection"%>
+<%@page import="com.model.Member"%>
 
 <!DOCTYPE html>
 <html>
@@ -22,60 +23,22 @@
 <jsp:include page="/Header.jsp" />
 <%----  include header ----%>
 
-<%
-	session.getAttribute("email");
-	if(session.getAttribute("email")==null) {
+	<%
+		
+	/* if(session.getAttribute("user")==null) {
 		response.sendRedirect("CustLogin.jsp");
-	} 
+	} */
 	
-	DatabaseConnection connect = new DatabaseConnection();
-	Connection connection = connect.getConnection();
-	String id = null, fname = null, mname = null, lname = null, DOB = null, email = null, street = null,
-			apt = null, city = null, state = null, zip = null, country = null, phone = null, mobile = null, 
-			secondary_address = null, coverage = null;
-	
-%>
+	%>
 
   <div id="customerProfile">
     <div id="userTitleDisplay">
-	  <h1>${first_name} ${last_name}</h1>
+	  <h1>${user.first_name} ${user.last_name}</h1>
 	  <img src="images/avatar.png">
     </div>
     <div id="userFormDisplay">
       <h1>General Info:</h1>
-    	<%
-	    	String queryCI = "Select * from customer_info where email='" +session.getAttribute("email")+ "';";
-	    	
-	    	if (connection!=null) {
-	    		System.out.println("JSP connected");
-	    	} else{
-	    		System.out.println("JSP not connected");
-	    	}
-	    
-	    	try (PreparedStatement pstmt = connection.prepareStatement(queryCI)) {
-				
-				if (pstmt!=null) {
-					System.out.println("JSP CI statement object initialized!");
-				}
-				
-				ResultSet rs = pstmt.executeQuery();
-					while(rs.next()) {
-					id = rs.getString("c_id");
-					fname = rs.getString("first_name");
-					mname = rs.getString("middle_name");
-					lname = rs.getString("last_name");
-					DOB = rs.getString("date_of_birth");
-					email = rs.getString("email");
-					street = rs.getString("street_address");
-					apt = rs.getString("apt_number");
-					city = rs.getString("city");
-					state = rs.getString("state");
-					zip = rs.getString("zip_code");
-					country = rs.getString("country");
-					phone = rs.getString("phone");
-					mobile = rs.getString("mobile");
-					secondary_address = rs.getString("secondary_address");
-		%>		
+    		
 		<p>First Name: <%=fname%></p>	
 		<p>Middle Name: <%=mname%></p>		
 		<p>Last Name: <%=lname%></p>
@@ -90,34 +53,11 @@
 		<p>Phone Number: <%=phone%></p>	
 		<p>Mobile Number: <%=mobile%></p>
 		<p>Secondary Address: <%=secondary_address%></p>
-		<%								
-			}}catch (Exception e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
-	    	}
-    	%>
     	
     	<h1>Coverage Type:</h1> <!-- Can swap out for simple coverage plan type -->
-    	<%
-	    	String queryCS = "Select * from customer_status where c_id=" +id+ ";";
-	    	
-	    	try (PreparedStatement pstmt = connection.prepareStatement(queryCS)) {
-				
-				if (pstmt!=null) {
-					System.out.println("JSP CS statement object initialized!");
-				}
-				
-				ResultSet rs = pstmt.executeQuery();
-					while(rs.next()) {
-						coverage = rs.getString("coverage_type");
-		%>		
+    		
 		<p>Coverage Type: <%=coverage%></p>	
-		<%				
-			}}catch (Exception e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
-	    	}
-    	%>
+		
     	<div id="hidden">
     		<br>
     		<h1>Update Information Below:</h1>
@@ -140,34 +80,6 @@
 		<div class="floatRight">
     		<span><input type="checkbox" id="checkbox">Edit Profile</span>
     	</div>
-    	<%-- <h1>Employment Info:</h1>
-    	<%
-	    	String queryCE = "Select * from customer_employment where c_id=" +id+ ";";
-	    	
-	    	try (PreparedStatement pstmt = connection.prepareStatement(queryCE)) {
-				
-				if (pstmt!=null) {
-					System.out.println("JSP CE statement object initialized!");
-				}
-				
-				ResultSet rs = pstmt.executeQuery();
-					while(rs.next()) {
-		%>		
-		<p>Company Name: <%=rs.getString("company_name")%></p>	
-		<p>Profession: <%=rs.getString("profession")%></p>		
-		<p>Annual Income: <%=rs.getString("annual_income")%></p>
-		<p>Federal Tax ID: <%=rs.getString("fed_tax_id")%></p>
-		<%								
-			}}catch (Exception e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
-			}finally {
-				connection.close();
-			}
-    	%>
-    	<div class="checkbox">
-    	  <input type="checkbox"> Alter
-    	</div> --%>
     </div>
   </div><br><br>
   

@@ -4,17 +4,13 @@
 
     <div class="footer__inner">
     <img id="imgg" src="images/DCItransparent.png">
-    
-    <h3> Contact Us: </h3>
-    <br> Make a claim or any help with customer care.<br><br>
-    General fax: 1-877-280-5587 <br><br>
-
-    <p> Address: Corporate Headquarters<br>
+   
+    <p style="font-size: 12px; width: 100%;text-align: right;padding-top: 119px;"> General fax: 1-877-280-5587<br>Address: Corporate Headquarters<br>
                 DCI Corporation<br>
                 1120 Main Street,<br>
                 Hartford, CT 06103<br>         
-                860-291-8744</p>
-<a href="PrivacyPolicy.jsp">Privacy Policy</a>
+                860-291-8744<br><br>
+<a href="PrivacyPolicy.jsp">Privacy Policy</a></p>
 </div>
  </footer>
 <script>

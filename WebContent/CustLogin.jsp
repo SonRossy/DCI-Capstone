@@ -161,10 +161,21 @@ hr {
 <%----  include header ----%>
 
 <%
-	if(session.getAttribute("email")==null) {
-		out.println("<p style='padding-top:10px;text-indent:250px;font-size:20px;font-weight:bold;color:MidnightBlue;'>Please log in</p>");
+//Code by Clarissa Mercado
+try{
+	//If they are logged in, it will set the attribute and printon page
+	if((session.getAttribute("user") != null)){
+		System.out.println("User Logged In");
+		session.setAttribute("LogIn", "You are logged in.");
+		//redirecting them to DCI home page, later on this can be changed to customer profile
+		//response.sendRedirect("index.jsp");
 	}
+	
+}catch(Exception e){
+	System.out.println(e.getMessage() +":"+ session.getId());
+}		
 %>
+<h3>${LogIn}</h3>
 
 <div id="form-block">
   <div id="form-block--left">
@@ -181,6 +192,8 @@ hr {
     <input type="submit" class="button" value="SUBMIT">
   
 </form>
+
+	${msg}
     </div>
   </div>
   <div id="form-block--right"><img src="images/user-reg-img.png"/></div>
@@ -190,13 +203,17 @@ hr {
 	try{
 		//getting message from LogIn.java whether log in was a succes or not
 		String msg= session.getAttribute("msg").toString();
-		out.print(msg);
+		System.out.println(msg);
+		session.removeAttribute("msg");
+		//session object will no longer be useful
+		session.invalidate();
 		
 	}catch(Exception e){
-		e.getMessage();
+		System.out.println(e.getMessage());
 	}
 		
 	%>
+	
 <%----  include footer ----%>
 <jsp:include page="/Footer.jsp" />
 <%----  include footer ----%>
