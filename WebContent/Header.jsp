@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="com.model.Member" %>
 <header>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
@@ -18,7 +19,18 @@
 
 <div class="hero">
 
-	<h3>${first_name} ${last_name}</h3>
+	<h3>${user.first_name} ${user.last_name}</h3>
+	<h3>${Logout}</h3>
+  <% 
+	if((session.getAttribute("user") != null)){
+	Member member =  (Member)  session.getAttribute("user");
+	String email= member.getUserEmail();
+	String first_name= member.getFirst_name();
+	String last_name= member.getLast_name();
+	System.out.println("Member email from session: " + email);
+	}
+	System.out.println("Session: " + session.getId());
+	%>
   
    <header id="masthead" role="banner">    
       <div class="container">  
@@ -49,6 +61,7 @@
               <li><a href="UserRegistration.jsp">Create an Account</a></li>
                 <li><a href="ApplyingforInsurance.jsp">Apply</a></li>
                 <li><a href="CustLogin.jsp">Login</a></li>
+                <li><a href="LogOut.jsp">LogOut</a></li>
             </ul> 
           </div>
           <div class="col">
