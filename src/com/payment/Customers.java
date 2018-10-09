@@ -14,10 +14,9 @@ public class Customers {
 	private Customer customer;
 	private boolean hasCustomer=false; 
 	
-	public Customers(String email,Customer customer) {
+	public Customers(String email) {
 		
 		this.email = email;
-		this.customer=customer;
 	}
 	
 	/**
