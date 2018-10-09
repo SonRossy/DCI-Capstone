@@ -61,21 +61,16 @@
     	<div id="hidden">
     		<br>
     		<h1>Update Information Below:</h1>
-			<p>Update First Name: <input type="text" placeholder="${user.first_name}"></p>
-			<p>Update Middle Name: <input type="text" placeholder="${user.middle_name}"></p>
-			<p>Update Last Name: <input type="text" placeholder="${user.last_name}"></p>
-			<p>Update Date of Birth: <input type="text" placeholder="${user.DOB}"></p>
-			<p>Update Email: <input type="text" placeholder="${user.userEmail}"></p>
-			<p>Update Primary Address: <input type="text" placeholder="${user.street}"></p>
-			<p>Update Apartment Number: <input type="text" placeholder="${user.apt}"></p>
-			<p>Update City: <input type="text" placeholder="${user.city}"></p>
-			<p>Update State: <input type="text" placeholder="${user.state}"></p>
-			<p>Update Zip Code: <input type="text" placeholder="${user.zip}"></p>
-			<p>Update Country: <input type="text" placeholder="${user.country}"></p>
-			<p>Update Phone: <input type="text" placeholder="${user.phone}"></p>
-			<p>Update Mobile: <input type="text" placeholder="${user.mobile}"></p>
-			<p>Update Secondary Address: <input type="text" placeholder="${user.secondaryAddress}"></p>
-			<p>Update Coverage Type: <input type="text" placeholder="${user.coverage}"></p>
+			<form action="customerProfile" method="post">
+			<p>First Name: <input type="text" name="first_name" value="${user.first_name}" placeholder="${user.first_name}"></p>
+			<p>Middle Name: <input type="text" name="middle_name" value="${user.middle_name}" placeholder="${user.middle_name}"></p>
+			<p>Last Name: <input type="text" name="last_name" value="${user.last_name}" placeholder="${user.last_name}"></p>
+			<p>Email: <input type="text" name="email" value="${user.userEmail}" placeholder="${user.userEmail}"></p>
+			<p>Phone: <input type="text" name="phone" value="${user.phone}" placeholder="${user.phone}"></p>
+			<p>Mobile: <input type="text" name="mobile" value="${user.mobile}" placeholder="${user.mobile}"></p>
+			<p style= color:blue>Please log out, then log back in to see the full effects of your changes.</p>
+				<button type="submit" value="Submit">Update</button>
+			</form>
 		</div>
 		<div class="floatRight">
     		<span><input type="checkbox" id="checkbox">Edit Profile</span>

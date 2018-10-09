@@ -1,7 +1,7 @@
 package com.model;
 /*
  * author Clarissa Mercado
- * Created customer class to associate attributes
+ * Created Member class to associate attributes
  */
 public class Member {
 	//Declaring all attributes
@@ -243,5 +243,13 @@ public class Member {
 		this.coverage = coverage;
 		this.loggedIn = loggedIn;
 	}
+	
+	//Method to Check if the String is empty 
+	public static boolean checkEmpty(String value){
+	    if(value!=null)
+	       return value.isEmpty();
+
+	    return true;
+	 }
 }
 
