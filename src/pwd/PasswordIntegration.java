@@ -6,7 +6,7 @@ public class PasswordIntegration {
 	public static void main(String[] args) {
 		Password encryption1 = new Password(9,334,'q');
 		//password123$%^&((((!!!!!!#$%^^^98hn--++1234@34999990@#$%?/.,
-		String encrpyt1 = encryption1.encode("sonrossy$7");
+		String encrpyt1 = encryption1.encode("Hannah*$%#![]{}");
 		BasicCryptoTest encryption2 = new BasicCryptoTest(StandardCharsets.UTF_8, 6);
 		String encrypt2 = encryption2.encrypt(encrpyt1);
 		pwdEncrypt encryption3 = new pwdEncrypt(2);
