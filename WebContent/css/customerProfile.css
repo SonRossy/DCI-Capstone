@@ -1,14 +1,19 @@
 @charset "ISO-8859-1";
 
-h1 {
-	padding-top: 50px;
-	padding-bottom: 15px;
-}
-
 p {
 	font-weight: bolder;
 	text-indent: 20px;
 	padding-bottom: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+fieldset {
+	padding: 10px 80px 50px 15px;
+	border-width: 5px;
+	border-color: #a2a2bf;
 }
 
 #customerProfile {
@@ -18,6 +23,12 @@ p {
 #userTitleDisplay {
 	float: left;
 	padding-left: 50px;
+}
+
+#userNavField {
+	float: left;
+	display: block;
+	margin-top: 20px;
 }
 
 #userFormDisplay {
@@ -40,4 +51,9 @@ p {
 
 .floatRight {
 	float: right;
+}
+
+.padding {
+	padding-top: 50px;
+	padding-bottom: 15px;
 }

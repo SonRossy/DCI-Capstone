@@ -53,9 +53,9 @@ public class customerProfileServlet extends HttpServlet {
 		    	
 		
 			if (connection!=null) {
-	    		System.out.println("JSP connected");
+	    		System.out.println("Connected");
 	    	} else{
-	    		System.out.println("JSP not connected");
+	    		System.out.println("Not connected");
 	    	}
 			
 			
@@ -71,6 +71,7 @@ public class customerProfileServlet extends HttpServlet {
 					id = rs.getString("c_id");
 					member.setFirst_name(rs.getString("first_name"));
 					member.setMiddle_name(rs.getString("middle_name"));
+					member.setLast_name(rs.getString("last_name"));
 					member.setDOB(rs.getString("date_of_birth"));
 					member.setStreet(rs.getString("street_address"));
 					member.setApt(rs.getString("apt_number"));
@@ -122,52 +123,53 @@ public class customerProfileServlet extends HttpServlet {
 		
 		String userEmail = member.getUserEmail();
 		System.out.println(userEmail);
+		String sql = "UPDATE customer_info SET first_name=?, middle_name=?, last_name=?, email=?, phone=?, mobile=? WHERE email ='" + userEmail + "';";
 		
-		String first_name, middle_name, last_name, email, phone, mobile;
+		String firstName, middleName, lastName, email, phone, mobile;
 		
-		first_name = request.getParameter("first_name");
-		middle_name = request.getParameter("middle_name");
-		last_name = request.getParameter("last_name");
+		firstName = request.getParameter("first_name");
+		middleName = request.getParameter("middle_name");
+		lastName = request.getParameter("last_name");
 		email = request.getParameter("email");
 		phone = request.getParameter("phone");
 		mobile = request.getParameter("mobile");
 		
-		try {
-			if(connection != null)
-			{
-				String sql = "UPDATE customer_info SET first_name=?, middle_name=?, last_name=?, email=?, phone=?, mobile=? WHERE email ='" + userEmail + "';";
-				
-				PreparedStatement pst1 = connection.prepareStatement(sql);
-				
+		try (PreparedStatement pst1 = connection.prepareStatement(sql)) {
+			if (pst1!=null) {
+			
 				System.out.println("Ran update query");
 				
-				pst1.setString(1, first_name);
-				pst1.setString(2, middle_name);
-				pst1.setString(3, last_name);
+				pst1.setString(1, firstName);
+				pst1.setString(2, middleName);
+				pst1.setString(3, lastName);
 				pst1.setString(4, email);
 				pst1.setString(5, phone);
 				pst1.setString(6, mobile);
 				
-				pst1.executeUpdate();
+				if(pst1.executeUpdate()!=0) {
+					member.setFirst_name(firstName);
+					member.setMiddle_name(middleName);
+					member.setLast_name(lastName);
+					member.setUserEmail(email);
+					member.setPhone(phone);
+					member.setMobile(mobile);
+				}
 				
 				System.out.println("Sussessfully updated and saved into the database!");
 				
 				request.setAttribute("user", member);
 				
-				/*RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
-				dispatcher.forward(request, response);*/
+				RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
+				dispatcher.forward(request, response);
 				//request.setAttribute("user", member);
-				response.sendRedirect("index.jsp");
+				//response.sendRedirect("index.jsp");
 				
-				//RequestDispatcher dispatcher = request.getRequestDispatcher("CustLogin.jsp");
-				//dispatcher.forward(request, response);
+				/*RequestDispatcher dispatcher = request.getRequestDispatcher("CustLogin.jsp");
+				dispatcher.forward(request, response);*/
 				
 			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
-		}
-		
-			
-	}
-
+		}		
+	}	
 }
