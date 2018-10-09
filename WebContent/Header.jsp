@@ -73,6 +73,7 @@
             </ul>             
           </div>
           <div class="col">
+          	<!-- Author of customerProfile link: Noel Cortes -->
             <h4>Profile</h4>
             <ul>
               <li><a href="customerProfile">View Profile</a></li>

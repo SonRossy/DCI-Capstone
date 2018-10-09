@@ -35,6 +35,8 @@ public class customerProfileServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    /*Author of doGet method: Noel Cortes*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
@@ -146,6 +148,7 @@ public class customerProfileServlet extends HttpServlet {
 				pst1.setString(5, phone);
 				pst1.setString(6, mobile);
 				
+				/*Author of session object update: Noel Cortes*/
 				if(pst1.executeUpdate()!=0) {
 					member.setFirst_name(firstName);
 					member.setMiddle_name(middleName);

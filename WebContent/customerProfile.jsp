@@ -1,10 +1,6 @@
+<!-- Author of webpage: Noel Cortes -->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-<%@page import="java.sql.*"%>
-<%@page import="javax.servlet.http.*"%>
-<%@page import="com.servlets.DatabaseConnection"%>
-<%@page import="com.model.Member"%>
 
 <!DOCTYPE html>
 <html>
@@ -23,21 +19,15 @@
 <jsp:include page="/Header.jsp" />
 <%----  include header ----%>
 
-	<%
-		
-	/* if(session.getAttribute("user")==null) {
-		response.sendRedirect("CustLogin.jsp");
-	} */
-	
-	%>
-
   <div id="customerProfile">
+    <!-- Displays user's full name and an avatar picture -->
     <div id="userTitleDisplay">
 	  <h1 class="padding">${user.first_name} ${user.last_name}</h1>
 	  <img src="images/avatar.png">
 	  <br>
 	  <div id="userNavField">
         <fieldset>
+          <!-- Quicklinks create navigation side-bar for user -->
           <h1>Quicklinks</h1>
           <ul>
       	    <li><a href="payment.jsp">Payment</a></li>
@@ -51,6 +41,7 @@
         </fieldset>
       </div>
     </div>
+    <!-- Displays user's information -->
     <div id="userFormDisplay">
       <h1 class="padding">General Info:</h1>
     		
@@ -73,6 +64,7 @@
     		
 		<p>Coverage Type: ${user.coverage}</p>	
 		
+		<!-- Hidden form allowing user to update selected information -->
     	<div id="hidden">
     		<br>
     		<h1 class="padding">Update Information Below:</h1>
@@ -92,7 +84,8 @@
     </div>
   </div>
   <br><br><br><br><br><br><br><br><br><br>
-  
+
+<!-- Author of JS: Noel Cortes -->  
 <script>
 
 	let hidden = document.getElementById("hidden");
