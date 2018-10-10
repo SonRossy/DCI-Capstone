@@ -47,10 +47,18 @@
       <div id="hiddenPassword">
       	<fieldset>
 	      <form action="passwordUpdate" method="post">
-	      	<p>Enter password: <input type="password" name="oldPassword"></p>
-	      	<p>Enter new password: <input type="password" name="newPassword"></p>
-	      	<p>Confirm new password: <input type="password" name="confirmNewPassword"></p><br>
+	      		<h4>Update Password</h4>
+	      	<p><label for="oldPassword">Enter password: </label><input type="password" name="oldPassword" name="oldPassword" id="oldPassword" required></p>
+	      	<p>	<label for="newPassword">Enter new password: </label><input type="password" name="newPassword" name="newPassword" id="newPassword" required></p>
+	      	<p>	<label for="confirmNewPassword">Confirm new password: </label><input type="password" name="confirmNewPassword" name="confirmNewPassword" id="confirmNewPassword" required></p><br>
 	      	<input type="submit" value="Update Password">
+	      	<div id="message">
+  				<h4>Password must contain the following:</h4>
+  				<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  				<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  				<p id="number" class="invalid">A <b>number</b></p>
+  				<p id="length" class="invalid">Minimum <b>8 characters</b></p>
+			</div>
 	      </form>
 	    </fieldset>
       </div>
@@ -99,9 +107,9 @@
   </div>
   <br>
 
-<!-- Author of JS functions updateProfile() and updatePassword(): Noel Cortes -->  
+  
 <script>
-
+/* Author of JS functions updateProfile() and updatePassword(): Noel Cortes */ 
 	let hidden = document.getElementById("hidden");
 	
 	function updateProfile(e) {
@@ -128,6 +136,66 @@
 	/* let hiddenPassword = document.getElementById("hiddenPassword");
 	hiddenPassword.addEventListener("click", updatePassword);
  */
+ /* Author of JS functions validatePassword():  Clarissa Mercado  */
+ 	var password = document.getElementById("newPassword");
+	var confirm_password = document.getElementById("confirmNewPassword");
+ 	function validatePassword(){
+  	 if(password.value != confirm_password.value) {
+     	confirm_password.setCustomValidity("Passwords Don't Match");
+  	 } else {
+     confirm_password.setCustomValidity('');
+   	}
+ 	}
+	 password.onchange = validatePassword;
+ 	confirm_password.onkeyup = validatePassword;
+ 	
+ 	var myInput = document.getElementById("newPassword");
+ 	var letter = document.getElementById("letter");
+ 	var capital = document.getElementById("capital");
+ 	var number = document.getElementById("number");
+ 	var length = document.getElementById("length");
+ 	
+ // When the user starts to type something inside the password field
+ 	myInput.onkeyup = function() {
+ 	  // Validate lowercase letters
+ 	  var lowerCaseLetters = /[a-z]/g;
+ 	  if(myInput.value.match(lowerCaseLetters)) { 
+ 	    letter.classList.remove("invalid");
+ 	    letter.classList.add("valid");
+ 	  } else {
+ 	    letter.classList.remove("valid");
+ 	    letter.classList.add("invalid");
+ 	}
+
+ 	  // Validate capital letters
+ 	  var upperCaseLetters = /[A-Z]/g;
+ 	  if(myInput.value.match(upperCaseLetters)) { 
+ 	    capital.classList.remove("invalid");
+ 	    capital.classList.add("valid");
+ 	  } else {
+ 	    capital.classList.remove("valid");
+ 	    capital.classList.add("invalid");
+ 	  }
+
+ 	  // Validate numbers
+ 	  var numbers = /[0-9]/g;
+ 	  if(myInput.value.match(numbers)) { 
+ 	    number.classList.remove("invalid");
+ 	    number.classList.add("valid");
+ 	  } else {
+ 	    number.classList.remove("valid");
+ 	    number.classList.add("invalid");
+ 	  }
+
+ 	  // Validate length
+ 	  if(myInput.value.length >= 8) {
+ 	    length.classList.remove("invalid");
+ 	    length.classList.add("valid");
+ 	  } else {
+ 	    length.classList.remove("valid");
+ 	    length.classList.add("invalid");
+ 	  }
+ }
 </script>
 
 <%----  include footer ----%>
