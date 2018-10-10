@@ -25,6 +25,7 @@ fieldset {
 #userTitleDisplay {
 	float: left;
 	padding-left: 50px;
+	padding-bottom: 100px;
 }
 
 #userNavField {
@@ -33,10 +34,18 @@ fieldset {
 	margin-top: 20px;
 }
 
+#updatePassword {
+	float: left;
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
 #userFormDisplay {
 	display: inline-block;
 	position: relative;
 	left: 200px;
+	padding-bottom: 500px;
 }
 
 #checkbox {
@@ -44,6 +53,10 @@ fieldset {
 }
 
 #hidden {
+	display: none;
+}
+
+#hiddenPassword {
 	display: none;
 }
 

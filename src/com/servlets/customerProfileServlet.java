@@ -40,7 +40,7 @@ public class customerProfileServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-	String id = null;
+	int id = 0;
 	
 	//Getting the session
 	session = request.getSession();
@@ -61,16 +61,17 @@ public class customerProfileServlet extends HttpServlet {
 	    	}
 			
 			
-	    String queryCI = "Select * from customer_info where email='" +userEmail+ "';";
-    	try (PreparedStatement pstmt = connection.prepareStatement(queryCI)) {
+	    String queryCI = "Select * from customer_info where email=?;";
+    	try (PreparedStatement pst = connection.prepareStatement(queryCI)) {
 			
-			if (pstmt!=null) {
+			if (pst!=null) {
 				System.out.println("JSP CI statement object initialized!");
+				pst.setString(1, userEmail);
 			}
 			
-			ResultSet rs = pstmt.executeQuery();
+			ResultSet rs = pst.executeQuery();
 				while(rs.next()) {
-					id = rs.getString("c_id");
+					id = rs.getInt("c_id");
 					member.setFirst_name(rs.getString("first_name"));
 					member.setMiddle_name(rs.getString("middle_name"));
 					member.setLast_name(rs.getString("last_name"));
@@ -90,14 +91,15 @@ public class customerProfileServlet extends HttpServlet {
 				e.printStackTrace();
 	    	}
     	
-    	String queryCS = "Select * from customer_status where c_id=" +id+ ";";
-    	try (PreparedStatement pstmt = connection.prepareStatement(queryCS)) {
+    	String queryCS = "Select * from customer_status where c_id=?;";
+    	try (PreparedStatement pst = connection.prepareStatement(queryCS)) {
 			
-			if (pstmt!=null) {
+			if (pst!=null) {
 				System.out.println("JSP CS statement object initialized!");
+				pst.setInt(1, id);
 			}
 			
-			ResultSet rs = pstmt.executeQuery();
+			ResultSet rs = pst.executeQuery();
 				while(rs.next()) {
 					member.setCoverage(rs.getString("coverage_type"));
 				}
@@ -158,7 +160,7 @@ public class customerProfileServlet extends HttpServlet {
 					member.setMobile(mobile);
 				}
 				
-				System.out.println("Sussessfully updated and saved into the database!");
+				System.out.println("Successfully updated and saved into the database!");
 				
 				request.setAttribute("user", member);
 				

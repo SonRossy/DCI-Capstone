@@ -1,4 +1,5 @@
 <!-- Author of webpage: Noel Cortes -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -37,8 +38,21 @@
             <li><a href="LogOut.jsp">LogOut</a></li>
             <li><a href="Claims.jsp">File a Claim</a></li>
             <li><a href="FAQ.jsp">FAQ</a></li>
+            <li><a href="javascript: updatePassword()">Update Password</a></li>
+            <p style="color:salmon">${message}</p>
           </ul>
         </fieldset>
+      </div>
+      <!-- Hidden form allowing user to update password -->
+      <div id="hiddenPassword">
+      	<fieldset>
+	      <form action="passwordUpdate" method="post">
+	      	<p>Enter password: <input type="password" name="oldPassword"></p>
+	      	<p>Enter new password: <input type="password" name="newPassword"></p>
+	      	<p>Confirm new password: <input type="password" name="confirmNewPassword"></p><br>
+	      	<input type="submit" value="Update Password">
+	      </form>
+	    </fieldset>
       </div>
     </div>
     <!-- Displays user's information -->
@@ -83,9 +97,9 @@
     	</div>
     </div>
   </div>
-  <br><br><br><br><br><br><br><br><br><br>
+  <br>
 
-<!-- Author of JS: Noel Cortes -->  
+<!-- Author of JS functions updateProfile() and updatePassword(): Noel Cortes -->  
 <script>
 
 	let hidden = document.getElementById("hidden");
@@ -102,6 +116,18 @@
 	let chk = document.getElementById("checkbox");
 	chk.addEventListener("change", updateProfile);
 
+	function updatePassword() {
+		let hiddenPassword = document.getElementById("hiddenPassword") || document.getElementById("reveal");
+			if(hiddenPassword.id == "hiddenPassword") {
+				hiddenPassword.id = "reveal";
+			} else {
+				hiddenPassword.id = "hiddenPassword";
+			}
+	}
+	
+	/* let hiddenPassword = document.getElementById("hiddenPassword");
+	hiddenPassword.addEventListener("click", updatePassword);
+ */
 </script>
 
 <%----  include footer ----%>
