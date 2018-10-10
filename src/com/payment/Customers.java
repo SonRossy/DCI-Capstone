@@ -6,6 +6,7 @@ package com.payment;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Customer;
 
@@ -15,7 +16,7 @@ public class Customers {
 	private boolean hasCustomer=false; 
 	
 	public Customers(String email) {
-		
+		Stripe.apiKey="sk_test_vxcMsgXebXYGfdpz6hSTuf3H";
 		this.email = email;
 	}
 	

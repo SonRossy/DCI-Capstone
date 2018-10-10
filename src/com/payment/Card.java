@@ -8,6 +8,7 @@ package com.payment;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
 import com.stripe.model.Customer;
@@ -22,7 +23,7 @@ public class Card {
 	
 	
 	public Card(String number, String exp_month, String exp_year, String cvc) {
-		super();
+		Stripe.apiKey="sk_test_vxcMsgXebXYGfdpz6hSTuf3H";
 		this.number = number;
 		this.exp_month = exp_month;
 		this.exp_year = exp_year;
