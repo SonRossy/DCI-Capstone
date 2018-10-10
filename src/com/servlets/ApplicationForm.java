@@ -141,7 +141,7 @@ public class ApplicationForm extends HttpServlet {
 				pst1.executeUpdate();
 				pst2.executeUpdate();
 				pst3.executeUpdate();
-				
+
 				addCustomerPaymentId(request);
 
 				System.out.println("Sussessfully updated and saved into the database!");
@@ -151,65 +151,67 @@ public class ApplicationForm extends HttpServlet {
 			System.out.println(e.getMessage());
 		}
 	}
-	
-	//code by Son-Rossy Dorvil for PaymentSystem------------------------------------------------------------------------------
+
+	// code by Son-Rossy Dorvil for
+	// PaymentSystem------------------------------------------------------------------------------
 	/**
-	 * this method create a customer id payment in order to create a stripe account for the customer
+	 * this method create a customer id payment in order to create a stripe account
+	 * for the customer
+	 * 
 	 * @param request
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	public void addCustomerPaymentId(HttpServletRequest request) throws SQLException {
 		System.out.println("Callig my function");
-		if(!isCustomerPaymentidOnFile(request)) {
+		if (!isCustomerPaymentidOnFile(request)) {
 			System.out.println("went through");
 			HttpSession session = request.getSession();
-			String email=session.getAttribute("email").toString();
-			if (connection != null && email!=null) {
-				Customers currentCustomer= new Customers(email);
+			String email = session.getAttribute("email").toString();
+			if (connection != null && email != null) {
+				Customers currentCustomer = new Customers(email);
 				currentCustomer.createCustomer();
-				String paymentId=currentCustomer.getCustomerId();
-				System.out.println("payment id here: "+paymentId);
+				String paymentId = currentCustomer.getCustomerId();
+				System.out.println("payment id here: " + paymentId);
 				String sql = "UPDATE customer_info SET payementId=? where email = ? ;";
 				PreparedStatement pst = connection.prepareStatement(sql);
 				pst.setString(1, paymentId);
 				pst.setString(2, email);
 				pst.executeUpdate();
 			}
-			
-		}else{
+
+		} else {
 			System.out.println("did not got through");
 		}
-		
-		
+
 	}
+
 	/**
-	 * this method check whether a a customer already have a payment id on file, if so we will not allow them to create new one
+	 * this method check whether a a customer already have a payment id on file, if
+	 * so we will not allow them to create new one
+	 * 
 	 * @return
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
-	public boolean isCustomerPaymentidOnFile(HttpServletRequest request)  {
+	public boolean isCustomerPaymentidOnFile(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		String email=session.getAttribute("email").toString();
-		String sql="Select payementId from customer_info where email = ?";
+		String email = session.getAttribute("email").toString();
+		String sql = "Select payementId from customer_info where email = ?";
 		try {
 			PreparedStatement pst = connection.prepareStatement(sql);
 			pst.setString(1, email);
-			ResultSet res=pst.executeQuery();
-			System.out.println("Inside isCustomerOnFile "+email);
-			if(res.next()) {
-				
+			ResultSet res = pst.executeQuery();
+			System.out.println("Inside isCustomerOnFile " + email);
+			if (res.next()) {
+				if (res.getString("payementId") != null) {
+					return true;
+				}
 			}
-			if(res.getString("payementId")!=null) {
-			System.out.println("payemntid when true"+res.getString("payementId"));
-				return true;
-			}
-			System.out.println("payemntid when false"+res.getString("payementId"));
 			return false;
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			return true;
+			return true;//in case there is an error, we dont want user to create payment id 
 		}
-		
+
 	}
 
 }
