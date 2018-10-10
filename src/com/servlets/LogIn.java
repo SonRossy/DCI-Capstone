@@ -69,6 +69,7 @@ public class LogIn extends HttpServlet {
 			stmt = connection.prepareStatement(sqlQuery);
 			stmt.setString(1,email);
 			stmt.setString(2, psw);
+			psw=null;
 			
 			//saving data fetched from above in the resultset object 
 			rs = stmt.executeQuery();
