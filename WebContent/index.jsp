@@ -146,7 +146,7 @@ width: -webkit-fill-available;
 <%----  include header ----%>
 <section id="screen1">
 
-    <a href="PlanOption.html">
+    <a href="PlanOption.jsp">
         <button id="button" type="button"> APPLY TODAY </button> </a>
         
     <p> <br> <br><br></p>
