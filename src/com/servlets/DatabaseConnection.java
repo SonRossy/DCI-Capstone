@@ -20,7 +20,7 @@ public class DatabaseConnection{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	
 	
-	
+
 		 	connect=DriverManager.getConnection("jdbc:mysql://sql3.freemysqlhosting.net:3306/sql3259516?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","sql3259516","ClnmVEeuCQ");
 	
 			if(connect!=null){

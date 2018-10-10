@@ -9,7 +9,7 @@ public class Member {
 	private String first_name;
 	private String last_name;
 	private String loggedIn;
-	
+	 
 	//Setters & Getters 
 	public String getUserEmail() {
 		return userEmail;
