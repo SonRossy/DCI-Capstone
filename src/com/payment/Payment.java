@@ -80,9 +80,13 @@ public class Payment {
 	
 	public static void main(String[] args) throws StripeException {
 		Payment payment=new Payment();
-		//Gson gson =new GsonBuilder().setPrettyPrinting().create();//so i can display object in json format
+		Map<String,Object> exmaple=new HashMap<>();
+		Gson gson =new GsonBuilder().setPrettyPrinting().create();//so i can display object in json format
+		String target2 = gson.toJson(retrieveCustomer("cus_Dky6gzagJjvN58"));
+		HashMap values=gson.fromJson(target2,HashMap.class);
 		//System.out.println(gson.toJson(retrieveCustomer("cus_DiGn9ztegZfopH")));
-		payment.chargeCustomer();
+		//payment.chargeCustomer();
+		System.out.println(target2);
 	}
 
 }
