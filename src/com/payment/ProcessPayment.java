@@ -63,8 +63,6 @@ public class ProcessPayment extends HttpServlet {
 				String customerId= res.getString("payementId");
 				chargeCustomer( request, customerId);
 				session.setAttribute("paymentMessage", "Successfull");
-				System.out.println(customerId);
-				
 			}
 		} catch (SQLException | StripeException e) {
 			e.printStackTrace();
@@ -72,8 +70,6 @@ public class ProcessPayment extends HttpServlet {
 			response.sendRedirect("payment.jsp");
 			
 		}
-		String[] cardInfo=getFieldFromFrom(request);
-		System.out.println(cardInfo[0]);
 	}
 	
 	/**
@@ -94,7 +90,7 @@ public class ProcessPayment extends HttpServlet {
 	}
 	
 	/**
-	 * 
+	 * this method charge a customer
 	 * @param request
 	 * @param customerId
 	 * @throws StripeException
@@ -104,7 +100,7 @@ public class ProcessPayment extends HttpServlet {
 		String[] cardInfo=getFieldFromFrom(request);
 		Card card=new Card(cardInfo[1],cardInfo[2],cardInfo[3],cardInfo[4]);
 	 if(request.getParameter("save")=="on") {
-		 
+		 //check main in Payment.java
 	 }
 	 else {
 		 //add new card

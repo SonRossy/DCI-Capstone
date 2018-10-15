@@ -80,7 +80,7 @@ public class Payment {
 	
 	public static void main(String[] args) throws StripeException {
 		Payment payment=new Payment();
-		Map<String,Object> exmaple=new HashMap<>();
+		//Map<String,Object> exmaple=new HashMap<>();
 		Gson gson =new GsonBuilder().setPrettyPrinting().create();//so i can display object in json format
 		String target2 = gson.toJson(retrieveCustomer("cus_Dky6gzagJjvN58"));
 		HashMap values=gson.fromJson(target2,HashMap.class);
