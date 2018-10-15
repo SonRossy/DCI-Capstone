@@ -90,14 +90,14 @@
     	<div id="hidden">
     		<br>
     		<h1 class="padding">Update Information Below:</h1>
-			<form action="customerProfile" method="post">
-			<p>First Name: <input type="text" name="first_name" value="${user.first_name}" placeholder="${user.first_name}"></p>
-			<p>Middle Name: <input type="text" name="middle_name" value="${user.middle_name}" placeholder="${user.middle_name}"></p>
-			<p>Last Name: <input type="text" name="last_name" value="${user.last_name}" placeholder="${user.last_name}"></p>
-			<p>Email: <input type="text" name="email" value="${user.userEmail}" placeholder="${user.userEmail}"></p>
-			<p>Phone: <input type="text" name="phone" value="${user.phone}" placeholder="${user.phone}"></p>
-			<p>Mobile: <input type="text" name="mobile" value="${user.mobile}" placeholder="${user.mobile}"></p>
-				<button type="submit" value="Submit">Update</button>
+			<form id="updateform" action="customerProfile" method="post">
+			<p>First Name: <input type="text" name="first_name" id="first_name" value="${user.first_name}" placeholder="${user.first_name}"></p>
+			<p>Middle Name: <input type="text" name="middle_name" id="middle_name" value="${user.middle_name}" placeholder="${user.middle_name}"></p>
+			<p>Last Name: <input type="text" name="last_name" id="last_name" value="${user.last_name}" placeholder="${user.last_name}"></p>
+			<p>Email: <input type="text" name="email" id="email" value="${user.userEmail}" placeholder="${user.userEmail}"></p>
+			<p>Phone: <input type="text" name="phone" id="phone" value="${user.phone}" placeholder="${user.phone}" ></p>
+			<p>Mobile: <input type="text" name="mobile" id="mobile" value="${user.mobile}" placeholder="${user.mobile}" ></p>
+				<button type="submit" value="Submit" onclick="return Validate()">Update</button>
 			</form>
 		</div>
 		<div class="floatRight">
@@ -136,7 +136,7 @@
 	/* let hiddenPassword = document.getElementById("hiddenPassword");
 	hiddenPassword.addEventListener("click", updatePassword);
  */
- /* Author of JS functions validatePassword():  Clarissa Mercado  */
+ /* Author of JS functions validatePassword() and its contents:  Clarissa Mercado  */
  	var password = document.getElementById("newPassword");
 	var confirm_password = document.getElementById("confirmNewPassword");
  	function validatePassword(){
@@ -196,6 +196,46 @@
  	    length.classList.add("invalid");
  	  }
  }
+ 
+/*  Funtions to validate the Update Section */
+  // return value.match(/\d/g).length===10;
+ //Validate Phone #
+let thePhone = document.getElementById("phone");
+	thePhone.addEventListener("submit", validatePhone());
+function validatePhone() {
+	alert("falseooo");
+		var userPhone = document.getElementById("phone").value;
+	   	var patternReturn = /^\d{10}/;
+	if (!patternReturn.test(userPhone)) {
+		alert("fal");   
+		return false;  	  
+	}
+	else {
+		return true;
+	}}
+
+//Validate Email
+var theEmail = document.getElementById("email");
+	theEmail.addEventListener("submit", validateEmail());
+function validateEmail() {
+	  var x = document.forms["updateform"]["email"].value;
+	  //var userEmail = document.getElementById("email").value;
+	  var re = /[^\s@]+@[^\s@]+\.[^\s@]+/;
+	    if(!re.test(x)) {
+	    	alert("false");
+	    	return false;
+	    }else {
+	    	alert("true");
+	    	return true;
+	    }
+	  }  
+
+function Validate(){
+	if( validateEmail() ==='false' || validatePhone() ==='false'){
+		alert("Please fill in field correctly");
+		return false;
+}
+}
 </script>
 
 <%----  include footer ----%>
