@@ -63,12 +63,12 @@ public class Card {
 	 * @param amount
 	 * @param customer
 	 */
-	public void chargeCard(String amount, Customer customer) {
+	public void chargeCard(String amount, String customerId) {
 		Map<String,Object> chargeParam=new HashMap<>();
 		chargeParam.put("amount", amount);
 		chargeParam.put("currency", "usd");
 		//now we have to add customer  to be charged
-		chargeParam.put("customer", customer.getId());
+		chargeParam.put("customer", customerId);
 		//now it's time to initiate the charge
 		try {
 			Charge.create(chargeParam);

@@ -186,6 +186,7 @@ public class ApplicationForm extends HttpServlet {
 	}
 
 	/**
+	 * author:Son-Rossy
 	 * this method check whether a a customer already have a payment id on file, if
 	 * so we will not allow them to create new one
 	 * 
@@ -206,7 +207,7 @@ public class ApplicationForm extends HttpServlet {
 					return true;
 				}
 			}
-			return false;
+			return false;//in case customer is not on file
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return true;//in case there is an error, we dont want user to create payment id 

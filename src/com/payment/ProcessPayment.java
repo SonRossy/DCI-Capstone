@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
+/** Author:Son-Rossy
  * Servlet implementation class ProcessPayment
  */
 @WebServlet("/ProcessPayment")
@@ -25,7 +25,6 @@ public class ProcessPayment extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -33,8 +32,23 @@ public class ProcessPayment extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String[] cardInfo=getFieldFromFrom(request);
+		System.out.println(cardInfo[0]);
+	}
+	
+	/**
+	 * 
+	 * @param request
+	 * @return an array of card Information from fields.
+	 */
+	private String[] getFieldFromFrom(HttpServletRequest request) {
+		String name=request.getParameter("cardname");
+		String cardNumber=request.getParameter("cardnumber");
+		String expMonth=request.getParameter("expmonth");
+		String expYear=request.getParameter("expyear");
+		String cvv=request.getParameter("cvv");
+		String[] cardInfo= {name,cardNumber,expMonth,expYear,cvv};
+		return cardInfo;
 	}
 
 }
