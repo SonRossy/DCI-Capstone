@@ -68,11 +68,12 @@ public class Payment {
 		chargeParam.put("currency", "usd");//meaning dollar
 		Customer newCustomer=Customer.retrieve("cus_Dj2PsW0JY9SfXg");
 		
-		//now we have to add customer  to be charged
-		chargeParam.put("customer", newCustomer.getId());
 		
+		//now we have to add customer  to be charged
+		//chargeParam.put("customer", newCustomer.getId());
+		System.out.println(newCustomer.getSources());
 		//now it's time to initiate the charge
-		Charge.create(chargeParam);
+		//Charge.create(chargeParam);
 		
 	}
 	

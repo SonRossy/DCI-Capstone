@@ -4,8 +4,10 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 <style>
 body {
 	font-family: Arial;
@@ -143,6 +145,18 @@ span.price {
 								<label for="cvv">CVV</label> <input type="text" id="cvv"
 									name="cvv" placeholder="352">
 							</div>
+							
+						</div>
+						<div class="row" >
+							<div class="col-50" >
+							<input type="checkbox" id="save" name="save" >
+								<label style="display: inline-block;" class="checkbox-inline" for="expyear">Use saved card</label> 
+							</div>
+							<div class="col-50">
+							${paymentMessage}
+							</div>
+							
+							
 						</div>
 
 					</div>
