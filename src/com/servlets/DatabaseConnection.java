@@ -8,7 +8,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * 
  * @author tristesse08
  *this class creates a connection to our database which can be used in any other class that need to connect to database
  */
@@ -18,7 +17,6 @@ public class DatabaseConnection{
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-	
 	
 
 		 	connect=DriverManager.getConnection("jdbc:mysql://sql3.freemysqlhosting.net:3306/sql3259516?trueSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","sql3259516","ClnmVEeuCQ");
