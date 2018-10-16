@@ -4,7 +4,6 @@
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="javascript/capstone.js"></script>
@@ -456,9 +455,9 @@ label {
 	
 							<select name="income" style="height:3.8rem" required="required" class="form-control selectDropState" placeholder="status" id="state">
 								<option value="0">N/A</option>
-								<option value="1">Less than 32000K</option>
-								<option value="2">Greater than 32000K Less than 85000K</option>
-								<option value="3">Above 85000K</option>
+								<option value="1">Less than 32K</option>
+								<option value="2">Greater than 32K Less than 85000K</option>
+								<option value="3">Above 85K</option>
 							</select>
 							<br>
 							 <label class="header">Please enter your Federal Tax ID:</label>

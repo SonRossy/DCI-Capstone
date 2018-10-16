@@ -14,8 +14,7 @@ header, footer, nav, section, article, hgroup, figure {
 }
 
 #topdci{
-float: right;
-width:170px;
+width:120px;
 overflow: hidden;
  margin-top: -21px;
 }
@@ -93,7 +92,7 @@ Making sure everything in .hero sits above our :after elements
   color: inherit;
   cursor: pointer;
   display: inline-block;
-  float: left;
+  float: right;
   font: inherit;
   margin: 0.8125em 0 0;
   overflow: visible; 
@@ -204,7 +203,6 @@ Making sure everything in .hero sits above our :after elements
   flex-direction: column; 
   height: 0;
   overflow: hidden;
-  padding-top: 1.5em;
 }
 
 #site-nav.is-active {
@@ -429,7 +427,7 @@ p{
   font-size: 15px;
 }
 #imgg{
-
+    padding-top: 65px;
 float: right;
 
 width:18%;

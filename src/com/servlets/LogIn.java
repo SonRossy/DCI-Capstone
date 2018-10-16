@@ -5,6 +5,7 @@ package com.servlets;
  */
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.model.Member;
 
 /**
  * Servlet implementation class LogIn
@@ -55,22 +58,28 @@ public class LogIn extends HttpServlet {
 		session = request.getSession();
 		
 		//declaring objects
-		Statement stmt=null;
+		PreparedStatement stmt=null;
 		ResultSet rs = null;
 		
 		try{
-			
 			//String sqlQuery = "SELECT email FROM customer_info where email='"+ email +"';";
-			String sqlQuery= "SELECT * FROM customer_info where email= '"+email+"' and password= '"+psw+"';";
+			String sqlQuery= "SELECT * FROM customer_info where email= ? and password=?;";
 			//running above in mySQL
-			stmt = connection.createStatement();
+			stmt = connection.prepareStatement(sqlQuery);
+			stmt.setString(1,email);
+			stmt.setString(2, psw);
+			psw=null;
+			
 			//saving data fetched from above in the resultset object 
-			rs = stmt.executeQuery(sqlQuery);
+			rs = stmt.executeQuery();
 			System.out.println("Ran query");
+			
+			//Creating new Member object 
+			Member member = new Member();
 			
 			//code by Son-Rossy
 			if(rs.next()){
-				//if there is a result then it means the user successfully logged in
+				/*//if there is a result then it means the user successfully logged in
 				String userEmail=rs.getString("email");
 				String first_name=rs.getString("first_name");
 				String last_name=rs.getString("last_name");
@@ -79,15 +88,16 @@ public class LogIn extends HttpServlet {
 				//usage of session
 				session.setAttribute("email", userEmail);
 				session.setAttribute("first_name", first_name);
-				session.setAttribute("last_name", last_name);
+				session.setAttribute("last_name", last_name);*/
 				
-				//connect to other servlet 
+				member.setUserEmail(rs.getString("email"));
+				member.setFirst_name(rs.getString("first_name"));
+				member.setLast_name(rs.getString("last_name"));
 				
-				/*RequestDispatcher rd = request.getRequestDispatcher("ApplicationForm");
-				rd.forward(request, response);*/
+				session.setAttribute("user", member);
+				System.out.println("User object created and now associated with session. " + session.getId());
 				
-				/*//redirect to Application HTML
-				String redirectURL = "ApplicationForm";*/
+				//redirect to Homepage
 				response.sendRedirect("index.jsp");
 				
 			}

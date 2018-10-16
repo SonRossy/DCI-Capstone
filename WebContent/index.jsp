@@ -5,7 +5,6 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
-<script src="https://cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="css/unify.css">
@@ -14,7 +13,7 @@
 
 <style type="text/css">
 #screen1 {
-    background-image: url("images/homepage.png");
+    background-image: url("images/drbaby.png");
     background-size: cover;
     max-height: max-content;
 }
@@ -46,7 +45,6 @@
 
 
 #screen1 p {
-    color: black;
     padding-left: 10%;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -58,8 +56,8 @@
 #screen2  {
     max-height: max-content;
     padding-top: 5%;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 15%;
+    padding-right: 15%;
     padding-bottom: 5%;
 
 }
@@ -67,39 +65,31 @@
 #screen2 h3 {
     text-align: center;
     padding-top: 3%;
-    padding-bottom: 1%;
+    padding-bottom: 3%;
     font-family: 'open-sans-bold', AvenirNext-Medium, sans-serif;
-    color: grey;
+    color: #495C70;
     font-size: 23px;
-
-}
-#screen2 h3 {
-	text-align:left;
-	padding-top: 3%;
-	padding-bottom: 1%;
-	font-family: 'open-sans-bold', AvenirNext-Medium, sans-serif;
-	color: grey;
-	font-size: 23px;
 
 }
 
 .grid-container {
     width: 100%;
     height: auto;
-    display: grid;
     grid-template-columns: auto auto auto;
-    padding: 10px;
-    margin-top: 10%%;
+    margin-top: 5%;
+    margin-bottom: 9%;
+    display: inline-grid;
 }
-
+.grid-container p{
+margin:auto;
+}
 .grid-item {
 
-    padding: 2%;
+    padding: 4%;
     text-align: left;
     align-items: center;
     font-size: 30px;
-    color:black;
-    text-align: left;
+    text-align: left; 
 }
 
 .grid-item img {
@@ -108,7 +98,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
     width: 50px;
     height: 50px;
 }
@@ -121,12 +110,13 @@
     padding-bottom: 2%;
 }
 input[type=submit] {
-    background-color: #009ac9;
-    color: white;
+    background-color: #8E93A9;
+    color: #292B31;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    
 }
 #screen3 img {
     padding-right: 5%;
@@ -136,13 +126,16 @@ input[type=submit] {
 }
 
 #fname, #lname{
-color:#8E93A9;
-padding:5px;
-width:20%;
+color:#fff;
+
+padding:10px;
+
+
 }
 #subject{
 color: #8E93A9;
-width:40%;
+padding: 10px;
+width: -webkit-fill-available;
 
 }
 </style>
@@ -153,7 +146,7 @@ width:40%;
 <%----  include header ----%>
 <section id="screen1">
 
-    <a href="PlanOption.html">
+    <a href="PlanOption.jsp">
         <button id="button" type="button"> APPLY TODAY </button> </a>
         
     <p> <br> <br><br></p>
@@ -205,16 +198,14 @@ width:40%;
         With 60 percent of our employees staying with the company for five or more years, and more than 32 percent for at least 8 years.
         Our company is known for its exceptional customer service and its continued commitment to giving back to the communities it serves. </p>
 
-
+	<br>
     <h3> OUR MISSION</h3>
 
 
     <p>Our mission is to be the number one insurance company provider that creates a win-win partnership with our customers and provide utmost care, timely respond and support.</p>
-
-
-
-
-    <h1>Core values:</h1>
+	<br>
+	
+    <h2 style="text-align: center; text-align: center;padding-top: 8%; color:#495C70;font-family: 'open-sans-bold', AvenirNext-Medium, sans-serif;">DCI's core values</h2>
 
 
     <div class="grid-container">
@@ -225,7 +216,8 @@ width:40%;
 
             <img src="images/people.png"/>
 
-            <p>Respect and trust our customers as well as our employees and satisfaction and positive workplace culture for our employees. </p>
+            <p>Respect and trust is essential for our business's success. The satisfaction of our customers, as well as our own employees, are of the utmost 
+             importance. A positive experience for all is one of the core values of the Doctor Casualty Insurance Corporation. </p>
 
         </div>
 
@@ -236,17 +228,19 @@ width:40%;
 
             <img src = "images/planet.png"/>
 
-            <p>Be sustainable (leave less carbon foot print, less paper usage and recycle).</p>
+            <p>DCI is committed to leaving a smaller carbon footprint and running an ethical, sustainable business.
+            We emphasize health, not just of people, but of our planet as well.</p>
 
         </div>
 
         <div class="grid-item">
 
-            <h3> Confidentiality </h3>
+            <h3 style="margin-top: -4px;"> Confidentiality </h3>
 
             <img src= "images/confedentiality.png"></img>
 
-            <p>Keep our files, records and conservation confidential.</p>
+            <p>The nature of health insurance requires strict privacy policies and inpenetrable firewalls. 
+            Our talented team of cyber security analysts ensure your files, records, and any personal information is confidential.</p>
         </div>
 
 
@@ -256,50 +250,60 @@ width:40%;
 
             <img src= "images/partnership.png"></img>
 
-            <p> Win and win situation for all</p>
+            <p> We partner with small, local businesses in the New England area to help them grow and succeed.  Small business as are the 
+            life blood of a successful economy, and we offer discounts and benefits in order to help the businesses that make our area great.</p>
         </div>
 
 
         <div class="grid-item">
 
+            <h3> Assistance </h3>
+
+            <img src= "images/support.png"></img>
+
+            <p>We ensure constant availability of customer support and assistance.</p>
+
+        </div>
+
+        <div class="grid-item">
+
+     
             <h3> Integrity </h3>
 
             <img src= "images/integrity.png"></img>
 
-            <p>Fact-finding and it is designed to help us better serve our customers,the quality of being honest and having strong moral principles and not lying, or, doing what you said you would do.</p>
-
-        </div>
-
-        <div class="grid-item">
-
-            <h3> Support </h3>
-
-            <img src= "images/integrity.png"></img>
-
-            <p>We pride ourselves on running an honest, customer centered business.</p>
+            <p>Our business is built off of the principle of integrity. Unlike other insurance companies, what we say is what we mean.
+            If any client ever feels we are in violation of our strict integrity policy, please contact our 24/7 customer hotline, or 
+            send us a message via the contact form below.</p>
 
         </div>
 
 </section>
 <section id="screen3">
 
-<h3 style="text-align:center; color:#292B31">DCI is available 24 hours a day, 7 days a week</h3>
- <br> <h4 style="text-align:center; color:#292B31">Contact us through our email, by phone or fill in the below form.</h4>
+<h4 style="color: #fff; text-transform: uppercase;font-weight: 100;"> DCI is available 24 hours a day, 7 days a week
+ <br> Contact us through our email, by phone or fill in the below form.</h4>
 <br>
 <div class="container">
-  <form action="action" style="color:#8E93A9">
+  <form action="action" style="color:#fff">
 
-    <label for="fname">First Name</label>
+    <label for="fname"">First Name</label>
     <br>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <br>
+    <input type="text" id="fname" name="firstname" placeholder="first name">
+    <br>
     <br>
     <label for="lname">Last Name</label>
     <br>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
     <br>
-    <label for="subject">Subject</label>
+    <input type="text" id="lname" name="lastname" placeholder="last name">
     <br>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <br>
+    <label for="subject""> Subject</label>
+    <br>
+    <br>
+    <textarea id="subject" name="subject" placeholder="type here..." style="height:200px";padding: 10px;></textarea>
+    <br>
     <br>
     <input type="submit" value="Submit">
   </form>
