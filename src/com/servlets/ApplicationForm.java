@@ -2,7 +2,7 @@
 package com.servlets;
 /*
  * author Clarissa Mercado
- * Connects to Applyingforinsurance.html to local dataase
+ * Connects Applyingforinsurance.jsp to database
  */
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -55,9 +55,6 @@ public class ApplicationForm extends HttpServlet {
 	 */
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-
-//		String fname, mname, lname, sex, primaryaddress, aptnumber, city, state, country, zip, mailingaddress, citizen, imstatus, status, statehouseholdmems, marital, ethnicity, disabled, job, compName, vet, income, taxid; 
 		String middle_name, SSN, street_address, apt_number, city, state, zip_code, country, phone, mobile, secondary_address;	
 		String ethnicity, gender, veteran, disability, citizenship, immigration, marital_status, number_of_dependents;
 		String company_name, profession, annual_income, fed_tax_id;
