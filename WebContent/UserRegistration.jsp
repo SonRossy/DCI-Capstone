@@ -204,6 +204,18 @@ hr {
 <jsp:include page="/Header.jsp" />
 <%----  include header ----%>
 
+<%
+/* Author:Clarissa Mercado
+	Below checks if the user is signed in, if so it will redirect to customer profile
+	so that they can no fill out the account again. */
+	HttpSession sessions = request.getSession();
+	if(session.getAttribute("user") !=null) {
+	response.sendRedirect("customerProfile.jsp");
+	} else {
+	System.out.println("The user is not signed in.");
+}	
+%>
+
 <form role = "form" action = "RegistrationServlet" method ="post">
 <div id="form-block">
   <div id="form-block--left">
