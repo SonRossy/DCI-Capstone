@@ -46,7 +46,7 @@
       <!-- Hidden form allowing user to update password -->
       <div id="hiddenPassword">
       	<fieldset>
-	      <form action="passwordUpdate" method="post">
+	      <form action="passwordUpdate" onsubmit="return checkAll()" method="post">
 	      		<h4>Update Password</h4>
 	      	<p><label for="oldPassword">Enter password: </label><input type="password" name="oldPassword" name="oldPassword" id="oldPassword" required></p>
 	      	<p>	<label for="newPassword">Enter new password: </label><input type="password" name="newPassword" name="newPassword" id="newPassword" required></p>
@@ -90,14 +90,16 @@
     	<div id="hidden">
     		<br>
     		<h1 class="padding">Update Information Below:</h1>
-			<form id="updateform" action="customerProfile" method="post">
-			<p>First Name: <input type="text" name="first_name" id="first_name" value="${user.first_name}" placeholder="${user.first_name}"></p>
-			<p>Middle Name: <input type="text" name="middle_name" id="middle_name" value="${user.middle_name}" placeholder="${user.middle_name}"></p>
-			<p>Last Name: <input type="text" name="last_name" id="last_name" value="${user.last_name}" placeholder="${user.last_name}"></p>
-			<p>Email: <input type="text" name="email" id="email" value="${user.userEmail}" placeholder="${user.userEmail}"></p>
-			<p>Phone: <input type="text" name="phone" id="phone" value="${user.phone}" placeholder="${user.phone}" ></p>
-			<p>Mobile: <input type="text" name="mobile" id="mobile" value="${user.mobile}" placeholder="${user.mobile}" ></p>
-				<button type="submit" value="Submit" onclick="return Validate()">Update</button>
+			<form id="updateform" action="customerProfile" onsubmit="return Validate()" method="post">
+				<p>First Name: <input type="text" name="first_name" id="first_name" value="${user.first_name}" placeholder="${user.first_name}"></p>
+				<p>Middle Name: <input type="text" name="middle_name" id="middle_name" value="${user.middle_name}" placeholder="${user.middle_name}"></p>
+				<p>Last Name: <input type="text" name="last_name" id="last_name" value="${user.last_name}" placeholder="${user.last_name}"></p>
+				<p>Email: <input type="email" name="email" id="email" onblur="validateEmail()" value="${user.userEmail}" placeholder="${user.userEmail}" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Please enter phone number similar ex: person@email.com"></p>
+					<%-- <p>Phone: <input type="text" name="phone" id="phone" onblur="Validate()" value="${user.phone}" placeholder="${user.phone}" ></p> --%>
+				<p>Phone: <input type="text" name="phone" id="phone" onblur="validatePhone()" value="${user.phone}" placeholder="${user.phone}" pattern="^\d{10}" title="Please enter phone number similar ex: 1234567890"></p>
+				<p>Mobile: <input type="text" name="mobile" id="mobile" value="${user.mobile}" placeholder="${user.mobile}" ></p>
+					<!-- <button type="submit" value="Submit" onclick="return Validate()">Update</button> -->
+				<button id="submit" type="submit" value="Submit">Update</button>
 			</form>
 		</div>
 		<div class="floatRight">
@@ -105,20 +107,20 @@
     	</div>
     </div>
   </div>
-  <br>
+  <br><br>
 
   
 <script>
-/* Author of JS functions updateProfile() and updatePassword(): Noel Cortes */ 
+/*Start: Author of JS functions updateProfile() and updatePassword(): Noel Cortes */ 
 	let hidden = document.getElementById("hidden");
 	
 	function updateProfile(e) {
 		let target = e.target || e.srcElement;
-		    if (target.checked) {
-		      hidden.id = 'reveal';
-		    }else{
-			  hidden.id = 'hidden';
-		    }
+	    if (target.checked) {
+	      hidden.id = 'reveal';
+	    }else{
+		  hidden.id = 'hidden';
+	    }
 	}
 	
 	let chk = document.getElementById("checkbox");
@@ -126,12 +128,14 @@
 
 	function updatePassword() {
 		let hiddenPassword = document.getElementById("hiddenPassword") || document.getElementById("reveal");
-			if(hiddenPassword.id == "hiddenPassword") {
-				hiddenPassword.id = "reveal";
-			} else {
-				hiddenPassword.id = "hiddenPassword";
-			}
+		if(hiddenPassword.id == "hiddenPassword") {
+			hiddenPassword.id = "reveal";
+		} else {
+			hiddenPassword.id = "hiddenPassword";
+		}
 	}
+/*End: Author of JS functions updateProfile() and updatePassword(): Noel Cortes */ 
+
 	
 	/* let hiddenPassword = document.getElementById("hiddenPassword");
 	hiddenPassword.addEventListener("click", updatePassword);
@@ -195,49 +199,65 @@
  	    length.classList.remove("valid");
  	    length.classList.add("invalid");
  	  }
+ 	
  }
  
+/*Start: Author of checkAll(): Noel Cortes */ 
+ 	function checkAll() {
+ 		var letter = document.getElementById("letter");
+ 	 	var capital = document.getElementById("capital");
+ 	 	var number = document.getElementById("number");
+ 	 	var length = document.getElementById("length");
+ 	 	
+ 	 	if(length.classList.contains("invalid") || number.classList.contains("invalid") || 
+ 	 		capital.classList.contains("invalid") || letter.classList.contains("invalid")) {
+ 	 		return false;
+ 	 	}
+ 	}
+/*End: Author of checkAll(): Noel Cortes */ 
+
+ 
+/*Start: Author of JS functions updateProfile() and updatePassword(): Naresh Kc
+ * Contributor: Noel Cortes
+ */
 /*  Funtions to validate the Update Section */
   // return value.match(/\d/g).length===10;
  //Validate Phone #
-let thePhone = document.getElementById("phone");
-	thePhone.addEventListener("submit", validatePhone());
 function validatePhone() {
-	alert("falseooo");
-		var userPhone = document.getElementById("phone").value;
-	   	var patternReturn = /^\d{10}/;
-	if (!patternReturn.test(userPhone)) {
-		alert("fal");   
+	let userPhone = document.getElementById("phone");
+	let patternReturn = /^\d{10}/;
+	if (!patternReturn.test(userPhone.value) || Number(userPhone.value)>=(1000*1000*1000*10)) {
 		return false;  	  
 	}
 	else {
 		return true;
-	}}
+	}
+}
 
 //Validate Email
-var theEmail = document.getElementById("email");
-	theEmail.addEventListener("submit", validateEmail());
 function validateEmail() {
-	  var x = document.forms["updateform"]["email"].value;
-	  //var userEmail = document.getElementById("email").value;
-	  var re = /[^\s@]+@[^\s@]+\.[^\s@]+/;
-	    if(!re.test(x)) {
-	    	alert("false");
-	    	return false;
-	    }else {
-	    	alert("true");
-	    	return true;
-	    }
-	  }  
+	let x = document.forms["updateform"]["email"].value;
+	let re = /[^\s@]+@[^\s@]+\.[^\s@]+/;
+	if(!re.test(x)) {
+    	return false;
+    }
+	else {
+    	return true;
+    }
+}  
 
 function Validate(){
-	if( validateEmail() ==='false' || validatePhone() ==='false'){
-		alert("Please fill in field correctly");
+	console.log("here on Validate()");
+	if(validateEmail() === false || validatePhone() === false){
 		return false;
+	} 
+	else {
+		return true;
+	}
 }
-}
-</script>
+/*End: Author of JS functions updateProfile() and updatePassword(): Noel Cortes */ 
 
+</script>
 <%----  include footer ----%>
 <jsp:include page="/Footer.jsp" />
 <%----  include footer ----%>

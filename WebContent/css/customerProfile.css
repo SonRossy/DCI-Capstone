@@ -19,13 +19,14 @@ fieldset {
 }
 
 #customerProfile {
-	display: inline;
+	display: inline-block;
+	margin-bottom: 5px;
 }
 
 #userTitleDisplay {
 	float: left;
 	padding-left: 50px;
-	padding-bottom: 100px;
+	padding-bottom: 50px;
 }
 
 #userNavField {
@@ -45,7 +46,7 @@ fieldset {
 	display: inline-block;
 	position: relative;
 	left: 200px;
-	padding-bottom: 500px;
+	padding-bottom: 300px;
 }
 
 #checkbox {
