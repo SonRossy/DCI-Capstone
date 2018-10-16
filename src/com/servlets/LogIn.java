@@ -25,7 +25,7 @@ import com.model.Member;
 public class LogIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	HttpSession session = null;
-	DatabaseConnection connect = new DatabaseConnection();
+	DatabaseConnection connect = new DatabaseConnection();        
 	Connection connection = connect.getConnection();
    
 	

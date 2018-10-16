@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.model.Member;
+
 
 /**
  * Servlet implementation class ApplicationForm
@@ -32,7 +34,8 @@ public class ApplicationForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DatabaseConnection connects = new DatabaseConnection();
 	Connection connection = connects.getConnection();
-
+	Member member = null;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -60,10 +63,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		String company_name, profession, annual_income, fed_tax_id;
 		
 		HttpSession session = request.getSession();
-		//grabbing the saved email attribtue from LogIn servlet
-		String email = (String) session. getAttribute("email");
-		System.out.println("Email from gsession: " + email);
 		
+		member = (Member) session.getAttribute("user");
+		String userEmail = member.getUserEmail();
 		
 		//get fields for table: customer_info
 		middle_name = request.getParameter("mname");
@@ -100,9 +102,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			{	
 				
 
-				String sql = "UPDATE customer_info SET middle_name=?,SSN = ?, street_address=?, apt_number=?, city=?, state=?, zip_code=?, country=?, secondary_address =?, phone=? WHERE email ='" + email + "';";
-				String sql2= "UPDATE customer_status SET ethnicity=?, gender=?, veteran=?, disability=?, citizenship=?, immigration=?, marital_status=?, number_of_dependents=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '" + email + "'));" ;
-				String sql3= "UPDATE customer_employment SET company_name=?, profession=?, annual_income=?, fed_tax_id=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '" + email + "'));" ;
+				String sql = "UPDATE customer_info SET middle_name=?,SSN = ?, street_address=?, apt_number=?, city=?, state=?, zip_code=?, country=?, secondary_address =?, phone=? WHERE email ='" + userEmail + "';";
+				String sql2= "UPDATE customer_status SET ethnicity=?, gender=?, veteran=?, disability=?, citizenship=?, immigration=?, marital_status=?, number_of_dependents=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '" + userEmail + "'));" ;
+				String sql3= "UPDATE customer_employment SET company_name=?, profession=?, annual_income=?, fed_tax_id=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '" + userEmail + "'));" ;
 				
 				PreparedStatement pst1 = connection.prepareStatement(sql);
 				PreparedStatement pst2 = connection.prepareStatement(sql2);
