@@ -99,8 +99,9 @@ public class ProcessPayment extends HttpServlet {
 		Customer customer=Customer.retrieve(customerId);
 		String[] cardInfo=getFieldFromFrom(request);
 		Card card=new Card(cardInfo[1],cardInfo[2],cardInfo[3],cardInfo[4]);
-	 if(request.getParameter("save")=="on") {
+	 if(request.getParameter("save").equals("on")) {
 		 //check main in Payment.java
+		 card.chargeCard("5000", customerId);
 	 }
 	 else {
 		 //add new card
