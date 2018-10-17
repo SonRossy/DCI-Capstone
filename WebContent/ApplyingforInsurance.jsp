@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="com.model.Member" %>
 <html>
 
 <head>
@@ -225,6 +226,16 @@ label {
 <jsp:include page="/Header.jsp" />
 <%----  include header ----%>
 
+<%
+/* Author:Clarissa Mercado
+	Below checks if the user is signed in and if no it will redirect to login. */
+	HttpSession sessions = request.getSession();
+	
+	if(session.getAttribute("user") ==null) { //if user == null, they are not signed in
+		response.sendRedirect("CustLogin.jsp");
+	}
+%>
+
 <div class="stepwizard" style="margin-top: 5%">
     <div class="stepwizard-row setup-panel">
         <div class="stepwizard-step">
@@ -249,6 +260,8 @@ label {
     <div class="row setup-content" id="step-1">
         <div class="col-xs-12">
             <div class="col-md-12">
+            	<h4>${AppDone}</h4> 
+            	<h4>${App}</h4>
                 <h3> Step 1</h3>
                 <div class="form-group">
                     <label class="control-label">First Name</label>

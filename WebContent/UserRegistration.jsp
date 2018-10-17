@@ -160,6 +160,39 @@ hr {
   border-left: 1px solid #939AA8;
   border-radius: 0px 10px 10px 0px;
 }
+#message {
+    display:none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+#message p {
+    padding: 8px 30px;
+    font-size: 14px;
+}
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "\2713";
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "\2716";
+}
 
 </style>
 
@@ -170,6 +203,18 @@ hr {
 <%----  include header ----%>
 <jsp:include page="/Header.jsp" />
 <%----  include header ----%>
+
+<%
+/* Author:Clarissa Mercado
+	Below checks if the user is signed in, if so it will redirect to customer profile
+	so that they can no fill out the account again. */
+	HttpSession sessions = request.getSession();
+	if(session.getAttribute("user") !=null) {
+	response.sendRedirect("customerProfile.jsp");
+	} else {
+	System.out.println("The user is not signed in.");
+}	
+%>
 
 <form role = "form" action = "RegistrationServlet" method ="post">
 <div id="form-block">
@@ -203,6 +248,13 @@ title="Enter a date in this format YYYY-MM-DD"/>
  	 <p> By submitting this form, you accept our <a href = "PrivacyPolicy.html">privacy policy</a><br>
 
    <input type="submit" class="button" value="SUBMIT">
+   		<div id="message">
+  				<h4>Password must contain the following:</h4>
+  				<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  				<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  				<p id="number" class="invalid">A <b>number</b></p>
+  				<p id="length" class="invalid">Minimum <b>8 characters</b></p>
+		</div>
     </div>
    	<p class="bottom-text">You can also sign in using an email address <a class="email-link" href="#" title="Sign in by Email">USE YOUR EMAIL &#8594;</a></p>
  	 </div>
@@ -221,6 +273,67 @@ title="Enter a date in this format YYYY-MM-DD"/>
   }
   password.onchange = validatePassword;
   confirm_password.onkeyup = validatePassword;
+ 
+  /* Functions to validate password content - Author:Clarissa Mercado */
+  var myInput = document.getElementById("psw");
+  var letter = document.getElementById("letter");
+  var capital = document.getElementById("capital");
+  var number = document.getElementById("number");
+  var length = document.getElementById("length");
+
+  // When the user clicks on the password field, show the message box
+  myInput.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+  }
+
+  // When the user clicks outside of the password field, hide the message box
+  myInput.onblur = function() {
+    document.getElementById("message").style.display = "none";
+  }
+
+  // When the user starts to type something inside the password field
+  myInput.onkeyup = function() {
+    // Validate lowercase letters
+    var lowerCaseLetters = /[a-z]/g;
+    if(myInput.value.match(lowerCaseLetters)) { 
+      letter.classList.remove("invalid");
+      letter.classList.add("valid");
+    } else {
+      letter.classList.remove("valid");
+      letter.classList.add("invalid");
+  }
+
+    // Validate capital letters
+    var upperCaseLetters = /[A-Z]/g;
+    if(myInput.value.match(upperCaseLetters)) { 
+      capital.classList.remove("invalid");
+      capital.classList.add("valid");
+    } else {
+      capital.classList.remove("valid");
+      capital.classList.add("invalid");
+    }
+
+    // Validate numbers
+    var numbers = /[0-9]/g;
+    if(myInput.value.match(numbers)) { 
+      number.classList.remove("invalid");
+      number.classList.add("valid");
+    } else {
+      number.classList.remove("valid");
+      number.classList.add("invalid");
+    }
+
+    // Validate length
+    if(myInput.value.length >= 8) {
+      length.classList.remove("invalid");
+      length.classList.add("valid");
+    } else {
+      length.classList.remove("valid");
+      length.classList.add("invalid");
+    }
+  }
+  
+  
 </script>
 <%----  include footer ----%>
 <jsp:include page="/Footer.jsp" />

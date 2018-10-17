@@ -1,0 +1,107 @@
+/* Author of CSS file: Noel Cortes */
+
+@charset "UTF-8";
+
+p {
+	font-weight: bolder;
+	text-indent: 20px;
+	padding-bottom: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+fieldset {
+	padding: 10px 80px 50px 15px;
+	border-width: 5px;
+	border-color: #a2a2bf;
+}
+
+#customerProfile {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+#userTitleDisplay {
+	float: left;
+	padding-left: 50px;
+	padding-bottom: 50px;
+}
+
+#userNavField {
+	float: left;
+	display: block;
+	margin-top: 20px;
+}
+
+#updatePassword {
+	float: left;
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+#userFormDisplay {
+	display: inline-block;
+	position: relative;
+	left: 200px;
+	padding-bottom: 300px;
+}
+
+#checkbox {
+	float: right;
+}
+
+#hidden {
+	display: none;
+}
+
+#hiddenPassword {
+	display: none;
+}
+
+#reveal {
+	display: static;
+}
+
+.floatRight {
+	float: right;
+}
+
+.padding {
+	padding-top: 50px;
+	padding-bottom: 15px;
+}
+
+/* Author: Clarissa Mercado
+Added CSS for password checking */
+
+#message {
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "\2713";
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "\2716";
+}

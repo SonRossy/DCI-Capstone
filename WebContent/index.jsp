@@ -285,7 +285,7 @@ width: -webkit-fill-available;
  <br> Contact us through our email, by phone or fill in the below form.</h4>
 <br>
 <div class="container">
-  <form action="action" style="color:#fff">
+  <form action="#top" style="color:#fff">
 
     <label for="fname"">First Name</label>
     <br>

@@ -6,7 +6,7 @@ import com.stripe.model.Customer;
 
 /*
  * author Clarissa Mercado
- * Connects to Applyingforinsurance.html to local dataase
+ * Connects Applyingforinsurance.jsp to database
  */
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,6 +27,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.model.Member;
+
 /**
  * Servlet implementation class ApplicationForm
  */
@@ -35,6 +37,11 @@ public class ApplicationForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DatabaseConnection connects = new DatabaseConnection();
 	Connection connection = connects.getConnection();
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	Member member = null;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -56,12 +63,10 @@ public class ApplicationForm extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 
-//		String fname, mname, lname, sex, primaryaddress, aptnumber, city, state, country, zip, mailingaddress, citizen, imstatus, status, statehouseholdmems, marital, ethnicity, disabled, job, compName, vet, income, taxid; 
-		String middle_name, SSN, street_address, apt_number, city, state, zip_code, country, phone, mobile,
-				secondary_address;
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String middle_name, SSN, street_address, apt_number, city, state, zip_code, country, phone, mobile, secondary_address;	
 		String ethnicity, gender, veteran, disability, citizenship, immigration, marital_status, number_of_dependents;
 		String company_name, profession, annual_income, fed_tax_id;
 
@@ -71,6 +76,12 @@ public class ApplicationForm extends HttpServlet {
 		System.out.println("Email from gsession: " + email);
 
 		// get fields for table: customer_info
+		
+		member = (Member) session.getAttribute("user");
+		String userEmail = member.getUserEmail();
+		
+		//get fields for table: customer_info
+
 		middle_name = request.getParameter("mname");
 		SSN = request.getParameter("ssn");
 		street_address = request.getParameter("primaryaddress");
@@ -99,15 +110,16 @@ public class ApplicationForm extends HttpServlet {
 		fed_tax_id = request.getParameter("taxid");
 
 		String msg = "";
-		try {
-			if (connection != null) {
 
-				String sql = "UPDATE customer_info SET middle_name=?,SSN = ?, street_address=?, apt_number=?, city=?, state=?, zip_code=?, country=?, secondary_address =?, phone=? WHERE email ='"
-						+ email + "';";
-				String sql2 = "UPDATE customer_status SET ethnicity=?, gender=?, veteran=?, disability=?, citizenship=?, immigration=?, marital_status=?, number_of_dependents=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '"
-						+ email + "'));";
-				String sql3 = "UPDATE customer_employment SET company_name=?, profession=?, annual_income=?, fed_tax_id=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '"
-						+ email + "'));";
+		try{
+			if(connection != null)
+			{	
+				
+
+				String sql = "UPDATE customer_info SET middle_name=?,SSN = ?, street_address=?, apt_number=?, city=?, state=?, zip_code=?, country=?, secondary_address =?, phone=? WHERE email ='" + userEmail + "';";
+				String sql2= "UPDATE customer_status SET ethnicity=?, gender=?, veteran=?, disability=?, citizenship=?, immigration=?, marital_status=?, number_of_dependents=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '" + userEmail + "'));" ;
+				String sql3= "UPDATE customer_employment SET company_name=?, profession=?, annual_income=?, fed_tax_id=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '" + userEmail + "'));" ;
+				
 
 				PreparedStatement pst1 = connection.prepareStatement(sql);
 				PreparedStatement pst2 = connection.prepareStatement(sql2);
@@ -186,9 +198,8 @@ public class ApplicationForm extends HttpServlet {
 	}
 
 	/**
-	 * author:Son-Rossy
-	 * this method check whether a a customer already have a payment id on file, if
-	 * so we will not allow them to create new one
+	 * author:Son-Rossy this method check whether a a customer already have a
+	 * payment id on file, if so we will not allow them to create new one
 	 * 
 	 * @return
 	 * @throws SQLException
@@ -207,12 +218,12 @@ public class ApplicationForm extends HttpServlet {
 					return true;
 				}
 			}
-			return false;//in case customer is not on file
+			return false;// in case customer is not on file
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			return true;//in case there is an error, we dont want user to create payment id 
+			return true;// in case there is an error, we dont want user to create payment id
 		}
- 
+
 	}
 
 }
