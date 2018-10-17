@@ -83,9 +83,9 @@
 		<p>Secondary Address: ${user.secondaryAddress}</p>
     	
     	<h1 class="padding">Coverage Type:</h1>
-    		
 		<p>Coverage Type: ${user.coverage}</p>	
-		
+		<p>${cpaymentMessage}</p>
+    	<p>${paymentDate}</p> 
 		<!-- Hidden form allowing user to update selected information -->
     	<div id="hidden">
     		<br>

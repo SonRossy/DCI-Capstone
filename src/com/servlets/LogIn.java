@@ -79,16 +79,7 @@ public class LogIn extends HttpServlet {
 			
 			//code by Son-Rossy
 			if(rs.next()){
-				/*//if there is a result then it means the user successfully logged in
-				String userEmail=rs.getString("email");
-				String first_name=rs.getString("first_name");
-				String last_name=rs.getString("last_name");
-				System.out.println("Email from the database: " + userEmail);
-				
-				//usage of session
-				session.setAttribute("email", userEmail);
-				session.setAttribute("first_name", first_name);
-				session.setAttribute("last_name", last_name);*/
+				//if there is a result then it means the user successfully logged in
 				
 				member.setUserEmail(rs.getString("email"));
 				member.setFirst_name(rs.getString("first_name"));

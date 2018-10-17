@@ -25,6 +25,7 @@ import com.stripe.model.Customer;
 
 
 
+
 /** Author:Son-Rossy
  * Servlet implementation class ProcessPayment
  */
@@ -70,6 +71,8 @@ public class ProcessPayment extends HttpServlet {
 			session.setAttribute("paymentMessage", e.getMessage());
 			response.sendRedirect("payment.jsp");
 			
+		}catch(Exception e) {
+			response.sendRedirect("index.jsp");
 		}
 	}
 	
@@ -96,8 +99,9 @@ public class ProcessPayment extends HttpServlet {
 	 * @param customerId
 	 * @throws StripeException
 	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	private void chargeCustomer(HttpServletRequest request,HttpServletResponse response, String customerId) throws StripeException, IOException {
+	private void chargeCustomer(HttpServletRequest request,HttpServletResponse response, String customerId) throws StripeException, IOException, ServletException {
 		Customer customer=Customer.retrieve(customerId);
 		String[] cardInfo=getFieldFromFrom(request);
 		System.out.println(" son request "+request.getParameter("save"));
@@ -108,13 +112,24 @@ public class ProcessPayment extends HttpServlet {
 			 session.setAttribute("paymentMessage", "you have no card on file");
 			 response.sendRedirect("payment.jsp");
 		 }
-		 card.chargeCard("5000", customerId);
-		 session.setAttribute("paymentMessage", Card.message);
+		 else {
+			 card.chargeCard("5000", customerId);
+			 session.setAttribute("cpaymentMessage", Card.cmessage);
+			 session.setAttribute("paymentMessage", Card.message);
+			 session.setAttribute("paymentDate", Card.paymentDate);
+			 //session.getRequestDispatcher("customerProfile.jsp").forward(request, response);
+			 response.sendRedirect("customerProfile.jsp");
+		 }
+		 
 	 }
 	 else{
 		 //add new card
 		 card.addCard(customer);
 		 card.chargeCard("4000", customerId);
+		 session.setAttribute("cpaymentMessage", Card.cmessage);
+		 session.setAttribute("paymentMessage", Card.message);
+		 session.setAttribute("paymentDate", Card.paymentDate);
+		 response.sendRedirect("customerProfile.jsp");
 	 }
 	}
 

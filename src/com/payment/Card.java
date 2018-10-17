@@ -18,10 +18,15 @@ import com.stripe.model.Token;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.stripe.Stripe;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class Card {
 
 	public static String message;
+	public static String cmessage;
+	public static String paymentDate;
 	private String number;
 	private String exp_month;
 	private String exp_year;
@@ -80,9 +85,11 @@ public class Card {
 		// now it's time to initiate the charge
 		try {
 			Charge.create(chargeParam);
-			message="successful";
+			cmessage="successful";
+			paymentDate=("Last Payment was on "+new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
 		} catch (StripeException e) {
 			message=e.getMessage();
+			cmessage="not successful";
 			e.printStackTrace();
 		}
 	}
