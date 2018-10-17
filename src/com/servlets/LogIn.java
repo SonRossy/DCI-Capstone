@@ -95,6 +95,7 @@ public class LogIn extends HttpServlet {
 				member.setLast_name(rs.getString("last_name"));
 				
 				session.setAttribute("user", member);
+				session.setAttribute("paymentId", rs.getString("payementId"));
 				System.out.println("User object created and now associated with session. " + session.getId());
 				
 				//redirect to Homepage

@@ -1,20 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-	<%@page import="com.model.Member" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="com.model.Member" %>
+
 <!DOCTYPE html>
 <html>
 <%
-//Code by Clarissa Mercado
+//code by Son-Rossy
 try{
-	//If they are logged in, it will set the attribute and printon page
+	//did customer log in? if no send them to log in page
 	if((session.getAttribute("user") == null)){
-		//session.setAttribute("LogIn", "You are logged in.");
-		//redirecting them to DCI home page, later on this can be changed to customer profile
 		response.sendRedirect("CustLogin.jsp");
+	}
+	//did customer apply? if no send them to application form
+	if(session.getAttribute("paymentId") == null){
+		response.sendRedirect("ApplyingforInsurance.jsp");
 	}
 	
 }catch(Exception e){
-	System.out.println(e.getMessage() +":"+ session.getId());
+	System.out.println("here "+e);
 }		
 %>
 <head>
