@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.model.Member;
 import com.servlets.DatabaseConnection;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
@@ -53,7 +54,8 @@ public class ProcessPayment extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		session = request.getSession();
-		String email = session.getAttribute("email").toString();
+		String email =((Member) (session.getAttribute("user"))).getUserEmail();
+		System.out.println("email from son "+email);
 		String sql="Select payementId from customer_info where email like ?";
 		try {
 			PreparedStatement pst = connection.prepareStatement(sql);
@@ -61,8 +63,7 @@ public class ProcessPayment extends HttpServlet {
 			ResultSet res=pst.executeQuery();
 			if (res.next()) {
 				String customerId= res.getString("payementId");
-				chargeCustomer( request, customerId);
-				session.setAttribute("paymentMessage", "Successfull");
+				chargeCustomer( request,response, customerId);
 			}
 		} catch (SQLException | StripeException e) {
 			e.printStackTrace();
@@ -94,16 +95,23 @@ public class ProcessPayment extends HttpServlet {
 	 * @param request
 	 * @param customerId
 	 * @throws StripeException
+	 * @throws IOException 
 	 */
-	private void chargeCustomer(HttpServletRequest request, String customerId) throws StripeException {
+	private void chargeCustomer(HttpServletRequest request,HttpServletResponse response, String customerId) throws StripeException, IOException {
 		Customer customer=Customer.retrieve(customerId);
 		String[] cardInfo=getFieldFromFrom(request);
+		System.out.println(" son request "+request.getParameter("save"));
 		Card card=new Card(cardInfo[1],cardInfo[2],cardInfo[3],cardInfo[4]);
-	 if(request.getParameter("save").equals("on")) {
-		 //check main in Payment.java
+	 if(request.getParameter("save")!=null) {
+		 //
+		 if(!Card.hasCardOnFile(customerId)) {
+			 session.setAttribute("paymentMessage", "you have no card on file");
+			 response.sendRedirect("payment.jsp");
+		 }
 		 card.chargeCard("5000", customerId);
+		 session.setAttribute("paymentMessage", Card.message);
 	 }
-	 else {
+	 else{
 		 //add new card
 		 card.addCard(customer);
 		 card.chargeCard("4000", customerId);

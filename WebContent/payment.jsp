@@ -170,17 +170,17 @@ span.price {
 								<label style="display: inline-block;" class="checkbox-inline" for="expyear">Use saved card</label> 
 							</div>
 							<div class="col-50">
-							${paymentMessage}
+							
 							</div>
 							
 							
 						</div>
-
+						<p style="color:red">${paymentMessage}</p>
 					</div>
 				</div>
 				<input type="submit" value="Continue to checkout" class="btn">
 		</form>
-
+		
 	</div>
 
 
