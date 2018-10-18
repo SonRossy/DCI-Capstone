@@ -103,6 +103,14 @@ public class LogIn extends HttpServlet {
 			System.out.print("Cause: "+ e.getMessage());
 			
 		}
+		finally {
+		      try {
+		         if (stmt != null) { stmt.close(); }
+		      }
+		      catch (Exception e) {
+		         // log this error
+		      }
 	}
 
+}
 }
