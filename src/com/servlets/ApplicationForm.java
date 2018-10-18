@@ -157,6 +157,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 				addCustomerPaymentId(request);
 
 				System.out.println("Sussessfully updated and saved into the database!");
+				response.sendRedirect("index.jsp");
 
 			}
 		} catch (Exception e) {
