@@ -16,12 +16,21 @@
 try{
 
 	session.removeAttribute("user");
+	session.removeAttribute("cpaymentMessage");
+	session.removeAttribute("paymentDate");
+	session.removeAttribute("paymentMessage");
 	session.invalidate();
 	//Redirect to homepage 
 	response.sendRedirect("index.jsp");
 
 }catch(Exception e){
 	System.out.println(e.getMessage());
+	session.removeAttribute("user");
+	session.removeAttribute("cpaymentMessage");
+	session.removeAttribute("paymentDate");
+	session.removeAttribute("paymentMessage");
+	session.invalidate();
+	response.sendRedirect("index.jsp");
 }
 %>
 

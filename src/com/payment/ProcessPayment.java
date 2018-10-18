@@ -72,6 +72,7 @@ public class ProcessPayment extends HttpServlet {
 			response.sendRedirect("payment.jsp");
 			
 		}catch(Exception e) {
+			session.invalidate();
 			response.sendRedirect("index.jsp");
 		}
 	}
@@ -79,7 +80,7 @@ public class ProcessPayment extends HttpServlet {
 	/**
 	 * 
 	 * @param request
-	 * @return an array of card Information from fields.
+	 * @return an array of card Information from html form fields.
 	 */
 	private String[] getFieldFromFrom(HttpServletRequest request) {
 		String name=request.getParameter("cardname");

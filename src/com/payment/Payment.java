@@ -13,7 +13,7 @@ import com.stripe.model.Token;
 /**
  * 
  * @author Son-Rossy Dorvil
- *in this class we are implementing payment for customers
+ *ignore this class, this was for learning and testing purspose, it will be deleted soon
  *
  */
 public class Payment {

@@ -85,7 +85,7 @@ public class Card {
 		// now it's time to initiate the charge
 		try {
 			Charge.create(chargeParam);
-			cmessage="successful";
+			cmessage="payment successful";
 			paymentDate=("Last Payment was on "+new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
 		} catch (StripeException e) {
 			message=e.getMessage();
