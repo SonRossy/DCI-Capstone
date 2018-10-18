@@ -49,12 +49,6 @@ public class RegistrationServlet extends HttpServlet {
 		String first_name, last_name, date_of_birth, email, password, password1;
 		session = request.getSession();
 		
-		if (connection==null) {
-			System.out.println("Didn't connect!");
-		}else {
-			System.out.println("Connected!");
-		}
-
 		first_name = request.getParameter("first-name");
 		last_name = request.getParameter("last-name");
 		date_of_birth = request.getParameter("dateOfBirth");
@@ -85,7 +79,6 @@ public class RegistrationServlet extends HttpServlet {
 					pst1.executeUpdate();
 					pst2.executeUpdate();
 					pst3.executeUpdate();
-					System.out.println("No repeat email!");
 					response.sendRedirect("CustLogin.jsp");
 				}
 			} catch (Exception e) {
@@ -94,7 +87,6 @@ public class RegistrationServlet extends HttpServlet {
 		}
 		
 		else {
-			System.out.println("email already exist");
 			request.setAttribute("msgFromRegistrationServlet", "email already exist");
 			RequestDispatcher dispatcher=request.getRequestDispatcher("/UserRegistration.jsp");
 			dispatcher.forward(request,response);		
@@ -120,9 +112,7 @@ public class RegistrationServlet extends HttpServlet {
 				if(rs.next()) {
 					return true;
 				}
-					
-				
-				
+							
 			} catch (SQLException e) {
 				e.printStackTrace();
 
@@ -130,7 +120,6 @@ public class RegistrationServlet extends HttpServlet {
 			}
 			
 			return false;
-
 		}
 
 }

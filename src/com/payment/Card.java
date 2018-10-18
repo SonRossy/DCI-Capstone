@@ -41,9 +41,7 @@ public class Card {
 	}
 
 	/**
-	 * this method returns void and take a Customer parameter to whom the card will
-	 * be added
-	 * 
+	 * this method returns void and take a Customer parameter to whom the card will be added
 	 * @param customer
 	 * @throws StripeException
 	 */
@@ -71,8 +69,7 @@ public class Card {
 	}
 
 	/**
-	 * this method returns void, it charges the amount passed to the customer passed
-	 * 
+	 * this method returns void, it charges the amount passed to the customer
 	 * @param amount
 	 * @param customer
 	 */
@@ -95,10 +92,8 @@ public class Card {
 	}
 
 	/**
-	 * this method check if customer has a card on file
-	 * 
 	 * @param customerId
-	 * @return
+	 * @return true if customer has a card on file ir false if not
 	 */
 	public static boolean hasCardOnFile(String customerId) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();

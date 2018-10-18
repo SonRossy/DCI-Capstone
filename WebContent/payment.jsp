@@ -166,7 +166,7 @@ span.price {
 						</div>
 						<div class="row" >
 							<div class="col-50" >
-							<input type="checkbox" id="save" name="save" >
+							<input id="check" type="checkbox" id="save" name="save" >
 								<label style="display: inline-block;" class="checkbox-inline" for="expyear">Use saved card</label> 
 							</div>
 							<div class="col-50">
@@ -188,5 +188,25 @@ span.price {
 		
 		<img src="images/payment2.jpg" style="opacity:0.5;filter:alpha(opacity=40);"alt="Forest" width="700" height="570"  />
 		
+		<script>
+		document.getElementById('check').onclick = function() {
+			   if (!this.checked) {
+				   document.getElementById('cname').disabled = false;
+				   document.getElementById('ccnum').disabled = false;
+				   document.getElementById('expmonth').disabled = false;
+				   document.getElementById('expyear').disabled = false;
+				   document.getElementById('cvv').disabled = false;
+				   console.log("uncheked");
+			      //this.click();
+			   }else if(this.checked){
+				   document.getElementById('cname').disabled = true;
+				   document.getElementById('ccnum').disabled = true;
+				   document.getElementById('expmonth').disabled = true;
+				   document.getElementById('expyear').disabled = true;
+				   document.getElementById('cvv').disabled = true;
+				   console.log("checked");
+			   }
+			}
+		</script>
 
 </html>

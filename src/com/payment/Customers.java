@@ -40,9 +40,8 @@ public class Customers {
 	}
 	
 	/**
-	 * this method returns a customer according to id passed in the parameter
 	 * @param id
-	 * @return
+	 * @return a customer according to id passed in the parameter
 	 * @throws StripeException
 	 */
 	public  Customer retrieveCustomer(String id) throws StripeException {
@@ -51,8 +50,7 @@ public class Customers {
 	}
 	
 	/**
-	 * this method return customer id to be saved in database once the customer was successfully created
-	 * @return
+	 * @return customer id to be saved in database once the customer was successfully created
 	 */
 	public String getCustomerId() {
 		if(hasCustomer) {

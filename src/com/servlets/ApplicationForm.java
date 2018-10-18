@@ -64,9 +64,11 @@ public class ApplicationForm extends HttpServlet {
 	 *      response)
 	 */
 
-protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String middle_name, SSN, street_address, apt_number, city, state, zip_code, country, phone, mobile, secondary_address;	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String middle_name, SSN, street_address, apt_number, city, state, zip_code, country, phone, mobile,
+				secondary_address;
 		String ethnicity, gender, veteran, disability, citizenship, immigration, marital_status, number_of_dependents;
 		String company_name, profession, annual_income, fed_tax_id;
 
@@ -76,11 +78,11 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		System.out.println("Email from gsession: " + email);
 
 		// get fields for table: customer_info
-		
+
 		member = (Member) session.getAttribute("user");
 		String userEmail = member.getUserEmail();
-		
-		//get fields for table: customer_info
+
+		// get fields for table: customer_info
 
 		middle_name = request.getParameter("mname");
 		SSN = request.getParameter("ssn");
@@ -111,15 +113,15 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 		String msg = "";
 
-		try{
-			if(connection != null)
-			{	
-				
+		try {
+			if (connection != null) {
 
-				String sql = "UPDATE customer_info SET middle_name=?,SSN = ?, street_address=?, apt_number=?, city=?, state=?, zip_code=?, country=?, secondary_address =?, phone=? WHERE email ='" + userEmail + "';";
-				String sql2= "UPDATE customer_status SET ethnicity=?, gender=?, veteran=?, disability=?, citizenship=?, immigration=?, marital_status=?, number_of_dependents=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '" + userEmail + "'));" ;
-				String sql3= "UPDATE customer_employment SET company_name=?, profession=?, annual_income=?, fed_tax_id=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '" + userEmail + "'));" ;
-				
+				String sql = "UPDATE customer_info SET middle_name=?,SSN = ?, street_address=?, apt_number=?, city=?, state=?, zip_code=?, country=?, secondary_address =?, phone=? WHERE email ='"
+						+ userEmail + "';";
+				String sql2 = "UPDATE customer_status SET ethnicity=?, gender=?, veteran=?, disability=?, citizenship=?, immigration=?, marital_status=?, number_of_dependents=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '"
+						+ userEmail + "'));";
+				String sql3 = "UPDATE customer_employment SET company_name=?, profession=?, annual_income=?, fed_tax_id=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '"
+						+ userEmail + "'));";
 
 				PreparedStatement pst1 = connection.prepareStatement(sql);
 				PreparedStatement pst2 = connection.prepareStatement(sql2);
@@ -156,7 +158,6 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 				addCustomerPaymentId(request);
 
-				System.out.println("Sussessfully updated and saved into the database!");
 				response.sendRedirect("index.jsp");
 
 			}
@@ -199,10 +200,10 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	}
 
 	/**
-	 * author:Son-Rossy this method check whether a a customer already have a
-	 * payment id on file, if so we will not allow them to create new one
+	 * author:Son-Rossy
 	 * 
-	 * @return
+	 * @return true if a customer already have a payment id on file, else return
+	 *         false
 	 * @throws SQLException
 	 */
 	public boolean isCustomerPaymentidOnFile(HttpServletRequest request) {

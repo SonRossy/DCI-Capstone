@@ -52,7 +52,6 @@ public class LogIn extends HttpServlet {
 		//getting parameters from the login form from CustLogin.jsp
 		String email=request.getParameter("email");
 		String psw=request.getParameter("psw");
-		System.out.println("Get email as parameter: " + email);
 		
 		//creating session
 		session = request.getSession();
@@ -104,7 +103,6 @@ public class LogIn extends HttpServlet {
 			System.out.print("Cause: "+ e.getMessage());
 			
 		}
-		//response.getWriter().append("<h1>Login page creation in process<h1/> ").append(request.getContextPath());
 	}
 
 }

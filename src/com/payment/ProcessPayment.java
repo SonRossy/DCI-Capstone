@@ -95,7 +95,7 @@ public class ProcessPayment extends HttpServlet {
 	}
 	
 	/**
-	 * this method charge a customer
+	 * this method charge a customer default payment is now $50
 	 * @param request
 	 * @param customerId
 	 * @throws StripeException
