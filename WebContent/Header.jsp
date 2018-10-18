@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="com.model.Member" %>
+<%@page import="com.model.Member" %> 
 <header>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
@@ -70,6 +70,13 @@
               <li><a href="Claims.jsp">File a Claim</a></li>
               <li><a href="FAQ.jsp">FAQ</a></li>
               <li><a href="#"></a></li>
+            </ul>             
+          </div>
+          <div class="col">
+          	<!-- Author of customerProfile link: Noel Cortes -->
+            <h4>Profile</h4>
+            <ul>
+              <li><a href="customerProfile">View Profile</a></li>
             </ul>             
           </div>
          

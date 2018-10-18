@@ -49,12 +49,6 @@ public class RegistrationServlet extends HttpServlet {
 		String first_name, last_name, date_of_birth, email, password, password1;
 		session = request.getSession();
 		
-		if (connection==null) {
-			System.out.println("Didn't connect!");
-		}else {
-			System.out.println("Connected!");
-		}
-
 		first_name = request.getParameter("first-name");
 		last_name = request.getParameter("last-name");
 		date_of_birth = request.getParameter("dateOfBirth");
@@ -63,7 +57,7 @@ public class RegistrationServlet extends HttpServlet {
 		password1 = request.getParameter("psw-repeat");
 
 		String msg = "";
-		if(!isRepeatEmail(request, response)) {
+		if(!isRepeatEmail(email)) {
 
 			try {
 				if (connection != null) {
@@ -85,12 +79,17 @@ public class RegistrationServlet extends HttpServlet {
 					pst1.executeUpdate();
 					pst2.executeUpdate();
 					pst3.executeUpdate();
-					System.out.println("No repeat email!");
 					response.sendRedirect("CustLogin.jsp");
 				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
+		}
+		
+		else {
+			request.setAttribute("msgFromRegistrationServlet", "email already exist");
+			RequestDispatcher dispatcher=request.getRequestDispatcher("/UserRegistration.jsp");
+			dispatcher.forward(request,response);		
 		}
 		
 	}
@@ -102,25 +101,18 @@ public class RegistrationServlet extends HttpServlet {
 		 * @throws IOException 
 		 * @throws ServletException 
 		 */
-		private boolean isRepeatEmail(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+		private boolean isRepeatEmail(String email) throws ServletException, IOException {
 			String sql="SELECT c_id FROM customer_info WHERE email LIKE ?;";
 			
 			try {
 				PreparedStatement pst1 = connection.prepareStatement(sql);
-				String email = request.getParameter("email");
 				pst1.setString(1, email);
 				
 				ResultSet rs=pst1.executeQuery();
 				if(rs.next()) {
-					request.setAttribute("msgFromRegistrationServlet", "email already exist");
-					RequestDispatcher dispatcher=request.getRequestDispatcher("/UserRegistration.jsp");
-					dispatcher.forward(request,response);
-					System.out.println("email already exist");
 					return true;
 				}
-					
-				
-				
+							
 			} catch (SQLException e) {
 				e.printStackTrace();
 
@@ -128,7 +120,6 @@ public class RegistrationServlet extends HttpServlet {
 			}
 			
 			return false;
-
 		}
 
 }

@@ -25,7 +25,7 @@ import com.model.Member;
 public class LogIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	HttpSession session = null;
-	DatabaseConnection connect = new DatabaseConnection();
+	DatabaseConnection connect = new DatabaseConnection();        
 	Connection connection = connect.getConnection();
    
 	
@@ -52,7 +52,6 @@ public class LogIn extends HttpServlet {
 		//getting parameters from the login form from CustLogin.jsp
 		String email=request.getParameter("email");
 		String psw=request.getParameter("psw");
-		System.out.println("Get email as parameter: " + email);
 		
 		//creating session
 		session = request.getSession();
@@ -62,7 +61,6 @@ public class LogIn extends HttpServlet {
 		ResultSet rs = null;
 		
 		try{
-			
 			//String sqlQuery = "SELECT email FROM customer_info where email='"+ email +"';";
 			String sqlQuery= "SELECT * FROM customer_info where email= ? and password=?;";
 			//running above in mySQL
@@ -80,22 +78,15 @@ public class LogIn extends HttpServlet {
 			
 			//code by Son-Rossy
 			if(rs.next()){
-				/*//if there is a result then it means the user successfully logged in
-				String userEmail=rs.getString("email");
-				String first_name=rs.getString("first_name");
-				String last_name=rs.getString("last_name");
-				System.out.println("Email from the database: " + userEmail);
-				
-				//usage of session
-				session.setAttribute("email", userEmail);
-				session.setAttribute("first_name", first_name);
-				session.setAttribute("last_name", last_name);*/
+				//if there is a result then it means the user successfully logged in
 				
 				member.setUserEmail(rs.getString("email"));
 				member.setFirst_name(rs.getString("first_name"));
 				member.setLast_name(rs.getString("last_name"));
 				
 				session.setAttribute("user", member);
+				session.setAttribute("email", rs.getString("email"));
+				session.setAttribute("paymentId", rs.getString("payementId"));
 				System.out.println("User object created and now associated with session. " + session.getId());
 				
 				//redirect to Homepage
@@ -112,7 +103,6 @@ public class LogIn extends HttpServlet {
 			System.out.print("Cause: "+ e.getMessage());
 			
 		}
-		//response.getWriter().append("<h1>Login page creation in process<h1/> ").append(request.getContextPath());
 	}
 
 }
