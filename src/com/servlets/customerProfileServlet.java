@@ -127,7 +127,7 @@ public class customerProfileServlet extends HttpServlet {
 		
 		String userEmail = member.getUserEmail();
 		System.out.println(userEmail);
-		String sql = "UPDATE customer_info SET first_name=?, middle_name=?, last_name=?, email=?, phone=?, mobile=? WHERE email ='" + userEmail + "';";
+		String sql = "UPDATE customer_info SET first_name=?, middle_name=?, last_name=?, email=?, phone=?, mobile=? WHERE email =?;";
 		
 		String firstName, middleName, lastName, email, phone, mobile;
 		
@@ -149,6 +149,7 @@ public class customerProfileServlet extends HttpServlet {
 				pst1.setString(4, email);
 				pst1.setString(5, phone);
 				pst1.setString(6, mobile);
+				pst1.setString(7, userEmail);
 				
 				/*Author of session object update: Noel Cortes*/
 				if(pst1.executeUpdate()!=0) {
