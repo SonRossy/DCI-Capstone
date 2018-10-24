@@ -40,6 +40,9 @@
             <li><a href="FAQ.jsp">FAQ</a></li>
             <li><a href="javascript: updatePassword()">Update Password</a></li>
             <p style="color:salmon">${message}</p>
+            <br>
+	            <p style="color: red">${passwordTruncate}</p>
+            <br>
           </ul>
         </fieldset>
       </div>
@@ -86,6 +89,9 @@
 		<p>Coverage Type: ${user.coverage}</p>	
 		<p>${cpaymentMessage}</p>
     	<p>${paymentDate}</p> 
+    	<br>
+            <p style="color: red">${dataTruncate}</p>
+        <br>
 		<!-- Hidden form allowing user to update selected information -->
     	<div id="hidden">
     		<br>

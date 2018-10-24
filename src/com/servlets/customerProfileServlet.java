@@ -175,6 +175,9 @@ public class customerProfileServlet extends HttpServlet {
 			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
+			request.setAttribute("dataTruncate", e.getMessage());
+			RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
+			dispatcher.forward(request, response);
 		}		
 	}	
 }

@@ -85,6 +85,7 @@ public class UpdatePasswordServlet extends HttpServlet {
 			e.printStackTrace();
 			message = "Invalid password(s). Please try again.";
 			request.setAttribute("message", message);
+			request.setAttribute("passwordTruncate", e.getMessage());
 			RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
 			dispatcher.forward(request, response);		}		
 	}
