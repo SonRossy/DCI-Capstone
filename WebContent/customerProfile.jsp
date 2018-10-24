@@ -90,7 +90,7 @@
 		<p>${cpaymentMessage}</p>
     	<p>${paymentDate}</p> 
     	<br>
-            <p style="color: red">${passwordTruncate}</p>
+            <p style="color: red">${dataTruncate}</p>
         <br>
 		<!-- Hidden form allowing user to update selected information -->
     	<div id="hidden">
