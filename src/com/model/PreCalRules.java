@@ -9,6 +9,7 @@ public class PreCalRules {
 
 		hmap.put(Gender.Male.toString(), 1.01);
 		hmap.put(Gender.Female.toString(), 1.01);
+		hmap.put(Citizenship.Non_Citizen.toString(), 1.01);
 		hmap.put(PreCondition.Family_History.toString(),1.01);
 		hmap.put(PreCondition.Any.toString(),1.025);
 		hmap.put(LifeStyle.Tobacco.toString(),1.03);
