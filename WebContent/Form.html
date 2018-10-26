@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Get Quote!</title>
 </head>
 <link rel="stylesheet" href="stylist.css">
 <body>
-<form action="/action_page.php">
+<form action="index.html">
+	<h1>Get a Quote:</h1>
+	<br>
+	<p>Enter your first name:
+		<input type="text" title="Please enter a name two to twenty letters in length." 
+			placeholder="Enter your first name..." pattern="\D{2,20}" required>
+	</p>
+	<br>
  <p>Select your gender:</p>
     <select name="gender">
       <option value="male">Male</option>
@@ -18,11 +26,11 @@
         <option value="ancient">Over 50</option>
     </select>
       <p>Are you currently a U.S citizen?</p>
-        <input type="radio" name="citizen" value="yes">Yes
+        <input type="radio" name="citizen" value="yes" checked>Yes
          <input type="radio" name="citizen" value="no">No
 
 <p>Please select the following that apply:</p>
-<select name="preConditions" size="4" multiple="multiple">
+<select name="preConditions" size="4" multiple>
   <option value="bloodPressure">Blood Pressure</option>
   <option value="diabetes">Diabetes</option>
   <option value="preggo">Pregnant</option>
@@ -31,10 +39,12 @@
   <option value="other">Other</option>
 </select>
 <div id="famCondition" hidden>
-<p>Please detail family history (Immediate family members only)<input type="text" name="famCondition"></p>
+<p>Please detail family history (Immediate family members only):
+<input type="text" name="famCondition"></p>
 </div>
 <div id="otherCondition" hidden>
-<p>Please detail other conditions<input type="text" name="otherCondition"></p>
+<p>Please detail other conditions:
+<input type="text" name="otherCondition"></p>
 </div>
 
 <p>Select the following that apply to your lifestyle:</p>
@@ -50,18 +60,19 @@
 </select>
 <p>Do you follow a diet that is believed to help maintain or improve your overall health?
   <br>
-  <input type="radio" name="goodDiet" value="yes">Yes
+  <input type="radio" name="goodDiet" value="yes" checked>Yes
   <input type="radio" name="goodDiet" value="no">No
 </p>
 
 <p>Does your diet include an overconsumption of red meat, saturated fat, and lack of fruits and vegetables?
   <br>
   <input type="radio" name="badDiet" value="yes">Yes
-  <input type="radio" name="badDiet" value="no">No
+  <input type="radio" name="badDiet" value="no" checked>No
 </p>  
 
  
-    <br><br><br>
+    <br>
+    <br>
   <input type="submit" value="Submit">
   
   
