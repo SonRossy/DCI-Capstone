@@ -1,68 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Get Quote!</title>
 </head>
 <link rel="stylesheet" href="stylist.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src = javascript/quote.js></script>
+
 <body>
-<form action="/action_page.php">
+<form id = "getQuote">
+	<h1>Get a Quote:</h1>
+	<br>
+	<p>Enter your first name:
+		<input type="text" title="Please enter a name two to twenty letters in length." 
+			placeholder="Enter your first name..." pattern="\D{2,20}" name="firstname" required>
+	</p>
+	<br>
  <p>Select your gender:</p>
     <select name="gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
     </select>
     <p>Please select your age:</p>
-    <select name="age">
-      <option value="young">Under 36</option>
-       <option value="middle">Between 36 and 50</option>
-        <option value="ancient">Over 50</option>
-    </select>
+   <input type="text" name="age"><br/>
       <p>Are you currently a U.S citizen?</p>
-        <input type="radio" name="citizen" value="yes">Yes
-         <input type="radio" name="citizen" value="no">No
+        <input type="radio" name="citizenship" value="Citizen" checked>Yes
+         <input type="radio" name="citizenship" value="Non_Citizen">No
 
 <p>Please select the following that apply:</p>
-<select name="preConditions" size="4" multiple="multiple">
-  <option value="bloodPressure">Blood Pressure</option>
-  <option value="diabetes">Diabetes</option>
-  <option value="preggo">Pregnant</option>
-  <option value="Obesity">Obesity</option>
-  <option value="fam">Family history of illness</option>
-  <option value="other">Other</option>
+<select name="preCondition" size="4" multiple>
+  <option value="Any">Preconditions <small>Like Blood Pressure,Diabetes, Pregnancy, Obesity & others </small></option>
+  <option value="Family_History">Family history of illness</option>
 </select>
-<div id="famCondition" hidden>
-<p>Please detail family history (Immediate family members only)<input type="text" name="famCondition"></p>
+<!-- <div id="famCondition" hidden>
+<p>Please detail family history (Immediate family members only):
+<input type="text" name="famCondition"></p>
 </div>
 <div id="otherCondition" hidden>
-<p>Please detail other conditions<input type="text" name="otherCondition"></p>
-</div>
+<p>Please detail other conditions:
+<input type="text" name="otherCondition"></p>
+</div>-->
 
 <p>Select the following that apply to your lifestyle:</p>
 <select name="lifestyle" size="5" multiple="multiple">
-    <option value="smoking">Smoking</option>
+    <option value="Tobacco">Tobacco</option>
     <option value="substance">Substance abuse</option>
-    <option value="drinking">Alcohol consumption</option>
     <option value="exercise">Daily exercise</option>
     <option value="stressfulJob">Stressful job</option>
     <option value="sedentaryJob">Sedentary job</option>
+    <option value="Healthy_Eat">Healthy Diet <small>Do you follow a diet that is believed to help maintain or improve your overall health?</small></option>
     <!-- <option value="healthy">Healthy diet</option>
     <option value="unhealthy">Unhealthy diet</option> -->
 </select>
-<p>Do you follow a diet that is believed to help maintain or improve your overall health?
+<!-- <p>Do you follow a diet that is believed to help maintain or improve your overall health?
   <br>
-  <input type="radio" name="goodDiet" value="yes">Yes
-  <input type="radio" name="goodDiet" value="no">No
+  <input type="radio" name="Healthy_Eat" value="yes" checked>Yes
+  <input type="radio" name="Healthy_Eat" value="no">No
 </p>
 
 <p>Does your diet include an overconsumption of red meat, saturated fat, and lack of fruits and vegetables?
   <br>
   <input type="radio" name="badDiet" value="yes">Yes
-  <input type="radio" name="badDiet" value="no">No
-</p>  
+  <input type="radio" name="badDiet" value="no" checked>No
+</p>  -->
 
  
-    <br><br><br>
-  <input type="submit" value="Submit">
+    <br>
+    <br>
+  <input type="button"  value="Submit" id="quoteFormButton">
   
   
 </form> 
