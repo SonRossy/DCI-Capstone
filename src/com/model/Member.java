@@ -1,4 +1,4 @@
-package com.model;
+package com.model; 
 /*
  * author Clarissa Mercado
  * Created Member class to associate attributes
