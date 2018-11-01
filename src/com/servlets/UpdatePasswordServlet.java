@@ -54,7 +54,7 @@ public class UpdatePasswordServlet extends HttpServlet {
 		session = request.getSession();
 		member = (Member) session.getAttribute("user");
 		
-		String message = null;
+		String passwordMessage = null;
 		String query = "UPDATE customer_info SET password=? WHERE email=? AND password=?;";
 		
 		String email = member.getUserEmail();
@@ -70,7 +70,8 @@ public class UpdatePasswordServlet extends HttpServlet {
 		
 		try(PreparedStatement pst = connection.prepareStatement(query)) {
 			if(regexNewPassword &&
-			  (newPassword.length()>8 && newPassword.length()<16) &&
+			  (newPassword.length()>8 && 
+			   newPassword.length()<16) &&
 			   confirmNewPassword.equals(newPassword)) {
 				
 				pst.setString(1, newPassword);
@@ -78,30 +79,30 @@ public class UpdatePasswordServlet extends HttpServlet {
 				pst.setString(3, oldPassword);
 				
 				if(pst.executeUpdate()!=0) {
-					System.out.println("New password successfully saved into the database!");	
-					message = "Password successfully updated!";
-					request.setAttribute("message", message);
+					passwordMessage = "Password successfully updated!";
+					System.out.println(passwordMessage);
+					request.setAttribute("passwordMessage", passwordMessage);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
 					dispatcher.forward(request, response);
 				} else {
-					message = "Invalid password(s). Please follow password requirements and try again.";
-					request.setAttribute("message", message);
+					passwordMessage = "Invalid password(s). Please follow password requirements and try again.";
+					request.setAttribute("passwordMessage", passwordMessage);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
 					dispatcher.forward(request, response);			
 				}
 			}else {
-				System.out.println("Invalid password: update password validation requirements not met.");
-				message = "Invalid password(s). Please follow password requirements and try again.";
-				request.setAttribute("message", message);
+				passwordMessage = "Invalid password(s). Please follow password requirements and try again.";
+				System.out.println(passwordMessage);
+				request.setAttribute("passwordMessage", passwordMessage);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
 				dispatcher.forward(request, response);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
-			message = "Invalid password(s). Please follow password requirements and try again.";
-			request.setAttribute("message", message);
-			request.setAttribute("passwordTruncate", e.getMessage());
+			passwordMessage = "Invalid password(s). Please follow password requirements and try again.";
+			request.setAttribute("passwordMessage", passwordMessage);
+			request.setAttribute("passwordError", e.getMessage());
 			RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
 			dispatcher.forward(request, response);		
 		}
