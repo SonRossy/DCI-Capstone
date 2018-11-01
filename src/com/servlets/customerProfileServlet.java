@@ -2,6 +2,7 @@ package com.servlets;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -125,6 +126,7 @@ public class customerProfileServlet extends HttpServlet {
 		session = request.getSession();
 		member = (Member) session.getAttribute("user");
 		
+		String profileMessage = null;
 		String userEmail = member.getUserEmail();
 		System.out.println(userEmail);
 		String sql = "UPDATE customer_info SET first_name=?, middle_name=?, last_name=?, email=?, phone=?, mobile=? WHERE email =?;";
@@ -138,10 +140,41 @@ public class customerProfileServlet extends HttpServlet {
 		phone = request.getParameter("phone");
 		mobile = request.getParameter("mobile");
 		
+		/*Author of RegEx & Java validation: Noel Cortes*/
+		boolean regexFirstName = Pattern.matches("^(?=.*[a-zA-Z])(?!.*[!@#$&*])(?!.*[0-9]).+$", firstName);
+		boolean regexMiddleName = Pattern.matches("^(?=.*[a-zA-Z])(?!.*[!@#$&*])(?!.*[0-9]).+$", middleName);
+		boolean regexLastName = Pattern.matches("^(?=.*[a-zA-Z])(?!.*[!@#$&*])(?!.*[0-9]).+$", lastName);
+		boolean regexEmail = Pattern.matches("^(?=.*[a-zA-Z])(?=.*[@]).+$", email);
+		boolean regexPhone = Pattern.matches("^(?=.*[0-9])(?!.*[a-zA-Z])(?!.*[!@#$&*]).+$", phone);
+		boolean regexMobile = Pattern.matches("^(?=.*[0-9])(?!.*[a-zA-Z])(?!.*[!@#$&*]).+$", mobile);
+		
+		String[] inputs = {"First Name", "Middle Name", "Last Name", "Email", "Phone", "Mobile"};
+			String updateTarget = null;
+		Boolean[] regexUpdate = {regexFirstName, regexMiddleName, regexLastName, regexEmail, regexPhone, regexMobile};
+			boolean finalRegEx = false;
+			for(int i=0;i<regexUpdate.length;i++) {
+				if (regexUpdate[i]==false) {
+					finalRegEx = false;
+					updateTarget = inputs[i];
+					break;
+				} else {
+					finalRegEx = true;
+				}
+			}
+
+			//System.out.println(regexName);
+			//System.out.println(reg.length());
+		
 		try (PreparedStatement pst1 = connection.prepareStatement(sql)) {
-			if (pst1!=null) {
+			if (finalRegEx && 
+				firstName.length()<=20 &&
+				middleName.length()<=20 && 
+				lastName.length()<=20 &&
+				email.length()<=25 && 
+				phone.length()<=10 && 
+				mobile.length()<=10) {
 			
-				System.out.println("Ran update query");
+				System.out.println("Ran profile update query");
 				
 				pst1.setString(1, firstName);
 				pst1.setString(2, middleName);
@@ -161,8 +194,9 @@ public class customerProfileServlet extends HttpServlet {
 					member.setMobile(mobile);
 				}
 				
-				System.out.println("Successfully updated and saved into the database!");
-				
+				profileMessage = "Information successfully updated!";
+				System.out.println(profileMessage);
+				request.setAttribute("profileMessage", profileMessage);
 				request.setAttribute("user", member);
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
@@ -173,10 +207,18 @@ public class customerProfileServlet extends HttpServlet {
 				/*RequestDispatcher dispatcher = request.getRequestDispatcher("CustLogin.jsp");
 				dispatcher.forward(request, response);*/
 				
+			}else {
+				profileMessage = "Invalid input(s):" + updateTarget + ". Please follow specific update requirements and try again.";
+				System.out.println(profileMessage);
+				request.setAttribute("profileMessage", profileMessage);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
+				dispatcher.forward(request, response);
 			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
-			request.setAttribute("dataTruncate", e.getMessage());
+			profileMessage = "Invalid input(s):" + updateTarget + ". Please follow specific update requirements and try again.";
+			request.setAttribute("profileMessage", profileMessage);
+			request.setAttribute("profileError", e.getMessage());
 			RequestDispatcher dispatcher = request.getRequestDispatcher("customerProfile.jsp");
 			dispatcher.forward(request, response);
 		}		

@@ -39,9 +39,9 @@
             <li><a href="Claims.jsp">File a Claim</a></li>
             <li><a href="FAQ.jsp">FAQ</a></li>
             <li><a href="javascript: updatePassword()">Update Password</a></li>
-            <p style="color:salmon">${message}</p>
+            <p style="color:salmon">${passwordMessage}</p>
             <br>
-	            <p style="color: red">${passwordTruncate}</p>
+	            <p style="color: red">${passwordError}</p>
             <br>
           </ul>
         </fieldset>
@@ -90,7 +90,8 @@
 		<p>${cpaymentMessage}</p>
     	<p>${paymentDate}</p> 
     	<br>
-            <p style="color: red">${dataTruncate}</p>
+    		<p style="color: red">${profileMessage}</p>
+            <p style="color: red">${error}</p>
         <br>
 		<!-- Hidden form allowing user to update selected information -->
     	<div id="hidden">
