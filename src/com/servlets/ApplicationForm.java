@@ -116,12 +116,9 @@ public class ApplicationForm extends HttpServlet {
 		try {
 			if (connection != null) {
 
-				String sql = "UPDATE customer_info SET middle_name=?,SSN = ?, street_address=?, apt_number=?, city=?, state=?, zip_code=?, country=?, secondary_address =?, phone=? WHERE email ='"
-						+ userEmail + "';";
-				String sql2 = "UPDATE customer_status SET ethnicity=?, gender=?, veteran=?, disability=?, citizenship=?, immigration=?, marital_status=?, number_of_dependents=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '"
-						+ userEmail + "'));";
-				String sql3 = "UPDATE customer_employment SET company_name=?, profession=?, annual_income=?, fed_tax_id=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email = '"
-						+ userEmail + "'));";
+				String sql = "UPDATE customer_info SET middle_name=?,SSN = ?, street_address=?, apt_number=?, city=?, state=?, zip_code=?, country=?, secondary_address =?, phone=? WHERE email =?;";
+				String sql2 = "UPDATE customer_status SET ethnicity=?, gender=?, veteran=?, disability=?, citizenship=?, immigration=?, marital_status=?, number_of_dependents=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email =?));";
+				String sql3 = "UPDATE customer_employment SET company_name=?, profession=?, annual_income=?, fed_tax_id=? WHERE c_id = ((SELECT c_id FROM customer_info WHERE email =?));";
 
 				PreparedStatement pst1 = connection.prepareStatement(sql);
 				PreparedStatement pst2 = connection.prepareStatement(sql2);
@@ -137,6 +134,7 @@ public class ApplicationForm extends HttpServlet {
 				pst1.setString(8, country);
 				pst1.setString(9, secondary_address);
 				pst1.setString(10, phone);
+				pst1.setString(11, userEmail);
 
 				pst2.setString(1, ethnicity);
 				pst2.setString(2, gender);
@@ -146,11 +144,13 @@ public class ApplicationForm extends HttpServlet {
 				pst2.setString(6, immigration);
 				pst2.setString(7, marital_status);
 				pst2.setString(8, number_of_dependents);
+				pst2.setString(9, userEmail);
 
 				pst3.setString(1, company_name);
 				pst3.setString(2, profession);
 				pst3.setString(3, annual_income);
 				pst3.setString(4, fed_tax_id);
+				pst3.setString(5, userEmail);
 
 				pst1.executeUpdate();
 				pst2.executeUpdate();

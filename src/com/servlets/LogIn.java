@@ -62,7 +62,7 @@ public class LogIn extends HttpServlet {
 		
 		try{
 			//String sqlQuery = "SELECT email FROM customer_info where email='"+ email +"';";
-			String sqlQuery= "SELECT * FROM customer_info where email= ? and password=?;";
+			String sqlQuery= "SELECT * FROM customer_info where email=? and password=?;";
 			//running above in mySQL
 			stmt = connection.prepareStatement(sqlQuery);
 			stmt.setString(1,email);

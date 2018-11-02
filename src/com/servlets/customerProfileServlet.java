@@ -133,24 +133,24 @@ public class customerProfileServlet extends HttpServlet {
 		
 		String firstName, middleName, lastName, email, phone, mobile;
 		
-		firstName = request.getParameter("first_name");
-		middleName = request.getParameter("middle_name");
-		lastName = request.getParameter("last_name");
-		email = request.getParameter("email");
-		phone = request.getParameter("phone");
-		mobile = request.getParameter("mobile");
+		firstName = request.getParameter("first_name").trim();
+		middleName = request.getParameter("middle_name").trim();
+		lastName = request.getParameter("last_name").trim();
+		email = request.getParameter("email").trim();
+		phone = request.getParameter("phone").trim();
+		mobile = request.getParameter("mobile").trim();
 		
 		/*Author of RegEx & Java validation: Noel Cortes*/
 		boolean regexFirstName = Pattern.matches("^(?=.*[a-zA-Z])(?!.*[!@#$&*])(?!.*[0-9]).+$", firstName);
-		boolean regexMiddleName = Pattern.matches("^(?=.*[a-zA-Z])(?!.*[!@#$&*])(?!.*[0-9]).+$", middleName);
+		//boolean regexMiddleName = Pattern.matches("^(?=.*[a-zA-Z])(?!.*[!@#$&*])(?!.*[0-9]).+$", middleName);
 		boolean regexLastName = Pattern.matches("^(?=.*[a-zA-Z])(?!.*[!@#$&*])(?!.*[0-9]).+$", lastName);
 		boolean regexEmail = Pattern.matches("^(?=.*[a-zA-Z])(?=.*[@]).+$", email);
 		boolean regexPhone = Pattern.matches("^(?=.*[0-9])(?!.*[a-zA-Z])(?!.*[!@#$&*]).+$", phone);
-		boolean regexMobile = Pattern.matches("^(?=.*[0-9])(?!.*[a-zA-Z])(?!.*[!@#$&*]).+$", mobile);
+		//boolean regexMobile = Pattern.matches("^(?=.*[0-9])(?!.*[a-zA-Z])(?!.*[!@#$&*]).+$", mobile);
 		
-		String[] inputs = {"First Name", "Middle Name", "Last Name", "Email", "Phone", "Mobile"};
+		String[] inputs = {"First Name", /*"Middle Name",*/ "Last Name", "Email", "Phone"/*, "Mobile"*/};
 			String updateTarget = null;
-		Boolean[] regexUpdate = {regexFirstName, regexMiddleName, regexLastName, regexEmail, regexPhone, regexMobile};
+		Boolean[] regexUpdate = {regexFirstName, /*regexMiddleName,*/ regexLastName, regexEmail, regexPhone/*, regexMobile*/};
 			boolean finalRegEx = false;
 			for(int i=0;i<regexUpdate.length;i++) {
 				if (regexUpdate[i]==false) {
